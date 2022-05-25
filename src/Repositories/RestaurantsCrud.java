@@ -1,5 +1,6 @@
 package Repositories;
 
+import Entities.Restaurants;
 import Entities.User;
 import Repositories.Interfaces.IRestaurantsCrud;
 
@@ -26,22 +27,22 @@ public class RestaurantsCrud implements IRestaurantsCrud {
         try {
             ste=con.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(UserCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RestaurantsCrud.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public void create(User user) throws SQLException {
+    public void create(Restaurants restaurants) throws SQLException {
 
     }
 
     @Override
-    public User find(int id) throws SQLException {
+    public Restaurants find(int id) throws SQLException {
         return null;
     }
 
     @Override
-    public ArrayList<User> findAll() throws SQLException {
+    public ArrayList<Restaurants> findAll() throws SQLException {
         return null;
     }
 
@@ -51,7 +52,7 @@ public class RestaurantsCrud implements IRestaurantsCrud {
     }
 
     @Override
-    public void update(int id, User user) throws SQLException {
+    public void update(int id, Restaurants restaurants) throws SQLException {
 
     }
 }

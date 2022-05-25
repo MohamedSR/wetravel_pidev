@@ -1,4 +1,6 @@
 package Repositories.Interfaces;
 
-public interface IRestaurantsCrud extends UserCrudInterface{
+import Entities.Restaurants;
+
+public interface IRestaurantsCrud extends CrudRepository<Restaurants>{
 }
