@@ -40,12 +40,13 @@ public class UserCrudImpl implements UserCrudInterface {
 
     @Override
     public void create(User t) throws SQLException {
-        String req="INSERT INTO `users` ( `name`, `role`, `email`, `password`) VALUES(?,?,?,?))";
+        String req="INSERT INTO users ( name, role, email, password,phone) VALUES(?,?,?,?,?)";
         prs = con.prepareStatement(req);
         prs.setString(1, t.getName());
         prs.setString(2, t.getRole());
         prs.setString(3, t.getEmail());
         prs.setString(4, t.getPassword());
+        prs.setString(5, t.getPhone());
         prs.executeUpdate();
     }
 
@@ -83,7 +84,7 @@ public class UserCrudImpl implements UserCrudInterface {
 
     @Override
     public void update(int id, User t) throws SQLException{
-        String query = "UPDATE `users` SET `name`= ?,`phone`=?,`email`=?,`password`=?,`role`=? id = ?";
+        String query = "UPDATE users SET name= ?,phone=?,email=?,password=?,role=? where id = ?";
         prs = con.prepareStatement(query);
         prs.setString(1, t.getName());
         prs.setString(2, t.getPhone());

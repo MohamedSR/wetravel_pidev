@@ -9,13 +9,22 @@ package Entities;
  * @author m.rhouma
  */
 public class User {
+
     private int id;
-    private String name,role,email,password,phone;
+    private String name, role, email, password, phone;
 
     public User() {
     }
 
-    public User(int id,String name, String role, String email, String password, String phone) {
+    public User(String name, String role, String email, String password, String phone) {
+        this.name = name;
+        this.role = role;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+    }
+
+    public User(int id, String name, String role, String email, String password, String phone) {
         this.id = id;
         this.name = name;
         this.role = role;

@@ -11,7 +11,7 @@ public class DataSource {
 
     private Connection con;
 
-    private String url = "jdbc:mysql://localhost:3306/esprit";
+    private String url = "jdbc:mysql://localhost:3306/wetravel";
 
     private String login = "root";
     private String pwd = "";
