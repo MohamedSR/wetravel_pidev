@@ -1,13 +1,13 @@
 package Entities;
 
 public class Restaurants {
-    private int id, capacity, adresse, ville, pays;
-    private String name;
+    private int id, capacity;
+    private String name, adresse, ville, pays;
 
     public Restaurants() {
     }
 
-    public Restaurants(int id, int capacity, int adresse, int ville, int pays, String name) {
+    public Restaurants(int id, int capacity, String adresse, String ville, String pays, String name) {
         this.id = id;
         this.capacity = capacity;
         this.adresse = adresse;
@@ -16,7 +16,7 @@ public class Restaurants {
         this.name = name;
     }
 
-    public Restaurants(int capacity, int adresse, int ville, int pays, String name) {
+    public Restaurants(int capacity, String adresse, String ville, String pays, String name) {
         this.capacity = capacity;
         this.adresse = adresse;
         this.ville = ville;
@@ -40,27 +40,27 @@ public class Restaurants {
         this.capacity = capacity;
     }
 
-    public int getAdresse() {
+    public String getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(int adresse) {
+    public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
 
-    public int getVille() {
+    public String getVille() {
         return ville;
     }
 
-    public void setVille(int ville) {
+    public void setVille(String ville) {
         this.ville = ville;
     }
 
-    public int getPays() {
+    public String getPays() {
         return pays;
     }
 
-    public void setPays(int pays) {
+    public void setPays(String pays) {
         this.pays = pays;
     }
 
