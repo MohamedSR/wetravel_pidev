@@ -4,10 +4,7 @@ import Entities.Restaurants;
 import Entities.User;
 import Repositories.Interfaces.IRestaurantsCrud;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,12 +42,19 @@ public class RestaurantsCrud implements IRestaurantsCrud {
 
     @Override
     public Restaurants find(int id) throws SQLException {
+
         return null;
     }
 
     @Override
     public ArrayList<Restaurants> findAll() throws SQLException {
-        return null;
+        String req = "select * from restaurants";
+        ArrayList<Restaurants> list = new ArrayList<>();
+        ResultSet rs = ste.executeQuery(req);
+        while (rs.next()){
+            list.add(new Restaurants(rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse"),rs.getString("ville"),rs.getString("pays"),rs.getString("name")));
+        }
+        return list;
     }
 
     @Override
