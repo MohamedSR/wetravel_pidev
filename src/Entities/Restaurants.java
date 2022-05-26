@@ -71,4 +71,16 @@ public class Restaurants {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Restaurants{" +
+                "id=" + id +
+                ", capacity=" + capacity +
+                ", name='" + name + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", ville='" + ville + '\'' +
+                ", pays='" + pays + '\'' +
+                '}';
+    }
 }
