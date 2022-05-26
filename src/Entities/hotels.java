@@ -1,5 +1,8 @@
 package Entities;
-
+/**
+*
+* @author T.adel
+*/
 public class hotels {
 
 	private int id;
@@ -11,7 +14,7 @@ public class hotels {
 	private String pays;
 	
 	public hotels() {
-		super(); // condtructeur 
+		super();  
 	}
 
 	public hotels(String name, int stars, int capacity, String adresse, String ville, String pays) {
