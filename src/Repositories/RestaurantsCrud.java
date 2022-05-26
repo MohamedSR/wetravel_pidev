@@ -70,5 +70,14 @@ public class RestaurantsCrud implements IRestaurantsCrud {
 
     @Override
     public void update(int id, Restaurants restaurants) throws SQLException {
+        String req ="UPDATE restaurants SET name = ?, capacity = ?, adresse = ?, ville = ?, pays = ? WHERE id = ?;";
+        prs = con.prepareStatement(req);
+        prs.setString(1, restaurants.getName());
+        prs.setInt(2,restaurants.getCapacity());
+        prs.setString(3, restaurants.getAdresse());
+        prs.setString(4, restaurants.getVille());
+        prs.setString(5, restaurants.getPays());
+        prs.setInt(6, id);
+        prs.executeUpdate();
     }
 }
