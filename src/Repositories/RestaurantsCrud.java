@@ -49,11 +49,13 @@ public class RestaurantsCrud implements IRestaurantsCrud {
         prs.setInt(1,id);
         ResultSet rs = prs.executeQuery();
 
-        Restaurants restaurant =
-                new Restaurants(
+        Restaurants restaurant = new Restaurants();
+        while(rs.next()){
+            restaurant =
+                    new Restaurants(
                         rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse"),
                         rs.getString("ville"),rs.getString("pays"),rs.getString("name"));
-
+        }
         return restaurant;
     }
 
