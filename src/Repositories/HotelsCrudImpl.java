@@ -36,7 +36,7 @@ public class HotelsCrudImpl implements HotelsCrudInterface{
     }
     @Override
     public void create(hotels h) throws SQLException {
-        String req="INSERT INTO users ( name, stars, capacity, adresse,ville,pays) VALUES(?,?,?,?,?,?)";
+        String req="INSERT INTO hotels ( name, stars, capacity, adresse,ville,pays) VALUES(?,?,?,?,?,?)";
         prs = con.prepareStatement(req);
         prs.setString(1, h.getName());
         prs.setInt(2, h.getStars());
