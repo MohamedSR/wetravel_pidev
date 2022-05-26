@@ -32,18 +32,29 @@ public class RestaurantsCrud implements IRestaurantsCrud {
     public void create(Restaurants restaurants) throws SQLException {
         String req="INSERT INTO restaurants ( name, capacity, adresse, ville, pays) VALUES(?,?,?,?,?)";
         prs = con.prepareStatement(req);
+
         prs.setString(1, restaurants.getName());
         prs.setInt(2,restaurants.getCapacity());
         prs.setString(3, restaurants.getAdresse());
         prs.setString(4, restaurants.getVille());
         prs.setString(5, restaurants.getPays());
+
         prs.executeUpdate();
     }
 
     @Override
     public Restaurants find(int id) throws SQLException {
+        String req = "select * from restaurants where id = ?";
+        prs = con.prepareStatement(req);
+        prs.setInt(1,id);
+        ResultSet rs = prs.executeQuery();
 
-        return null;
+        Restaurants restaurant =
+                new Restaurants(
+                        rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse"),
+                        rs.getString("ville"),rs.getString("pays"),rs.getString("name"));
+
+        return restaurant;
     }
 
     @Override
@@ -51,9 +62,14 @@ public class RestaurantsCrud implements IRestaurantsCrud {
         String req = "select * from restaurants";
         ArrayList<Restaurants> list = new ArrayList<>();
         ResultSet rs = ste.executeQuery(req);
+
         while (rs.next()){
-            list.add(new Restaurants(rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse"),rs.getString("ville"),rs.getString("pays"),rs.getString("name")));
+            list.add(
+                    new Restaurants(
+                            rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse")
+                            ,rs.getString("ville"),rs.getString("pays"),rs.getString("name")));
         }
+
         return list;
     }
 
@@ -65,19 +81,22 @@ public class RestaurantsCrud implements IRestaurantsCrud {
         prs = con.prepareStatement(req);
         prs.setInt(1, id);
         prs.execute();
-        System.out.println("Record deleted successfully");
+        System.out.println("Restaurants deleted successfully");
     }
 
     @Override
     public void update(int id, Restaurants restaurants) throws SQLException {
         String req ="UPDATE restaurants SET name = ?, capacity = ?, adresse = ?, ville = ?, pays = ? WHERE id = ?;";
         prs = con.prepareStatement(req);
+
         prs.setString(1, restaurants.getName());
         prs.setInt(2,restaurants.getCapacity());
         prs.setString(3, restaurants.getAdresse());
         prs.setString(4, restaurants.getVille());
         prs.setString(5, restaurants.getPays());
         prs.setInt(6, id);
+
         prs.executeUpdate();
+        System.out.println("Restaurants updated successfully");
     }
 }
