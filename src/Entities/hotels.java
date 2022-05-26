@@ -11,7 +11,7 @@ public class hotels {
 	private String pays;
 	
 	public hotels() {
-		super();
+		super(); // condtructeur 
 	}
 
 	public hotels(String name, int stars, int capacity, String adresse, String ville, String pays) {
