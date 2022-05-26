@@ -59,11 +59,16 @@ public class RestaurantsCrud implements IRestaurantsCrud {
 
     @Override
     public void delete(int id) throws SQLException {
-
+        String req ="delete from restaurants where id = ?";
+//        ste.executeUpdate(req);
+//        System.out.println("Record deleted successfully");
+        prs = con.prepareStatement(req);
+        prs.setInt(1, id);
+        prs.execute();
+        System.out.println("Record deleted successfully");
     }
 
     @Override
     public void update(int id, Restaurants restaurants) throws SQLException {
-
     }
 }
