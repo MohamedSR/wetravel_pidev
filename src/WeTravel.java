@@ -4,8 +4,8 @@ import Entities.User;
 import Entities.hotels;
 import Repositories.HotelsCrudImpl;
 import Services.HotelsService;
-import Repositories.Interfaces.IRestaurantsCrud;
-import Repositories.RestaurantsCrud;
+import Repositories.Interfaces.RestaurantsCrudInterface;
+import Repositories.RestaurantsCrudImpl;
 import Repositories.UserCrudImpl;
 import Services.RestaurantService;
 import Services.UserService;
@@ -32,9 +32,9 @@ public class WeTravel {
 
         // Init repositories
         UserCrudImpl userCrud = new UserCrudImpl(ds.getCon());
-        IRestaurantsCrud restaurantsCrud = new RestaurantsCrud(ds.getCon());
         HotelsCrudImpl hotelCrud = new HotelsCrudImpl(ds.getCon());
-
+        RestaurantsCrudInterface restaurantsCrud = new RestaurantsCrudImpl(ds.getCon());
+        
         // Init services
         UserService userService = new UserService(userCrud);
         RestaurantService restaurantService = new RestaurantService(restaurantsCrud);

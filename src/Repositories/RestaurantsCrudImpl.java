@@ -1,15 +1,14 @@
 package Repositories;
 
 import Entities.Restaurants;
-import Entities.User;
-import Repositories.Interfaces.IRestaurantsCrud;
+import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class RestaurantsCrud implements IRestaurantsCrud {
+public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
 
     private Connection con;
     private Statement ste;
@@ -19,12 +18,12 @@ public class RestaurantsCrud implements IRestaurantsCrud {
         return con;
     }
 
-    public RestaurantsCrud(Connection con) {
+    public RestaurantsCrudImpl(Connection con) {
         this.con = con;
         try {
             ste=con.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(RestaurantsCrud.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RestaurantsCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
