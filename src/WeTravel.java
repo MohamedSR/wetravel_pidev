@@ -1,8 +1,8 @@
 
 import Entities.Restaurants;
 import Entities.User;
-import Repositories.Interfaces.IRestaurantsCrud;
-import Repositories.RestaurantsCrud;
+import Repositories.Interfaces.RestaurantsCrudInterface;
+import Repositories.RestaurantsCrudImpl;
 import Repositories.UserCrudImpl;
 import Services.RestaurantService;
 import Services.UserService;
@@ -30,7 +30,7 @@ public class WeTravel {
         
         // Init repositories
         UserCrudImpl userCrud = new UserCrudImpl(ds.getCon());
-        IRestaurantsCrud restaurantsCrud = new RestaurantsCrud(ds.getCon());
+        RestaurantsCrudInterface restaurantsCrud = new RestaurantsCrudImpl(ds.getCon());
         
         // Init services
         UserService userService = new UserService(userCrud);
