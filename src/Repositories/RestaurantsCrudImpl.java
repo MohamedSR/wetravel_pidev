@@ -1,8 +1,11 @@
 package Repositories;
 
+<<<<<<< HEAD:src/Repositories/RestaurantCrudImpl.java
 import Entities.Restaurant;
-
+=======
+import Entities.Restaurants;
 import Repositories.Interfaces.RestaurantsCrudInterface;
+>>>>>>> 351e5e9... Rename files and refactoring code:src/Repositories/RestaurantsCrudImpl.java
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +13,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Repositories.Interfaces.RestaurantCrudInterface;
 
+<<<<<<< HEAD:src/Repositories/RestaurantCrudImpl.java
 public class RestaurantCrudImpl implements RestaurantCrudInterface {
+=======
+public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
+>>>>>>> 351e5e9... Rename files and refactoring code:src/Repositories/RestaurantsCrudImpl.java
+
     private Connection con;
     private Statement ste;
     private PreparedStatement prs;
@@ -19,12 +27,20 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         return con;
     }
 
+<<<<<<< HEAD:src/Repositories/RestaurantCrudImpl.java
     public RestaurantCrudImpl(Connection con) {
+=======
+    public RestaurantsCrudImpl(Connection con) {
+>>>>>>> 351e5e9... Rename files and refactoring code:src/Repositories/RestaurantsCrudImpl.java
         this.con = con;
         try {
             ste=con.createStatement();
         } catch (SQLException ex) {
+<<<<<<< HEAD:src/Repositories/RestaurantCrudImpl.java
             Logger.getLogger(RestaurantCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
+=======
+            Logger.getLogger(RestaurantsCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
+>>>>>>> 351e5e9... Rename files and refactoring code:src/Repositories/RestaurantsCrudImpl.java
         }
     }
 

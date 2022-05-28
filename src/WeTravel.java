@@ -9,6 +9,7 @@ import Entities.Restaurant;
 import Entities.User;
 import Repositories.Interfaces.RestaurantCrudInterface;
 import Repositories.RestaurantCrudImpl;
+import Repositories.Interfaces.RestaurantsCrudInterface;
 import Repositories.UserCrudImpl;
 import Services.RestaurantService;
 import Services.UserService;

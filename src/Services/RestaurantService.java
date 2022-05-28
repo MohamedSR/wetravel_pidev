@@ -1,6 +1,7 @@
 package Services;
 
 import Entities.Restaurant;
+import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
