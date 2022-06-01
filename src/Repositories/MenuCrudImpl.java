@@ -1,12 +1,10 @@
 package Repositories;
 
 import Entities.Menu;
+import Entities.Restaurants;
 import Repositories.Interfaces.MenuCrudInterface;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,8 +41,18 @@ public class MenuCrudImpl implements MenuCrudInterface {
 
     @Override
     public Menu find(int id) throws SQLException {
+        String query="select * from menu_categories where id = ?";
+        prs = con.prepareStatement(query);
+        prs.setInt(1,id);
+        ResultSet rs = prs.executeQuery();
 
-        return null;
+        Menu menu = new Menu();
+        while(rs.next()){
+            Restaurants restaurant = restaurantsCrud.find(rs.getInt("restaurant_id"));
+            new Menu(
+                    rs.getInt("id"),restaurant,rs.getString("name"));
+        }
+        return menu;
     }
 
     @Override
