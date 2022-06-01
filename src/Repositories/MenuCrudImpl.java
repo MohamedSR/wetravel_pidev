@@ -57,12 +57,25 @@ public class MenuCrudImpl implements MenuCrudInterface {
 
     @Override
     public ArrayList<Menu> findAll() throws SQLException {
-        return null;
+        String query = "select * from menu_categories";
+        ArrayList<Menu> list = new ArrayList<>();
+        prs = con.prepareStatement(query);
+
+        ResultSet rs = prs.executeQuery();
+        while (rs.next()){
+            Restaurants restaurant = restaurantsCrud.find(rs.getInt("restaurant_id"));
+            list.add(
+                    new Menu(rs.getInt("id"),restaurant,rs.getString("name")));
+        }
+        return list;
     }
 
     @Override
     public void delete(int id) throws SQLException {
-
+        String query = "delete from menu_categories where id = ?";
+        prs = con.prepareStatement(query);
+        prs.setInt(1, id);
+        prs.execute();
     }
 
     @Override
