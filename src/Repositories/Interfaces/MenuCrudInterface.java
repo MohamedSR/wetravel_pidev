@@ -1,4 +1,6 @@
 package Repositories.Interfaces;
 
-public interface MenuCrudInterface {
+import Entities.Menu;
+
+public interface MenuCrudInterface extends CrudRepository<Menu>{
 }
