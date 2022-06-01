@@ -16,6 +16,8 @@ public class Menu {
         this.name = name;
     }
 
+    public Menu() {}
+
     @Override
     public String toString() {
         return "Menu{" +
