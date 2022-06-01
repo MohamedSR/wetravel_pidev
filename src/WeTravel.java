@@ -1,6 +1,9 @@
 
 import Entities.User;
+import Entities.hotels;
+import Repositories.HotelsCrudImpl;
 import Repositories.UserCrudImpl;
+import Services.HotelsService;
 import Services.UserService;
 import Utils.DataSource;
 import java.sql.SQLException;
@@ -35,6 +38,20 @@ public class WeTravel {
         userService.create(user);
         ArrayList users = userService.getAll();
         System.out.println(users);
+        
+        // Hotels
+        // Init repositories d'hotel
+        HotelsCrudImpl hotelCrud = new HotelsCrudImpl(ds.getCon());
+        
+        // Init services d'hotel
+        HotelsService hotelService = new HotelsService(hotelCrud);
+        
+        // Tests d'hotel
+        hotels hotel = new hotels("el mouradi",4,100,"elmouradi@Sousse.com","Sousse","Tunisie");
+        hotelService.create(hotel);
+        ArrayList hotelss = hotelService.getAll();
+        System.out.println(hotelss);
+        
     }
     
 }
