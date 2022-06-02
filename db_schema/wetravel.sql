@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : ven. 20 mai 2022 à 21:15
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 7.4.29
+-- Host: 127.0.0.1
+-- Generation Time: Jun 02, 2022 at 07:55 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `wetravel`
+-- Database: `wetravel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
@@ -40,7 +40,7 @@ CREATE TABLE `events` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `hotels`
+-- Table structure for table `hotels`
 --
 
 CREATE TABLE `hotels` (
@@ -56,18 +56,19 @@ CREATE TABLE `hotels` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `menu_categories`
+-- Table structure for table `menu_categories`
 --
 
 CREATE TABLE `menu_categories` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(160) NOT NULL
+  `name` varchar(160) NOT NULL,
+  `restaurant_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `produits`
+-- Table structure for table `produits`
 --
 
 CREATE TABLE `produits` (
@@ -79,37 +80,47 @@ CREATE TABLE `produits` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations`
+-- Table structure for table `reservations`
 --
 
 CREATE TABLE `reservations` (
   `id` int(10) UNSIGNED NOT NULL,
   `date` date NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `restaurant_id` int(11) UNSIGNED NOT NULL,
-  `hotel_id` int(11) UNSIGNED NOT NULL,
-  `event_id` int(11) UNSIGNED NOT NULL
+  `restaurant_id` int(11) UNSIGNED DEFAULT NULL,
+  `hotel_id` int(11) UNSIGNED DEFAULT NULL,
+  `event_id` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `restaurants`
+-- Table structure for table `restaurants`
 --
 
 CREATE TABLE `restaurants` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(160) NOT NULL,
   `capacity` int(11) NOT NULL,
-  `adresse` int(11) NOT NULL,
-  `ville` int(11) NOT NULL,
-  `pays` int(11) NOT NULL
+  `adresse` varchar(160) NOT NULL,
+  `ville` varchar(160) NOT NULL,
+  `pays` varchar(160) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`id`, `name`, `capacity`, `adresse`, `ville`, `pays`) VALUES
+(1, 'via mercato', 70, 'Lac 2', 'Tunis', 'Tunisie'),
+(2, 'Good Food', 60, 'Lac 1', 'Tunis', 'Tunisie'),
+(5, 'via mercato', 70, 'Lac 2', 'Tunis', 'Tunisie'),
+(6, 'New Food', 50, 'Lac 1', 'Tunis', 'Tunisie');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reviews`
+-- Table structure for table `reviews`
 --
 
 CREATE TABLE `reviews` (
@@ -117,15 +128,15 @@ CREATE TABLE `reviews` (
   `content` varchar(191) NOT NULL,
   `rating` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `event_id` int(10) UNSIGNED NOT NULL,
-  `hotel_id` int(10) UNSIGNED NOT NULL,
-  `restaurant_id` int(10) UNSIGNED NOT NULL
+  `event_id` int(10) UNSIGNED DEFAULT NULL,
+  `hotel_id` int(10) UNSIGNED DEFAULT NULL,
+  `restaurant_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -138,36 +149,49 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Index pour les tables déchargées
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `phone`, `email`, `password`, `role`) VALUES
+(1, 'Mohamed', '22001002', 'moihamed@wetravel.com', 'mohamed123', 'ADMIN'),
+(2, 'Mohamed', '22001002', 'moihamed@wetravel.com', 'mohamed123', 'ADMIN'),
+(3, 'Mohamed', '22001002', 'moihamed@wetravel.com', 'mohamed123', 'ADMIN'),
+(4, 'Mohamed', '22001002', 'moihamed@wetravel.com', 'mohamed123', 'ADMIN'),
+(5, 'Mohamed', '22001002', 'moihamed@wetravel.com', 'mohamed123', 'ADMIN'),
+(6, 'Mohamed', '22001002', 'moihamed@wetravel.com', 'mohamed123', 'ADMIN');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `hotels`
+-- Indexes for table `hotels`
 --
 ALTER TABLE `hotels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `menu_categories`
+-- Indexes for table `menu_categories`
 --
 ALTER TABLE `menu_categories`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_restaurant_id` (`restaurant_id`);
 
 --
--- Index pour la table `produits`
+-- Indexes for table `produits`
 --
 ALTER TABLE `produits`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_produits_menu` (`menu_category_id`);
 
 --
--- Index pour la table `reservations`
+-- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
@@ -177,13 +201,13 @@ ALTER TABLE `reservations`
   ADD KEY `fk_reservation_restaurant` (`restaurant_id`);
 
 --
--- Index pour la table `restaurants`
+-- Indexes for table `restaurants`
 --
 ALTER TABLE `restaurants`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `reviews`
+-- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`),
@@ -193,75 +217,81 @@ ALTER TABLE `reviews`
   ADD KEY `fk_review_restaurant` (`restaurant_id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `hotels`
+-- AUTO_INCREMENT for table `hotels`
 --
 ALTER TABLE `hotels`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `menu_categories`
+-- AUTO_INCREMENT for table `menu_categories`
 --
 ALTER TABLE `menu_categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `produits`
+-- AUTO_INCREMENT for table `produits`
 --
 ALTER TABLE `produits`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `reservations`
+-- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `restaurants`
+-- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `reviews`
+-- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `produits`
+-- Constraints for table `menu_categories`
+--
+ALTER TABLE `menu_categories`
+  ADD CONSTRAINT `FK_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `produits`
 --
 ALTER TABLE `produits`
   ADD CONSTRAINT `fk_produits_menu` FOREIGN KEY (`menu_category_id`) REFERENCES `menu_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reservations`
+-- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `fk_reservation_event` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -270,7 +300,7 @@ ALTER TABLE `reservations`
   ADD CONSTRAINT `fk_reservation_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reviews`
+-- Constraints for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD CONSTRAINT `fk_review_event` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
