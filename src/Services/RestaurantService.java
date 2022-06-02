@@ -8,7 +8,7 @@ import Repositories.Interfaces.RestaurantCrudInterface;
 
 public class RestaurantService {
 
-        private final RestaurantCrudInterface restaurantsCrud;
+    private final RestaurantCrudInterface restaurantsCrud;
 
     public RestaurantService(RestaurantCrudInterface restaurantsCrud) {
         this.restaurantsCrud = restaurantsCrud;
@@ -18,19 +18,19 @@ public class RestaurantService {
         restaurantsCrud.create(restaurants);
     }
 
-    public Restaurant findRestaurants(int id) throws SQLException{
+    public Restaurant findRestaurants(int id) throws SQLException {
         return restaurantsCrud.find(id);
     }
 
-    public ArrayList<Restaurant> findAllRestaurants() throws SQLException{
+    public ArrayList<Restaurant> findAllRestaurants() throws SQLException {
         return restaurantsCrud.findAll();
     }
 
-    public void deleteRestaurants(int id) throws SQLException{
+    public void deleteRestaurants(int id) throws SQLException {
         restaurantsCrud.delete(id);
     }
 
-    public void updateRestaurants(int id, Restaurant restaurants) throws SQLException{
-        restaurantsCrud.update(id,restaurants);
+    public void updateRestaurants(int id, Restaurant restaurants) throws SQLException {
+        restaurantsCrud.update(id, restaurants);
     }
 }
