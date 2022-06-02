@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
+public class RestaurantCrudImpl implements RestaurantsCrudInterface {
 
     private Connection con;
     private Statement ste;
@@ -18,12 +18,12 @@ public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
         return con;
     }
 
-    public RestaurantsCrudImpl(Connection con) {
+    public RestaurantCrudImpl(Connection con) {
         this.con = con;
         try {
             ste=con.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(RestaurantsCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RestaurantCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
