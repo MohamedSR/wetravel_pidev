@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Entities.hotels;
-import Repositories.Interfaces.HotelsCrudInterface;
+import Repositories.Interfaces.HotelCrudInterface;
 
 
 
@@ -14,9 +14,9 @@ import Repositories.Interfaces.HotelsCrudInterface;
 */
 public class HotelsService {
 	
-	 private final HotelsCrudInterface hotelCrud;
+	 private final HotelCrudInterface hotelCrud;
 	
-	    public HotelsService(HotelsCrudInterface hotelCrud) {
+	    public HotelsService(HotelCrudInterface hotelCrud) {
 		super();
 		this.hotelCrud = hotelCrud;
 	    }

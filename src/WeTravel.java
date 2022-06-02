@@ -2,7 +2,7 @@
 import Entities.Restaurant;
 import Entities.User;
 import Entities.hotels;
-import Repositories.HotelsCrudImpl;
+import Repositories.HotelCrudImpl;
 import Services.HotelsService;
 import Repositories.RestaurantCrudImpl;
 import Repositories.UserCrudImpl;
@@ -32,7 +32,7 @@ public class WeTravel {
 
         // Init repositories
         UserCrudImpl userCrud = new UserCrudImpl(ds.getCon());
-        HotelsCrudImpl hotelCrud = new HotelsCrudImpl(ds.getCon());
+        HotelCrudImpl hotelCrud = new HotelCrudImpl(ds.getCon());
         RestaurantCrudInterface restaurantsCrud = new RestaurantCrudImpl(ds.getCon());
         
         // Init services

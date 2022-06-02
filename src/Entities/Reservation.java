@@ -15,15 +15,15 @@ public class Reservation {
     private int id;
     private User user;
     private Date date ;
-    private hotels hotel;
+    private Hotel hotel;
     private Event event;
     private Restaurant restaurant;
 
-    public hotels getHotel() {
+    public Hotel getHotel() {
         return hotel;
     }
 
-    public void setHotel(hotels hotel) {
+    public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
 
@@ -78,22 +78,19 @@ public class Reservation {
         this.date = date;
     }
 
-    public Reservation(int id, User user, Date date, Restaurant restaurant) {
-        this.id = id;
+    public Reservation( User user, Date date, Restaurant restaurant) {
         this.user = user;
         this.date = date;
         this.restaurant = restaurant;
     }
 
-    public Reservation(int id, User user, Date date, Event event) {
-        this.id = id;
+    public Reservation( User user, Date date, Event event) {
         this.user = user;
         this.date = date;
         this.event = event;
     }
 
-    public Reservation(int id, User user, Date date, hotels hotel) {
-        this.id = id;
+    public Reservation(User user, Date date, Hotel hotel) {
         this.user = user;
         this.date = date;
         this.hotel = hotel;
