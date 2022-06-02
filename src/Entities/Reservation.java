@@ -15,6 +15,34 @@ public class Reservation {
     private int id;
     private User user;
     private Date date ;
+    private hotels hotel;
+    private Event event;
+    private Restaurant restaurant;
+
+    public hotels getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(hotels hotel) {
+        this.hotel = hotel;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+    
     public Reservation() {
 
     }
@@ -48,6 +76,27 @@ public class Reservation {
         this.id = id;
         this.user = user;
         this.date = date;
+    }
+
+    public Reservation(int id, User user, Date date, Restaurant restaurant) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+        this.restaurant = restaurant;
+    }
+
+    public Reservation(int id, User user, Date date, Event event) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+        this.event = event;
+    }
+
+    public Reservation(int id, User user, Date date, hotels hotel) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+        this.hotel = hotel;
     }
 
 }
