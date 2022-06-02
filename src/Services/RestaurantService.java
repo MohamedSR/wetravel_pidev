@@ -1,6 +1,6 @@
 package Services;
 
-import Entities.Restaurants;
+import Entities.Restaurant;
 import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.SQLException;
@@ -14,15 +14,15 @@ public class RestaurantService {
         this.restaurantsCrud = restaurantsCrud;
     }
 
-    public void createRestaurant(Restaurants restaurants) throws SQLException {
+    public void createRestaurant(Restaurant restaurants) throws SQLException {
         restaurantsCrud.create(restaurants);
     }
 
-    public Restaurants findRestaurants(int id) throws SQLException{
+    public Restaurant findRestaurants(int id) throws SQLException{
         return restaurantsCrud.find(id);
     }
 
-    public ArrayList<Restaurants> findAllRestaurants() throws SQLException{
+    public ArrayList<Restaurant> findAllRestaurants() throws SQLException{
         return restaurantsCrud.findAll();
     }
 
@@ -30,7 +30,7 @@ public class RestaurantService {
         restaurantsCrud.delete(id);
     }
 
-    public void updateRestaurants(int id, Restaurants restaurants) throws SQLException{
+    public void updateRestaurants(int id, Restaurant restaurants) throws SQLException{
         restaurantsCrud.update(id,restaurants);
     }
 }

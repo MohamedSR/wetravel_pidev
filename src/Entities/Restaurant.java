@@ -1,13 +1,13 @@
 package Entities;
 
-public class Restaurants {
+public class Restaurant {
     private int id, capacity;
     private String name, adresse, ville, pays;
 
-    public Restaurants() {
+    public Restaurant() {
     }
 
-    public Restaurants(int id, int capacity, String adresse, String ville, String pays, String name) {
+    public Restaurant(int id, int capacity, String adresse, String ville, String pays, String name) {
         this.id = id;
         this.capacity = capacity;
         this.adresse = adresse;
@@ -16,7 +16,7 @@ public class Restaurants {
         this.name = name;
     }
 
-    public Restaurants(int capacity, String adresse, String ville, String pays, String name) {
+    public Restaurant(int capacity, String adresse, String ville, String pays, String name) {
         this.capacity = capacity;
         this.adresse = adresse;
         this.ville = ville;

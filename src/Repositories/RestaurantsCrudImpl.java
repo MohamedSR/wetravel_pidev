@@ -1,6 +1,6 @@
 package Repositories;
 
-import Entities.Restaurants;
+import Entities.Restaurant;
 import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.*;
@@ -28,7 +28,7 @@ public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
     }
 
     @Override
-    public void create(Restaurants restaurants) throws SQLException {
+    public void create(Restaurant restaurants) throws SQLException {
         String req="INSERT INTO restaurants ( name, capacity, adresse, ville, pays) VALUES(?,?,?,?,?)";
         prs = con.prepareStatement(req);
 
@@ -42,16 +42,16 @@ public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
     }
 
     @Override
-    public Restaurants find(int id) throws SQLException {
+    public Restaurant find(int id) throws SQLException {
         String req = "select * from restaurants where id = ?";
         prs = con.prepareStatement(req);
         prs.setInt(1,id);
         ResultSet rs = prs.executeQuery();
 
-        Restaurants restaurant = new Restaurants();
+        Restaurant restaurant = new Restaurant();
         while(rs.next()){
             restaurant =
-                    new Restaurants(
+                    new Restaurant(
                         rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse"),
                         rs.getString("ville"),rs.getString("pays"),rs.getString("name"));
         }
@@ -59,14 +59,13 @@ public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
     }
 
     @Override
-    public ArrayList<Restaurants> findAll() throws SQLException {
+    public ArrayList<Restaurant> findAll() throws SQLException {
         String req = "select * from restaurants";
-        ArrayList<Restaurants> list = new ArrayList<>();
+        ArrayList<Restaurant> list = new ArrayList<>();
         ResultSet rs = ste.executeQuery(req);
 
         while (rs.next()){
-            list.add(
-                    new Restaurants(
+            list.add(new Restaurant(
                             rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse")
                             ,rs.getString("ville"),rs.getString("pays"),rs.getString("name")));
         }
@@ -86,7 +85,7 @@ public class RestaurantsCrudImpl implements RestaurantsCrudInterface {
     }
 
     @Override
-    public void update(int id, Restaurants restaurants) throws SQLException {
+    public void update(int id, Restaurant restaurants) throws SQLException {
         String req ="UPDATE restaurants SET name = ?, capacity = ?, adresse = ?, ville = ?, pays = ? WHERE id = ?;";
         prs = con.prepareStatement(req);
 

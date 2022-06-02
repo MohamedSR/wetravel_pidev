@@ -1,5 +1,5 @@
 
-import Entities.Restaurants;
+import Entities.Restaurant;
 import Entities.User;
 import Entities.hotels;
 import Repositories.HotelsCrudImpl;
@@ -46,16 +46,15 @@ public class WeTravel {
         ArrayList users = userService.getAll();
 
         System.out.println(users);
-
         // Tests d'hotel
         hotels hotel = new hotels("el mouradi", 4, 100, "elmouradi@Sousse.com", "Sousse", "Tunisie");
         hotelService.create(hotel);
         ArrayList hotelss = hotelService.getAll();
         System.out.println(hotelss);
 
-        Restaurants restaurant = new Restaurants(70, "Lac 2", "Tunis", "Tunisie", "via mercato");
-        Restaurants restaurant2 = new Restaurants(50, "Lac 1", "Tunis", "Tunisie", "New Food");
-        Restaurants restaurant3 = new Restaurants(60, "Lac 1", "Tunis", "Tunisie", "Good Food");
+        Restaurant restaurant = new Restaurant(70,"Lac 2", "Tunis", "Tunisie", "via mercato");
+        Restaurant restaurant2 = new Restaurant(50,"Lac 1", "Tunis", "Tunisie", "New Food");
+        Restaurant restaurant3 = new Restaurant(60,"Lac 1", "Tunis", "Tunisie", "Good Food");
 
         restaurantService.createRestaurant(restaurant);
         restaurantService.createRestaurant(restaurant2);
@@ -64,7 +63,7 @@ public class WeTravel {
 
         restaurantService.deleteRestaurants(3);
 
-        Restaurants resto = restaurantService.findRestaurants(1);
+        Restaurant resto = restaurantService.findRestaurants(1);
         ArrayList restaurants = restaurantService.findAllRestaurants();
 
         System.out.println(resto);
