@@ -1,14 +1,14 @@
 package Repositories;
 
 import Entities.Restaurant;
-import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Repositories.Interfaces.RestaurantCrudInterface;
 
-public class RestaurantCrudImpl implements RestaurantsCrudInterface {
+public class RestaurantCrudImpl implements RestaurantCrudInterface {
 
     private Connection con;
     private Statement ste;

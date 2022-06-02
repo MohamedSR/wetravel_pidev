@@ -1,16 +1,16 @@
 package Services;
 
 import Entities.Restaurant;
-import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import Repositories.Interfaces.RestaurantCrudInterface;
 
 public class RestaurantService {
 
-        private final RestaurantsCrudInterface restaurantsCrud;
+        private final RestaurantCrudInterface restaurantsCrud;
 
-    public RestaurantService(RestaurantsCrudInterface restaurantsCrud) {
+    public RestaurantService(RestaurantCrudInterface restaurantsCrud) {
         this.restaurantsCrud = restaurantsCrud;
     }
 

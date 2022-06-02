@@ -4,7 +4,6 @@ import Entities.User;
 import Entities.hotels;
 import Repositories.HotelsCrudImpl;
 import Services.HotelsService;
-import Repositories.Interfaces.RestaurantsCrudInterface;
 import Repositories.RestaurantCrudImpl;
 import Repositories.UserCrudImpl;
 import Services.RestaurantService;
@@ -12,6 +11,7 @@ import Services.UserService;
 import Utils.DataSource;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import Repositories.Interfaces.RestaurantCrudInterface;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -33,7 +33,7 @@ public class WeTravel {
         // Init repositories
         UserCrudImpl userCrud = new UserCrudImpl(ds.getCon());
         HotelsCrudImpl hotelCrud = new HotelsCrudImpl(ds.getCon());
-        RestaurantsCrudInterface restaurantsCrud = new RestaurantCrudImpl(ds.getCon());
+        RestaurantCrudInterface restaurantsCrud = new RestaurantCrudImpl(ds.getCon());
         
         // Init services
         UserService userService = new UserService(userCrud);
