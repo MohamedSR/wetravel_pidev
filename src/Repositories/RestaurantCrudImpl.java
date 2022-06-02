@@ -76,8 +76,6 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
     @Override
     public void delete(int id) throws SQLException {
         String req ="delete from restaurants where id = ?";
-//        ste.executeUpdate(req);
-//        System.out.println("Record deleted successfully");
         prs = con.prepareStatement(req);
         prs.setInt(1, id);
         prs.execute();
