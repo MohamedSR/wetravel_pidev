@@ -87,9 +87,9 @@ CREATE TABLE `reservations` (
   `id` int(10) UNSIGNED NOT NULL,
   `date` date NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `restaurant_id` int(11) UNSIGNED DEFAULT NULL,
-  `hotel_id` int(11) UNSIGNED DEFAULT NULL,
-  `event_id` int(11) UNSIGNED DEFAULT NULL
+  `restaurant_id` int(11) UNSIGNED NOT NULL,
+  `hotel_id` int(11) UNSIGNED NOT NULL,
+  `event_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -128,9 +128,9 @@ CREATE TABLE `reviews` (
   `content` varchar(191) NOT NULL,
   `rating` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `event_id` int(10) UNSIGNED DEFAULT NULL,
-  `hotel_id` int(10) UNSIGNED DEFAULT NULL,
-  `restaurant_id` int(10) UNSIGNED DEFAULT NULL
+  `event_id` int(10) UNSIGNED NOT NULL,
+  `hotel_id` int(10) UNSIGNED NOT NULL,
+  `restaurant_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -260,7 +260,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -272,7 +272,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
