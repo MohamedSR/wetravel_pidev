@@ -1,8 +1,6 @@
 
 import Entities.Restaurant;
 import Entities.User;
-import Repositories.Interfaces.RestaurantsCrudInterface;
-import Repositories.RestaurantsCrudImpl;
 import Entities.Hotels;
 import Repositories.HotelsCrudImpl;
 import Services.HotelsService;
