@@ -3,7 +3,7 @@ package Entities;
 *
 * @author T.adel
 */
-public class hotels {
+public class Hotels {
 
 	private int id;
 	private String name;
@@ -13,11 +13,11 @@ public class hotels {
 	private String ville;
 	private String pays;
 	
-	public hotels() {
+	public Hotels() {
 		super();  
 	}
 
-	public hotels(String name, int stars, int capacity, String adresse, String ville, String pays) {
+	public Hotels(String name, int stars, int capacity, String adresse, String ville, String pays) {
 		super();
 		this.name = name;
 		this.stars = stars;
@@ -27,7 +27,7 @@ public class hotels {
 		this.pays = pays;
 	}
 
-	public hotels(int id, String name, int stars, int capacity, String adresse, String ville, String pays) {
+	public Hotels(int id, String name, int stars, int capacity, String adresse, String ville, String pays) {
 		super();
 		this.id = id;
 		this.name = name;

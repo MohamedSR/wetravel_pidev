@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Entities.hotels;
+import Entities.Hotels;
 import Repositories.Interfaces.HotelsCrudInterface;
 
 /**
@@ -35,7 +35,7 @@ public class HotelsCrudImpl implements HotelsCrudInterface{
         }
     }
     @Override
-    public void create(hotels h) throws SQLException {
+    public void create(Hotels h) throws SQLException {
         String req="INSERT INTO hotels ( name, stars, capacity, adresse,ville,pays) VALUES(?,?,?,?,?,?)";
         prs = con.prepareStatement(req);
         prs.setString(1, h.getName());
@@ -48,25 +48,25 @@ public class HotelsCrudImpl implements HotelsCrudInterface{
     }
 
 	@Override
-	public hotels find(int id) throws SQLException {
+	public Hotels find(int id) throws SQLException {
 		   String query = "select * from hotels where id = ?";
 	        prs = con.prepareStatement(query);
 	        prs.setInt(1, id);
 	        ResultSet rs  = prs.executeQuery();
-	        hotels hotel = new hotels();
+	        Hotels hotel = new Hotels();
 	        while(rs.next()){
-	        	hotel = new hotels(rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays"));
+	        	hotel = new Hotels(rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays"));
 	        }
 	         return hotel;
 	}
 
 	@Override
-	public ArrayList<hotels> findAll() throws SQLException {
+	public ArrayList<Hotels> findAll() throws SQLException {
 	    String query = "select * from hotels";
-        ArrayList<hotels> list = new ArrayList<>();
+        ArrayList<Hotels> list = new ArrayList<>();
         ResultSet rs = ste.executeQuery(query);
         while(rs.next()){
-            list.add(new hotels(rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays")));
+            list.add(new Hotels(rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays")));
         }
         return list;
 	}
@@ -81,7 +81,7 @@ public class HotelsCrudImpl implements HotelsCrudInterface{
 	}
 
 	@Override
-	public void update(int id, hotels h) throws SQLException {
+	public void update(int id, Hotels h) throws SQLException {
 		   String query = "UPDATE hotels SET name= ?,stars=?,capacity=?,adresse=?,ville=?,pays=? where id = ?";
 	        prs = con.prepareStatement(query);
 	        prs.setString(1, h.getName());

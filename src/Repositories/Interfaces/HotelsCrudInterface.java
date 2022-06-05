@@ -1,12 +1,12 @@
 package Repositories.Interfaces;
 
-import Entities.hotels;
+import Entities.Hotels;
 
 /**
 *
 * @author T.adel
 */
-public interface HotelsCrudInterface extends CrudRepository<hotels>{
+public interface HotelsCrudInterface extends CrudRepository<Hotels>{
 
 	
 }

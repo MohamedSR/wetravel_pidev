@@ -1,7 +1,7 @@
 
 import Entities.Restaurant;
 import Entities.User;
-import Entities.hotels;
+import Entities.Hotels;
 import Repositories.HotelsCrudImpl;
 import Services.HotelsService;
 import Repositories.RestaurantCrudImpl;
@@ -47,7 +47,7 @@ public class WeTravel {
 
         System.out.println(users);
         // Tests d'hotel
-        hotels hotel = new hotels("el mouradi", 4, 100, "elmouradi@Sousse.com", "Sousse", "Tunisie");
+        Hotels hotel = new Hotels("el mouradi", 4, 100, "elmouradi@Sousse.com", "Sousse", "Tunisie");
         hotelService.create(hotel);
         ArrayList hotelss = hotelService.getAll();
         System.out.println(hotelss);
