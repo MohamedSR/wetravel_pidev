@@ -1,7 +1,7 @@
 package Repositories;
 
 import Entities.Menu;
-import Entities.Restaurants;
+import Entities.Restaurant;
 import Repositories.Interfaces.MenuCrudInterface;
 
 import java.sql.*;
@@ -14,19 +14,19 @@ public class MenuCrudImpl implements MenuCrudInterface {
     private Connection con;
     private Statement ste;
     private PreparedStatement prs;
-    private RestaurantsCrudImpl restaurantsCrud;
+    private RestaurantCrudImpl restaurantsCrud;
 
     public Connection getCon() {
         return con;
     }
 
-    public MenuCrudImpl(Connection con, RestaurantsCrudImpl restaurantsCrud) {
+    public MenuCrudImpl(Connection con, RestaurantCrudImpl restaurantsCrud) {
         this.con = con;
         this.restaurantsCrud = restaurantsCrud;
         try {
             ste=con.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(RestaurantsCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RestaurantCrudImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -48,7 +48,7 @@ public class MenuCrudImpl implements MenuCrudInterface {
 
         Menu menu = new Menu();
         while(rs.next()){
-            Restaurants restaurant = restaurantsCrud.find(rs.getInt("restaurant_id"));
+            Restaurant restaurant = restaurantsCrud.find(rs.getInt("restaurant_id"));
             new Menu(
                     rs.getInt("id"),restaurant,rs.getString("name"));
         }
@@ -63,7 +63,7 @@ public class MenuCrudImpl implements MenuCrudInterface {
 
         ResultSet rs = prs.executeQuery();
         while (rs.next()){
-            Restaurants restaurant = restaurantsCrud.find(rs.getInt("restaurant_id"));
+            Restaurant restaurant = restaurantsCrud.find(rs.getInt("restaurant_id"));
             list.add(
                     new Menu(rs.getInt("id"),restaurant,rs.getString("name")));
         }

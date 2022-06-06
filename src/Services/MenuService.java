@@ -6,7 +6,7 @@ package Services;
 
 import Repositories.Interfaces.MenuCrudInterface;
 import Entities.Menu;
-import Entities.Restaurants;
+import Entities.Restaurant;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

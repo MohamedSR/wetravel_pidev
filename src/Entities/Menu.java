@@ -2,16 +2,16 @@ package Entities;
 
 public class Menu {
     private int id;
-    private Restaurants restaurants;
+    private Restaurant restaurants;
     private String name;
 
-    public Menu(int id, Restaurants restaurants, String name) {
+    public Menu(int id, Restaurant restaurants, String name) {
         this.id = id;
         this.restaurants = restaurants;
         this.name = name;
     }
 
-    public Menu(Restaurants restaurants, String name) {
+    public Menu(Restaurant restaurants, String name) {
         this.restaurants = restaurants;
         this.name = name;
     }
@@ -35,11 +35,11 @@ public class Menu {
         this.id = id;
     }
 
-    public Restaurants getRestaurants() {
+    public Restaurant getRestaurants() {
         return restaurants;
     }
 
-    public void setRestaurants(Restaurants restaurants) {
+    public void setRestaurants(Restaurant restaurants) {
         this.restaurants = restaurants;
     }
 
