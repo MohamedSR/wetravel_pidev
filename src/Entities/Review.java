@@ -19,6 +19,12 @@ public class Review {
     private Restaurant restaurant;
     private String content;
 
+    public Review(int id, User user, Date date) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+    }
+
     public int getId() {
         return id;
     }
@@ -29,6 +35,9 @@ public class Review {
 
     public User getUser() {
         return user;
+    }
+
+    public Review() {
     }
 
     public void setUser(User user) {
