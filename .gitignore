@@ -1,6 +1,11 @@
+# Default ignored files
 /build/
 /bin/
 /.idea/*.xml
 /.idea/shelf
 /out/
-
+/shelf/
+/workspace.xml
+misc.xml
+modules.xml
+vcs.xml
