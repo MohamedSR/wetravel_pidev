@@ -5,17 +5,13 @@ import Repositories.HotelCrudImpl;
 import Services.HotelsService;
 import Repositories.RestaurantCrudImpl;
 import Entities.Restaurant;
-import Entities.User;
 import Repositories.Interfaces.RestaurantCrudInterface;
-import Repositories.RestaurantCrudImpl;
-import Repositories.Interfaces.RestaurantsCrudInterface;
 import Repositories.UserCrudImpl;
 import Services.RestaurantService;
 import Services.UserService;
 import Utils.DataSource;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Repositories.Interfaces.RestaurantCrudInterface;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
