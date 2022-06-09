@@ -1,36 +1,37 @@
 package Services;
 
-import Entities.Restaurants;
+import Entities.Restaurant;
 import Repositories.Interfaces.RestaurantsCrudInterface;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import Repositories.Interfaces.RestaurantCrudInterface;
 
 public class RestaurantService {
 
-        private final RestaurantsCrudInterface restaurantsCrud;
+    private final RestaurantCrudInterface restaurantsCrud;
 
-    public RestaurantService(RestaurantsCrudInterface restaurantsCrud) {
+    public RestaurantService(RestaurantCrudInterface restaurantsCrud) {
         this.restaurantsCrud = restaurantsCrud;
     }
 
-    public void createRestaurant(Restaurants restaurants) throws SQLException {
+    public void createRestaurant(Restaurant restaurants) throws SQLException {
         restaurantsCrud.create(restaurants);
     }
 
-    public Restaurants findRestaurants(int id) throws SQLException{
+    public Restaurant findRestaurants(int id) throws SQLException {
         return restaurantsCrud.find(id);
     }
 
-    public ArrayList<Restaurants> findAllRestaurants() throws SQLException{
+    public ArrayList<Restaurant> findAllRestaurants() throws SQLException {
         return restaurantsCrud.findAll();
     }
 
-    public void deleteRestaurants(int id) throws SQLException{
+    public void deleteRestaurants(int id) throws SQLException {
         restaurantsCrud.delete(id);
     }
 
-    public void updateRestaurants(int id, Restaurants restaurants) throws SQLException{
-        restaurantsCrud.update(id,restaurants);
+    public void updateRestaurants(int id, Restaurant restaurants) throws SQLException {
+        restaurantsCrud.update(id, restaurants);
     }
 }
