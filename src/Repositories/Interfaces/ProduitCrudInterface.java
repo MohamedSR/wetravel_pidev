@@ -1,4 +1,6 @@
 package Repositories.Interfaces;
 
-public interface ProduitCrudInterface {
+import Entities.Produit;
+
+public interface ProduitCrudInterface extends CrudRepository<Produit> {
 }
