@@ -22,7 +22,7 @@ public class MenuService {
         this.menuCrud = menuCrud;
     }
 
-    public void createRestaurant(Menu menu) throws SQLException {
+    public void createMenu(Menu menu) throws SQLException {
         menuCrud.create(menu);
     }
 

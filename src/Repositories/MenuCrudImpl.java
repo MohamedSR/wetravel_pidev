@@ -35,7 +35,7 @@ public class MenuCrudImpl implements MenuCrudInterface {
         String query="insert into menu_categories (name,restaurant_id) values(?,?)";
         prs = con.prepareStatement(query);
         prs.setString(1, menu.getName());
-        prs.setInt(2,menu.getId());
+        prs.setInt(2,menu.getRestaurants().getId());
         prs.executeUpdate();
     }
 
@@ -83,7 +83,7 @@ public class MenuCrudImpl implements MenuCrudInterface {
         String query = "UPDATE menu_categories SET name= ?,restaurant_id=?";
         prs = con.prepareStatement(query);
         prs.setString(1, menu.getName());
-        prs.setInt(2, menu.getId());
+        prs.setInt(2, menu.getRestaurants().getId());
         prs.setInt(1, id);
         prs.execute();
     }
