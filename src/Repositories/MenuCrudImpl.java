@@ -80,11 +80,11 @@ public class MenuCrudImpl implements MenuCrudInterface {
 
     @Override
     public void update(int id, Menu menu) throws SQLException {
-        String query = "UPDATE menu_categories SET name= ?,restaurant_id=?";
+        String query = "UPDATE menu_categories SET name= ?,restaurant_id=? where id = ?";
         prs = con.prepareStatement(query);
         prs.setString(1, menu.getName());
         prs.setInt(2, menu.getRestaurants().getId());
-        prs.setInt(1, id);
+        prs.setInt(3, id);
         prs.execute();
     }
 }
