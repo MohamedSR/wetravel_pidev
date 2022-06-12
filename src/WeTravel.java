@@ -1,22 +1,17 @@
 
-import Entities.Restaurant;
 import Entities.User;
 import Entities.Hotel;
 import Repositories.HotelCrudImpl;
 import Services.HotelsService;
 import Repositories.RestaurantCrudImpl;
 import Entities.Restaurant;
-import Entities.User;
 import Repositories.Interfaces.RestaurantCrudInterface;
-import Repositories.RestaurantCrudImpl;
-import Repositories.Interfaces.RestaurantsCrudInterface;
 import Repositories.UserCrudImpl;
 import Services.RestaurantService;
 import Services.UserService;
 import Utils.DataSource;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Repositories.Interfaces.RestaurantCrudInterface;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -39,7 +34,7 @@ public class WeTravel {
         UserCrudImpl userCrud = new UserCrudImpl(ds.getCon());
         HotelCrudImpl hotelCrud = new HotelCrudImpl(ds.getCon());
         RestaurantCrudInterface restaurantsCrud = new RestaurantCrudImpl(ds.getCon());
-        
+
         // Init services
         UserService userService = new UserService(userCrud);
         RestaurantService restaurantService = new RestaurantService(restaurantsCrud);
@@ -77,5 +72,5 @@ public class WeTravel {
         System.out.println(resto);
         System.out.println(restaurants);
     }
-
+    
 }
