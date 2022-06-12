@@ -81,11 +81,11 @@ public class ProduitCrudImpl implements ProduitCrudInterface {
 
     @Override
     public void update(int id, Produit produit) throws SQLException {
-        String query = "UPDATE produits SET name= ?,menu_category_id=?";
+        String query = "UPDATE produits SET name= ?,menu_category_id=? where id = ?";
         prs = con.prepareStatement(query);
         prs.setString(1, produit.getName());
         prs.setInt(2, produit.getMenu().getId());
-        prs.setInt(1, id);
+        prs.setInt(3, id);
         prs.execute();
     }
 }
