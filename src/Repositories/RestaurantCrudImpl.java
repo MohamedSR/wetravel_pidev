@@ -2,11 +2,12 @@ package Repositories;
 
 import Entities.Restaurant;
 
+import Repositories.Interfaces.RestaurantCrudInterface;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Repositories.Interfaces.RestaurantCrudInterface;
 
 public class RestaurantCrudImpl implements RestaurantCrudInterface {
     private Connection con;
@@ -95,5 +96,21 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
 
         prs.executeUpdate();
         System.out.println("Restaurant updated successfully");
+    }
+    @Override
+    public ArrayList<Restaurant> findByVille(String ville) throws SQLException{
+        ArrayList<Restaurant> list = new ArrayList<>();
+        String query ="select * from restaurants where ville = ?;";
+        prs = con.prepareStatement(query);
+        prs.setString(1,ville);
+        ResultSet rs = prs.executeQuery();
+
+        while (rs.next()){
+            list.add(new Restaurant(
+                    rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse")
+                    ,rs.getString("ville"),rs.getString("pays"),rs.getString("name")));
+        }
+
+        return list;
     }
 }

@@ -2,17 +2,20 @@ package Entities;
 
 public class Menu {
     private int id;
-    private Restaurant restaurants;
+
+    private Restaurant restaurant;
     private String name;
 
-    public Menu(int id, Restaurant restaurants, String name) {
+    public Menu(int id, Restaurant restaurant, String name) {
+
         this.id = id;
-        this.restaurants = restaurants;
+        this.restaurant = restaurant;
         this.name = name;
     }
 
-    public Menu(Restaurant restaurants, String name) {
-        this.restaurants = restaurants;
+    public Menu(Restaurant restaurant, String name) {
+        this.restaurant = restaurant;
+
         this.name = name;
     }
 
@@ -22,7 +25,7 @@ public class Menu {
     public String toString() {
         return "Menu{" +
                 "id=" + id +
-                ", restaurants=" + restaurants +
+                ", restaurant=" + restaurant +
                 ", name='" + name + '\'' +
                 '}';
     }
@@ -36,11 +39,12 @@ public class Menu {
     }
 
     public Restaurant getRestaurants() {
-        return restaurants;
+        return restaurant;
     }
 
-    public void setRestaurants(Restaurant restaurants) {
-        this.restaurants = restaurants;
+    public void setRestaurants(Restaurant restaurant) {
+        this.restaurant = restaurant;
+
     }
 
     public String getName() {

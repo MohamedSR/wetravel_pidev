@@ -60,14 +60,13 @@ public class WeTravel {
         restaurantService.createRestaurant(restaurant);
         restaurantService.createRestaurant(restaurant2);
         restaurantService.updateRestaurants(2, restaurant3);
-
         restaurantService.deleteRestaurants(3);
 
         Restaurant resto = restaurantService.findRestaurants(1);
         restaurantService.updateRestaurants(2,restaurant3);
-
+//        restaurantService.findByVille("Tunis");
         restaurantService.deleteRestaurants(3);
-        ArrayList restaurants = restaurantService.findAllRestaurants();
+        ArrayList restaurants = restaurantService.findByVille("Tunis");
 
         System.out.println(resto);
         System.out.println(restaurants);

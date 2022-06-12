@@ -91,7 +91,7 @@ public class UserCrudImpl implements UserCrudInterface {
         prs.setString(3, t.getEmail());
         prs.setString(4, t.getPassword());
         prs.setString(5, t.getRole());
-        prs.setInt(1, id);
+        prs.setInt(6, id);
         prs.execute();
     }
 }
