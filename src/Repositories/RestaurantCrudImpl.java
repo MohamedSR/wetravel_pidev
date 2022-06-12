@@ -97,4 +97,20 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         prs.executeUpdate();
         System.out.println("Restaurants updated successfully");
     }
+    @Override
+    public ArrayList<Restaurant> findByVille(String ville) throws SQLException{
+        ArrayList<Restaurant> list = new ArrayList<>();
+        String query ="select * from restaurants where ville = ?;";
+        prs = con.prepareStatement(query);
+        prs.setString(1,ville);
+        ResultSet rs = ste.executeQuery(query);
+
+        while (rs.next()){
+            list.add(new Restaurant(
+                    rs.getInt("id"),rs.getInt("capacity"),rs.getString("adresse")
+                    ,rs.getString("ville"),rs.getString("pays"),rs.getString("name")));
+        }
+
+        return list;
+    }
 }

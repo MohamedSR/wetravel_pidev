@@ -26,6 +26,10 @@ public class RestaurantService {
         return restaurantsCrud.findAll();
     }
 
+    public ArrayList<Restaurant> findByVille(String ville) throws SQLException{
+        return restaurantsCrud.findByVille(ville);
+    }
+
     public void deleteRestaurants(int id) throws SQLException {
         restaurantsCrud.delete(id);
     }
