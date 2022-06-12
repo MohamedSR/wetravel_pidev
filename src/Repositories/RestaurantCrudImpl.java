@@ -103,7 +103,7 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         String query ="select * from restaurants where ville = ?;";
         prs = con.prepareStatement(query);
         prs.setString(1,ville);
-        ResultSet rs = ste.executeQuery(query);
+        ResultSet rs = prs.executeQuery();
 
         while (rs.next()){
             list.add(new Restaurant(
