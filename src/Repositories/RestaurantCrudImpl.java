@@ -79,7 +79,7 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         prs = con.prepareStatement(req);
         prs.setInt(1, id);
         prs.execute();
-        System.out.println("Restaurants deleted successfully");
+        System.out.println("Restaurant deleted successfully");
     }
 
     @Override
@@ -95,7 +95,7 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         prs.setInt(6, id);
 
         prs.executeUpdate();
-        System.out.println("Restaurants updated successfully");
+        System.out.println("Restaurant updated successfully");
     }
     @Override
     public ArrayList<Restaurant> findByVille(String ville) throws SQLException{

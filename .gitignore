@@ -1,12 +1,13 @@
+# Default ignored files
 /build/
 /bin/
+/.idea/*.xml
+/.idea/shelf
+/out/
 /shelf/
 /workspace.xml
 /.idea/
-/out/
-# Default ignored files
-/shelf/
 /workspace.xml
 misc.xml
-modules.xml
 vcs.xml
+wetravel_pidev.iml

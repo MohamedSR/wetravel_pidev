@@ -16,11 +16,13 @@ public class MenuCrudImpl implements MenuCrudInterface {
     private PreparedStatement prs;
     private RestaurantCrudImpl restaurantCrud;
 
+
     public Connection getCon() {
         return con;
     }
 
     public MenuCrudImpl(Connection con, RestaurantCrudImpl restaurantCrud) {
+
         this.con = con;
         this.restaurantCrud = restaurantCrud;
         try {
@@ -49,6 +51,7 @@ public class MenuCrudImpl implements MenuCrudInterface {
         Menu menu = new Menu();
         while(rs.next()){
             Restaurant restaurant = restaurantCrud.find(rs.getInt("restaurant_id"));
+
             new Menu(
                     rs.getInt("id"),restaurant,rs.getString("name"));
         }
@@ -64,6 +67,7 @@ public class MenuCrudImpl implements MenuCrudInterface {
         ResultSet rs = prs.executeQuery();
         while (rs.next()){
             Restaurant restaurant = restaurantCrud.find(rs.getInt("restaurant_id"));
+
             list.add(
                     new Menu(rs.getInt("id"),restaurant,rs.getString("name")));
         }
