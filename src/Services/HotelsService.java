@@ -3,7 +3,7 @@ package Services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Entities.hotels;
+import Entities.Hotels;
 import Repositories.Interfaces.HotelsCrudInterface;
 
 
@@ -25,19 +25,22 @@ public class HotelsService {
 	        return hotelCrud.findAll();
 	    }
 
-	    public hotels get(int id) throws SQLException {
+	    public Hotels get(int id) throws SQLException {
 	        return hotelCrud.find(id);
 	    }
 	    
-	    public void create(hotels hotel) throws SQLException {
+	    public void create(Hotels hotel) throws SQLException {
 	    	hotelCrud.create(hotel);
 	    }
 	    
-	    public void update(int id,hotels hotel) throws SQLException {
+	    public void update(int id,Hotels hotel) throws SQLException {
 	    	hotelCrud.update(id,hotel);
 	    }
 
 	    public void delete(int id) throws SQLException {
 	    	hotelCrud.delete(id);
 	    }
+		public ArrayList<Hotels> findByVille(String ville) throws SQLException{
+			return hotelCrud.findByVille(ville);
+		}
 }
