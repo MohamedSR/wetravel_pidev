@@ -21,7 +21,8 @@ public class HotelsService {
 		this.hotelCrud = hotelCrud;
 	    }
 
-		public ArrayList getAll() throws SQLException {
+
+	public ArrayList getAll() throws SQLException {
 	        return hotelCrud.findAll();
 	    }
 
