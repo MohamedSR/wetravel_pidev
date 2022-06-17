@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="Views.Restaurants.Add.AddRestaurantController">
+    <stylesheets>
+        <URL value="@addrestaurant.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="165.0" layoutY="314.0" mnemonicParsing="false" onAction="#addRestaurant" prefHeight="25.0" prefWidth="269.0" text="Ajouter" />
+      <TextField fx:id="name" layoutX="110.0" layoutY="39.0" />
+      <Label layoutX="58.0" layoutY="43.0" prefHeight="17.0" prefWidth="52.0" text="Nom:" />
+      <Label layoutX="353.0" layoutY="43.0" prefHeight="17.0" prefWidth="52.0" text="Capacite:" />
+      <TextField fx:id="city" layoutX="110.0" layoutY="97.0" />
+      <Label layoutX="59.0" layoutY="100.0" prefHeight="17.0" prefWidth="52.0" text="Pays" />
+      <TextField fx:id="ville" layoutX="413.0" layoutY="97.0" />
+      <Label layoutX="361.0" layoutY="101.0" prefHeight="17.0" prefWidth="52.0" text="Ville:" />
+      <Label layoutX="58.0" layoutY="191.0" prefHeight="17.0" prefWidth="52.0" text="Addresse:" />
+      <TextField fx:id="addresse" layoutX="120.0" layoutY="187.0" prefHeight="25.0" prefWidth="450.0" />
+      <Button layoutX="165.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Annuler" />
+      <Spinner fx:id="capacity" layoutX="413.0" layoutY="39.0" />
+   </children>
+</AnchorPane>

@@ -7,7 +7,6 @@ package Views.Login;
 import Repositories.UserCrudImpl;
 import Services.UserService;
 import Utils.DataSource;
-import java.awt.Button;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,9 +32,8 @@ public class LoginController extends Application {
     
     private Stage stage;
     private Scene scene;
-    private Parent root;
-    @FXML
     
+    @FXML
     private TextField email;
     @FXML
     private PasswordField password;
