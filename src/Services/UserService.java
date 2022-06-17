@@ -8,6 +8,8 @@ import Repositories.Interfaces.UserCrudInterface;
 import java.sql.SQLException;
 import Entities.User;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,5 +41,16 @@ public class UserService {
 
     public void delete(int id) throws SQLException {
         userCrud.delete(id);
+    }
+    
+    public boolean login(String email,String password){
+        User user;
+        try {
+            user = userCrud.getByLogin(email);
+        } catch (SQLException ex) {
+            System.out.println("catch login service");
+            return false;
+        }
+        return (user.getPassword() == null ? email == null : user.getPassword().equals(email));
     }
 }

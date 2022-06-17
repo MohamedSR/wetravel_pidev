@@ -4,10 +4,11 @@
  */
 package Repositories.Interfaces;
 import Entities.User;
+import java.sql.SQLException;
 /**
  *
  * @author m.rhouma
  */
 public interface UserCrudInterface extends CrudRepository<User> {
-    
+     public User getByLogin(String login) throws SQLException;
 }

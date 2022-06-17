@@ -94,4 +94,16 @@ public class UserCrudImpl implements UserCrudInterface {
         prs.setInt(6, id);
         prs.execute();
     }
+    @Override
+    public User getByLogin(String login) throws SQLException{
+        String query = "select * from users where email = ?";
+        prs = con.prepareStatement(query);
+        prs.setString(1, login);
+        ResultSet rs  = prs.executeQuery();
+        User user = new User();
+        while(rs.next()){
+            user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("role"), rs.getString("email"), rs.getString("password"), rs.getString("phone"));
+        }
+         return user;
+    }
 }
