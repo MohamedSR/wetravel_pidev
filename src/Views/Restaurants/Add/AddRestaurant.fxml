@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="Views.Restaurants.Add.AddRestaurantController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.Add.AddRestaurantController">
     <stylesheets>
         <URL value="@addrestaurant.css" />
     </stylesheets>
@@ -23,6 +23,6 @@
       <Label layoutX="58.0" layoutY="191.0" prefHeight="17.0" prefWidth="52.0" text="Addresse:" />
       <TextField fx:id="addresse" layoutX="120.0" layoutY="187.0" prefHeight="25.0" prefWidth="450.0" />
       <Button layoutX="165.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Annuler" />
-      <Spinner fx:id="capacity" layoutX="413.0" layoutY="39.0" />
+      <Spinner fx:id="capacity" editable="true" layoutX="413.0" layoutY="39.0" />
    </children>
 </AnchorPane>

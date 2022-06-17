@@ -17,6 +17,7 @@ import Entities.Restaurant;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.SpinnerValueFactory;
 
 /**
  * FXML Controller class
@@ -48,7 +49,7 @@ public class AddRestaurantController implements Initializable {
     }
 
     public void addRestaurant(){
-        Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText());
+        Restaurant restaurant= new Restaurant(10,addresse.getText(),ville.getText(),city.getText(),name.getText());
         try {
             restaurantService.createRestaurant(restaurant);
         } catch (SQLException ex) {

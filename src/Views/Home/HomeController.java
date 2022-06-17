@@ -25,7 +25,7 @@ public class HomeController extends Application {
    
     private Stage stage;
     private Scene scene;
-    final String RESTAURANT_VIEW = "../Restaurants/Add/AddRestaurant.fxml";
+    final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
     
      public static void main(String[] args) {
         launch(args);
