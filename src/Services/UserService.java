@@ -47,10 +47,11 @@ public class UserService {
         User user;
         try {
             user = userCrud.getByLogin(email);
+            System.out.println("user: "+user.getName());
         } catch (SQLException ex) {
             System.out.println("catch login service");
             return false;
         }
-        return (user.getPassword() == null ? email == null : user.getPassword().equals(email));
+        return user.getPassword().equals(password);
     }
 }

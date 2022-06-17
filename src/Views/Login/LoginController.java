@@ -8,12 +8,15 @@ import Repositories.UserCrudImpl;
 import Services.UserService;
 import Utils.DataSource;
 import java.awt.Button;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -27,8 +30,12 @@ import javafx.stage.Stage;
  * @author m.rhouma
  */
 public class LoginController extends Application {
-
+    
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
+    
     private TextField email;
     @FXML
     private PasswordField password;
@@ -46,11 +53,11 @@ public class LoginController extends Application {
        
     }
 
-    public void login() {
+    public void login(ActionEvent event) throws IOException {
         if(!userService.login(email.getText(), password.getText())){
             err.setText("Email ou mot de passe invalid");
         }else{
-            System.out.println("Gooood !!");
+            switchToHome(event);
         }
     }
 
@@ -64,4 +71,11 @@ public class LoginController extends Application {
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
     }
+     public void switchToHome(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(getClass().getResource("../Home/Home.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(home);
+        stage.setScene(scene);
+        stage.show();
+   }
 }
