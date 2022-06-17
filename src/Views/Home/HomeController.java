@@ -4,6 +4,7 @@
  */
 package Views.Home;
 
+import Utils.Navigator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,8 +24,7 @@ import javafx.scene.Node;
  */
 public class HomeController extends Application { 
    
-    private Stage stage;
-    private Scene scene;
+    
     final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
     
      public static void main(String[] args) {
@@ -39,10 +39,6 @@ public class HomeController extends Application {
         this.goToView(event, RESTAURANT_VIEW);
     }
      public void goToView(ActionEvent event,String view) throws IOException {
-        Parent home = FXMLLoader.load(getClass().getResource(view));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(home);
-        stage.setScene(scene);
-        stage.show();
+         Navigator.goToView(getClass(), event, view);
    }
 }
