@@ -12,6 +12,11 @@ public class Event {
 
     }
 
+
+    public Event(int capacity) {
+        this.capacity=capacity;
+    }
+
     public int getId() {
         return id;
     }

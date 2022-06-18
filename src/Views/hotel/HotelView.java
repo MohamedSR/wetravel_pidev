@@ -7,6 +7,7 @@ import Services.EventService;
 import Services.HotelsService;
 import Utils.DataSource;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,4 +32,8 @@ public class HotelView extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }}
+    }
+
+    public void login(ActionEvent actionEvent) {
+    }
+}
