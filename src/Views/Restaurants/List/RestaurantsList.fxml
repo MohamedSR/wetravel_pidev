@@ -11,7 +11,7 @@
         <URL value="@restaurantslist.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="restaurantsList" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
+      <TableView fx:id="restaurantsList" layoutY="37.0" prefHeight="299.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
           <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
@@ -23,6 +23,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="8.0" layoutY="3.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" text="Ajouter un restaurant" />
+      <Button fx:id="addRestaurantBtn" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#goToAddRestaurant" prefHeight="32.0" prefWidth="143.0" text="Ajouter un restaurant" />
+      <Button fx:id="annulerBtn" layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="32.0" prefWidth="143.0" text="Annuler" />
    </children>
 </AnchorPane>

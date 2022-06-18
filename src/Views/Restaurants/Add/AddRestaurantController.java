@@ -14,9 +14,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import Entities.Restaurant;
+import Utils.Navigator;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SpinnerValueFactory;
 
 /**
@@ -37,6 +42,14 @@ public class AddRestaurantController implements Initializable {
     private TextField ville;
     @FXML
     private TextField addresse;
+    @FXML
+    private Label successMsg;
+    @FXML
+    private Label errMsg;
+    @FXML
+    private Button addRestaurantBtn;
+    @FXML
+    private Button backToListBtn;
     
     RestaurantCrudImpl rcrud = new RestaurantCrudImpl(DataSource.getInstance().getCon());
     RestaurantService restaurantService = new RestaurantService(rcrud);
@@ -51,10 +64,20 @@ public class AddRestaurantController implements Initializable {
     public void addRestaurant(){
         Restaurant restaurant= new Restaurant(10,addresse.getText(),ville.getText(),city.getText(),name.getText());
         try {
+            addRestaurantBtn.setDisable(true);
+            backToListBtn.setDisable(true);
             restaurantService.createRestaurant(restaurant);
+            successMsg.setText("Le restaurant a été ajouté avec succès");
         } catch (SQLException ex) {
+            addRestaurantBtn.setDisable(false);
+            backToListBtn.setDisable(false);
             Logger.getLogger(AddRestaurantController.class.getName()).log(Level.SEVERE, null, ex);
+            successMsg.setText("Une erreur a été rencontrée lors de l'ajout");
         }
     }    
+    
+    public void backToList(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../List/RestaurantsList.fxml");
+    }
     
 }

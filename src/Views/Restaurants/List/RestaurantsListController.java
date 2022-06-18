@@ -12,9 +12,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import Entities.Restaurant;
+import Utils.Navigator;
+import java.io.IOException;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -42,6 +45,8 @@ public class RestaurantsListController implements Initializable {
     private TableColumn<Restaurant, String> capacityCol;
     @FXML
     private TableColumn<Restaurant, Void> actionCol;
+    @FXML
+    private Button annulerBtn;
     
     /**
      * Initializes the controller class.
@@ -60,10 +65,18 @@ public class RestaurantsListController implements Initializable {
             actionCol.setCellFactory(param->new TableCell<Restaurant,Void>(){
                 private final Button editButton = new Button("edit");
                 private final Button deleteButton = new Button("delete");
+                
             });
 
         } catch (Exception e) {
         }
+    }
+
+    public void backToHome(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
+    }
+    public void goToAddRestaurant(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../Add/AddRestaurant.fxml");
     }    
     
 }
