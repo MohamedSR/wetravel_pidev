@@ -23,8 +23,9 @@
       <Button layoutX="165.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Annuler" />
       <ComboBox fx:id="Role" layoutX="412.0" layoutY="39.0" prefWidth="150.0" promptText="Role" visibleRowCount="2">
       <items>
-         <String value="Admin" />
-         <String value="User" />
+         <ite
+         <String value="Admin">Admin </String>
+         <String value="User">User</String>
       </items>
       </ComboBox>
 
