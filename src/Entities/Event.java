@@ -9,7 +9,18 @@ public class Event {
     private int id;
 
     public Event(int id, String name, int capacity, java.sql.Date date, String adresse, String ville, String pays) {
+        this.id=id;
+        this.name=name;
+        this.capacity=capacity;
+        this.date=date;
+        this.adresse=adresse;
+        this.ville=ville;
+        this.pays=pays;
+    }
 
+
+    public Event(int capacity) {
+        this.capacity=capacity;
     }
 
     public int getId() {
@@ -72,7 +83,7 @@ public class Event {
     private Date date;
     private int capacity;
 
-    public Event(String name, String adresse, String ville, String pays, Date date, int capacity) {
+    public Event(String name, String adresse, int capacity, String ville, String pays, Date date) {
         this.name = name;
         this.adresse = adresse;
         this.ville = ville;
