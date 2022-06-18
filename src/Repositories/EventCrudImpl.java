@@ -85,8 +85,8 @@ public class EventCrudImpl implements EventCrudInterface {
         prs.setDate(3, (Date) t.getDate());
         prs.setString(4, t.getAdresse());
         prs.setString(5, t.getVille());
-        prs.setString(5, t.getPays());
-        prs.setInt(1, id);
+        prs.setString(6, t.getPays());
+        prs.setInt(7, id);
         prs.execute();
     }
 }

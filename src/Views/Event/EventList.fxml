@@ -11,13 +11,13 @@
             fx:controller="Views.Event.EventListController"
             prefHeight="400.0" prefWidth="600.0">
     <children>
-        <TableView fx:id="eventsList" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
+        <TableView fx:id="eventList" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
-                <TableColumn fx:id="adresseCol" prefWidth="75.0" text="adresse" />
+                <TableColumn fx:id="adresseCol" prefWidth="75.0" text="address" />
                 <TableColumn fx:id="paysCol" prefWidth="75.0" text="Pays" />
                 <TableColumn fx:id="villeCol" prefWidth="75.0" text="Ville" />
-                <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
+                <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacity" />
                 <TableColumn fx:id="dateCol" prefWidth="75.0" text="date" />
                 <TableColumn prefWidth="75.0" text="Actions" />
             </columns>

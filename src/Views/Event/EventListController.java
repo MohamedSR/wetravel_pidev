@@ -50,7 +50,7 @@ public class EventListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             nameCol.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
-            adresseCol.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
+            adresseCol.setCellValueFactory(new PropertyValueFactory<Event, String>("adresse"));
             paysCol.setCellValueFactory(new PropertyValueFactory<Event, String>("pays"));
             villeCol.setCellValueFactory(new PropertyValueFactory<Event, String>("ville"));
             capacityCol.setCellValueFactory(new PropertyValueFactory<Event, String>("capacity"));
@@ -58,7 +58,10 @@ public class EventListController implements Initializable {
             events = eventService.getAllEvents();
             ObservableList<Event> data = FXCollections.<Event>observableArrayList();
             data.addAll(events);
-            eventList.setItems(data);
+            for (int i = 0; i < events.size();i++)
+            {
+                System.out.println(events.get(i).getName());
+            }               eventList.setItems(data);
 
         } catch (Exception e) {
         }
