@@ -104,6 +104,6 @@ public class UserCrudImpl implements UserCrudInterface {
         while(rs.next()){
             user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("role"), rs.getString("email"), rs.getString("password"), rs.getString("phone"));
         }
-         return user;
+        return user;
     }
 }

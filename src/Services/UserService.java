@@ -7,6 +7,8 @@ package Services;
 import Repositories.Interfaces.UserCrudInterface;
 import java.sql.SQLException;
 import Entities.User;
+import Exceptions.FailedLoginExecption;
+import Exceptions.UserNotAuzorithedException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,15 +45,22 @@ public class UserService {
         userCrud.delete(id);
     }
     
-    public boolean login(String email,String password){
+    public void login(String email,String password) throws FailedLoginExecption, UserNotAuzorithedException{
         User user;
         try {
             user = userCrud.getByLogin(email);
-            System.out.println("user: "+user.getName());
+            if (user.equals(new User())){
+                throw new FailedLoginExecption();
+            }
+            if (!user.getPassword().equals(password)){
+                throw new FailedLoginExecption();
+            }
+             if (!user.getRole().equals("ADMIN")){
+                throw new UserNotAuzorithedException();
+            }
         } catch (SQLException ex) {
-            System.out.println("catch login service");
-            return false;
+            throw new FailedLoginExecption();
         }
-        return user.getPassword().equals(password);
+
     }
 }

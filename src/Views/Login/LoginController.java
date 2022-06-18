@@ -4,12 +4,16 @@
  */
 package Views.Login;
 
+import Exceptions.FailedLoginExecption;
+import Exceptions.UserNotAuzorithedException;
 import Repositories.UserCrudImpl;
 import Services.UserService;
 import Utils.DataSource;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
@@ -52,11 +56,13 @@ public class LoginController extends Application {
     }
 
     public void login(ActionEvent event) throws IOException {
-        if(!userService.login(email.getText(), password.getText())){
-            err.setText("Email ou mot de passe invalid");
-        }else{
+        try {
+            userService.login(email.getText(), password.getText());
             switchToHome(event);
+        } catch (FailedLoginExecption | UserNotAuzorithedException ex) {
+             err.setText(ex.getMessage());
         }
+        
     }
 
     public static void main(String[] args) {
