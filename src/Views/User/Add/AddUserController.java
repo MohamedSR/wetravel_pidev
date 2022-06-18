@@ -65,7 +65,7 @@ public class AddUserController implements Initializable {
     }
 
     public void addUser(){
-        User user= new User(name.getText(),"Admin",Email.getText(),Password.getText(),Phone.getText());
+        User user= new User(name.getText(),roles.getValue(),Email.getText(),Password.getText(),Phone.getText());
         try {
             userService.create(user);
             successMsg.setText("L'utilisateur a été ajouté avec succès");

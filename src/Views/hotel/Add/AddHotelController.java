@@ -73,7 +73,6 @@ public class AddHotelController implements Initializable {
             hotelService.create(hotel);
             successMsg.setText("L'hotel a été ajouté avec succès");
         } catch (SQLException ex) {
-            errMsg.setText("L'hotel a été rencontré lors de l'ajout");
             Logger.getLogger(AddHotelController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }        
