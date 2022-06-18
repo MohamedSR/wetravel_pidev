@@ -27,6 +27,7 @@ public class HomeController extends Application {
     
     final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
     final String USER_VIEW = "../User/List/UserList.fxml";
+    final String EVENT_VIEW = "../Event/EventList.fxml";
     
      public static void main(String[] args) {
         launch(args);
@@ -41,6 +42,9 @@ public class HomeController extends Application {
     }
     public void gotoUser(ActionEvent event) throws IOException{
         this.goToView(event, USER_VIEW);
+    }
+    public void goToEvent(ActionEvent event) throws IOException{
+        this.goToView(event, EVENT_VIEW);
     }
     public void goToView(ActionEvent event,String view) throws IOException {
          Navigator.goToView(getClass(), event, view);
