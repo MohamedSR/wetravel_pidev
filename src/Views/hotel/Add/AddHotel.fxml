@@ -16,7 +16,7 @@
       <TextField fx:id="name" layoutX="110.0" layoutY="39.0" />
       <Label layoutX="58.0" layoutY="43.0" prefHeight="17.0" prefWidth="52.0" text="Nom:" />
       <Label layoutX="353.0" layoutY="43.0" prefHeight="17.0" prefWidth="52.0" text="Capacite:" />
-      <TextField fx:id="city" layoutX="110.0" layoutY="97.0" />
+      <TextField fx:id="pays" layoutX="110.0" layoutY="97.0" />
       <Label layoutX="59.0" layoutY="100.0" prefHeight="17.0" prefWidth="52.0" text="Pays" />
       <TextField fx:id="ville" layoutX="413.0" layoutY="97.0" />
       <Label layoutX="361.0" layoutY="101.0" prefHeight="17.0" prefWidth="52.0" text="Ville:" />

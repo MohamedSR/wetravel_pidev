@@ -5,11 +5,8 @@
 package Views.hotel.Add;
 
 import Entities.Hotel;
-import Entities.Restaurant;
 import Repositories.HotelCrudImpl;
-import Repositories.RestaurantCrudImpl;
 import Services.HotelsService;
-import Services.RestaurantService;
 import Utils.DataSource;
 import Utils.Navigator;
 import java.io.IOException;
@@ -25,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import javafx.scene.control.SpinnerValueFactory;
 
 /**
  * FXML Controller class
@@ -42,9 +40,9 @@ public class AddHotelController implements Initializable {
     private Spinner<Integer> capacity ;
     @FXML
     private Spinner<Integer> stars ;
+    
     @FXML
     private TextField addresse;
-
     @FXML
     private TextField ville;
     @FXML
@@ -57,16 +55,20 @@ public class AddHotelController implements Initializable {
     
     HotelCrudImpl rcrud = new HotelCrudImpl(DataSource.getInstance().getCon());
     HotelsService hotelService = new HotelsService(rcrud);
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        SpinnerValueFactory<Integer> valueFactory= new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 500, 0);
+        capacity.setValueFactory(valueFactory);
+        SpinnerValueFactory<Integer> starsValueFactory= new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1);
+        stars.setValueFactory(starsValueFactory);
     }
 
     public void addHotel(){
-        Hotel hotel= new Hotel(name.getText(),10,10,addresse.getText(),ville.getText(),pays.getText());
+        Hotel hotel= new Hotel(name.getText(),capacity.getValue(),stars.getValue(),addresse.getText(),ville.getText(),pays.getText());
         try {
             hotelService.create(hotel);
             successMsg.setText("L'hotel a été ajouté avec succès");

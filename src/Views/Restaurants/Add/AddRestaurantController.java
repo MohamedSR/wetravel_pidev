@@ -35,7 +35,6 @@ public class AddRestaurantController implements Initializable {
     private TextField name;
     @FXML
     private Spinner<Integer> capacity ;
-
     @FXML
     private TextField city;
     @FXML
@@ -58,16 +57,19 @@ public class AddRestaurantController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        SpinnerValueFactory<Integer> valueFactory= new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 500, 0);
+        capacity.setValueFactory(valueFactory);
     }
 
     public void addRestaurant(){
-        Restaurant restaurant= new Restaurant(10,addresse.getText(),ville.getText(),city.getText(),name.getText());
+        Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText());
         try {
             addRestaurantBtn.setDisable(true);
             backToListBtn.setDisable(true);
             restaurantService.createRestaurant(restaurant);
             successMsg.setText("Le restaurant a été ajouté avec succès");
+            addRestaurantBtn.setDisable(false);
+            backToListBtn.setDisable(false);
         } catch (SQLException ex) {
             addRestaurantBtn.setDisable(false);
             backToListBtn.setDisable(false);
