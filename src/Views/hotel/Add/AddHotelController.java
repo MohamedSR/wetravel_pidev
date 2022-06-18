@@ -11,6 +11,8 @@ import Repositories.RestaurantCrudImpl;
 import Services.HotelsService;
 import Services.RestaurantService;
 import Utils.DataSource;
+import Utils.Navigator;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Spinner;
@@ -21,6 +23,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -38,7 +42,6 @@ public class AddHotelController implements Initializable {
     private Spinner<Integer> capacity ;
     @FXML
     private Spinner<Integer> stars ;
-
     @FXML
     private TextField addresse;
 
@@ -46,6 +49,11 @@ public class AddHotelController implements Initializable {
     private TextField ville;
     @FXML
     private TextField pays;
+    
+    @FXML
+    private Label successMsg;
+    @FXML
+    private Label errMsg;
     
     HotelCrudImpl rcrud = new HotelCrudImpl(DataSource.getInstance().getCon());
     HotelsService hotelService = new HotelsService(rcrud);
@@ -58,12 +66,18 @@ public class AddHotelController implements Initializable {
     }
 
     public void addHotel(){
-        Hotel hotel= new Hotel(10,name.getText(),capacity.getValue(),stars.getValue(),addresse.getText(),ville.getText(),pays.getText());
+        Hotel hotel= new Hotel(name.getText(),10,10,addresse.getText(),ville.getText(),pays.getText());
         try {
             hotelService.create(hotel);
+            successMsg.setText("L'hotel a été ajouté avec succès");
         } catch (SQLException ex) {
+            errMsg.setText("L'hotel a été rencontré lors de l'ajout");
             Logger.getLogger(AddHotelController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    }        
+    
+    public void backToList(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../List/HotelsList.fxml");
+    }
     
 }

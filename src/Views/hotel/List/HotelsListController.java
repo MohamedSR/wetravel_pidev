@@ -8,6 +8,8 @@ import Entities.Hotel;
 import Repositories.HotelCrudImpl;
 import Services.HotelsService;
 import Utils.DataSource;
+import Utils.Navigator;
+import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,6 +22,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 
 /**
  * FXML Controller class
@@ -63,6 +66,12 @@ public class HotelsListController implements Initializable {
             hotelsList.setItems(data);
         } catch (SQLException e) {
         }
+    }
+    public void backToHome(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
+    }
+    public void goToAddHotel(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../Add/AddHotel.fxml");
     }
 
 }

@@ -72,7 +72,7 @@ public class AddRestaurantController implements Initializable {
             addRestaurantBtn.setDisable(false);
             backToListBtn.setDisable(false);
             Logger.getLogger(AddRestaurantController.class.getName()).log(Level.SEVERE, null, ex);
-            errMsg.setText("Une erreur a été rencontrée lors de l'ajout");
+            errMsg.setText("Une erreur a été rencontré lors de l'ajout");
         }
     }    
     
