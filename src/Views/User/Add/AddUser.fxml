@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import java.lang.String?>
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.User.Add.AddUserController">
     <stylesheets>
         <URL value="@adduser.css" />
@@ -20,6 +21,12 @@
       <Label layoutX="139.0" layoutY="168.0" prefHeight="17.0" prefWidth="52.0" text="Phone:" />
       <TextField fx:id="Phone" layoutX="207.0" layoutY="164.0" prefHeight="26.0" prefWidth="227.0" />
       <Button layoutX="165.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Annuler" />
-      <ComboBox fx:id="Role" layoutX="412.0" layoutY="39.0" prefWidth="150.0" promptText="Role" visibleRowCount="2" />
+      <ComboBox fx:id="Role" layoutX="412.0" layoutY="39.0" prefWidth="150.0" promptText="Role" visibleRowCount="2">
+      <items>
+         <String value="Admin" />
+         <String value="User" />
+      </items>
+      </ComboBox>
+
    </children>
 </AnchorPane>
