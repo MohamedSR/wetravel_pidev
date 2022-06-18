@@ -39,7 +39,7 @@ public class EventController extends  Application implements Initializable {
     @FXML
     private TextField dateEvent;
     @FXML
-    private Label erreur;
+    private Label err ;
 
     EventCrudImpl eventCrud = new EventCrudImpl(DataSource.getInstance().getCon());
     EventService eventService = new EventService(eventCrud);
@@ -52,13 +52,15 @@ public class EventController extends  Application implements Initializable {
 
             //Date date = Date.valueOf(dateEvent.getText());
             java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-           Event event = new Event( nomEvent.getText(),capaciteEvent.getText(),villeEvent.getText(),paysEvent.getText(),date,
-                    Integer.parseInt(capaciteEvent.getText()));
+            int capacit = Integer.parseInt(capaciteEvent.getText());
+           Event event = new Event( nomEvent.getText(), adresseEvent.getText(),capacit,villeEvent.getText(),paysEvent.getText(),date
+                    );
 
         try {
             eventService.createEvent(event);
             System.out.println("goooooooooooooooood");
         } catch (SQLException ex) {
+            err.setText("verifier votre saisie !");
             Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
         }
 

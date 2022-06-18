@@ -77,7 +77,7 @@ public class Event {
     private Date date;
     private int capacity;
 
-    public Event(String name, String adresse, String ville, String pays, Date date, int capacity) {
+    public Event(String name, String adresse, int capacity, String ville, String pays, Date date) {
         this.name = name;
         this.adresse = adresse;
         this.ville = ville;

@@ -8,7 +8,24 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Views.Event.EventList"
+            fx:controller="Views.Event.EventListController"
             prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TableView fx:id="eventsList" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="adresseCol" prefWidth="75.0" text="adresse" />
+                <TableColumn fx:id="paysCol" prefWidth="75.0" text="Pays" />
+                <TableColumn fx:id="villeCol" prefWidth="75.0" text="Ville" />
+                <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
+                <TableColumn fx:id="dateCol" prefWidth="75.0" text="date" />
+                <TableColumn prefWidth="75.0" text="Actions" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+        <Button layoutX="8.0" layoutY="3.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" text="Ajouter un événement" />
+    </children>
 
 </AnchorPane>
