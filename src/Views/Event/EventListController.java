@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import Entities.Event;
+import Utils.Navigator;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,6 +87,11 @@ public class EventListController implements Initializable {
         Scene scene = new Scene(home);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    
+    public void backToHome(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../Home/Home.fxml");
     }
 }
 

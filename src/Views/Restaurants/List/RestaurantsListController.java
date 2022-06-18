@@ -70,7 +70,6 @@ public class RestaurantsListController implements Initializable {
         } catch (Exception e) {
         }
     }
-
     public void backToHome(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
     }
