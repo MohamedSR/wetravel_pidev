@@ -64,8 +64,7 @@ public class RestaurantsListController implements Initializable {
             restaurantsList.setItems(data);
             actionCol.setCellFactory(param->new TableCell<Restaurant,Void>(){
                 private final Button editButton = new Button("edit");
-                private final Button deleteButton = new Button("delete");
-                
+                private final Button deleteButton = new Button("delete");                
             });
 
         } catch (Exception e) {

@@ -24,7 +24,7 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="93.0" prefWidth="291.0" text="Events" />
             <Button layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoRestaurant" prefHeight="93.0" prefWidth="291.0" text="Restaurants" GridPane.columnIndex="1" />
-            <Button layoutX="310.0" layoutY="31.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="291.0" text="Users" GridPane.rowIndex="1" />
+            <Button layoutX="310.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoUser" prefHeight="93.0" prefWidth="291.0" text="Users" GridPane.rowIndex="1" />
             <Button layoutX="10.0" layoutY="164.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="291.0" text="Hotels" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
