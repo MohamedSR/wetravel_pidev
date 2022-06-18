@@ -3,25 +3,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import java.net.URL?>
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.hotel.List.HotelsListController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.hotel.List.HotelsListController.List.HotelsListController">
     <stylesheets>
         <URL value="@hotel.css" />
     </stylesheets>
-    <children>
-        <TableView fx:id="HotelsList" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
-            <columns>
-                <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
-                <TableColumn fx:id="starsCol" prefWidth="75.0" text="stars" />
-                <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
-                <TableColumn fx:id="adresseCol" prefWidth="75.0" text="adresse" />
-                <TableColumn fx:id="villeCol" prefWidth="75.0" text="Ville" />
-                <TableColumn fx:id="paysCol" prefWidth="75.0" text="Pays" />
-                <TableColumn prefWidth="75.0" text="Actions" />
-            </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-        </TableView>
-        <Button layoutX="8.0" layoutY="3.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" text="Ajouter un hotel" />
-    </children>
+   <children>
+      <TableView fx:id="restaurantsList" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="starsCol" prefWidth="75.0" text="stars" />
+          <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
+          <TableColumn fx:id="adresseCol" prefWidth="75.0" text="adresse" />
+          <TableColumn fx:id="villeCol" prefWidth="75.0" text="Ville" />
+          <TableColumn fx:id="paysCol" prefWidth="75.0" text="Pays" />
+          <TableColumn prefWidth="75.0" text="Actions" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button layoutX="8.0" layoutY="3.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" text="Ajouter un hotel" />
+   </children>
 </AnchorPane>

@@ -25,7 +25,7 @@ import javafx.scene.Node;
 public class HomeController extends Application { 
    
     
-    final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
+    final String RESTAURANT_VIEW = "../Restaurants/List/HotelsList.fxml";
     
      public static void main(String[] args) {
         launch(args);

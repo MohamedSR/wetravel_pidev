@@ -9,7 +9,6 @@ import Repositories.RestaurantCrudImpl;
 import Services.HotelsService;
 import Services.RestaurantService;
 import Utils.DataSource;
-import Views.hotel.List.Entities.Restaurant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,7 +49,7 @@ public class HotelsListController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public <hotel> void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) {
         try {
             nameCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("name"));
             starsCol.setCellValueFactory(new PropertyValueFactory<Hotel, Integer>("stars"));
@@ -58,13 +57,13 @@ public class HotelsListController implements Initializable {
             adresseCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("adresse"));
             paysCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("pays"));
             villeCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("ville"));
-            hotel hotel = HotelsService.findAllHotels();
-            ObservableList<hotel> data = FXCollections.<hotel>observableArrayList();
+            Hotel hotel = HotelsService.findAllHotels();
+            ObservableList<Hotel> data = FXCollections.<Hotel>observableArrayList();
             data.addAll(hotel);
             restaurantsList.setItems(data);
 
         } catch (Exception e) {
         }
-    }    
-    
+    }
+
 }
