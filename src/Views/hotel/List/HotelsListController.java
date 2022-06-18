@@ -5,9 +5,8 @@
 package Views.hotel.List;
 
 import Entities.Hotel;
-import Repositories.RestaurantCrudImpl;
+import Repositories.HotelCrudImpl;
 import Services.HotelsService;
-import Services.RestaurantService;
 import Utils.DataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -28,10 +28,10 @@ import java.util.ResourceBundle;
  */
 public class HotelsListController implements Initializable {
     @FXML
-    private TableView restaurantsList;
-    private ArrayList<Hotel> restaurant =  new ArrayList() ;
-    RestaurantCrudImpl rcrud = new RestaurantCrudImpl(DataSource.getInstance().getCon());
-    RestaurantService restaurantService = new RestaurantService(rcrud);
+    private TableView hotelsList;
+    private ArrayList<Hotel> hotels =  new ArrayList() ;
+    HotelCrudImpl hcrud = new HotelCrudImpl(DataSource.getInstance().getCon());
+    HotelsService hotelService = new HotelsService(hcrud);
     @FXML
     private TableColumn<Hotel, String> nameCol;
     @FXML
@@ -51,18 +51,17 @@ public class HotelsListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            nameCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("name"));
-            starsCol.setCellValueFactory(new PropertyValueFactory<Hotel, Integer>("stars"));
-            capacityCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("capacity"));
-            adresseCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("adresse"));
-            paysCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("pays"));
-            villeCol.setCellValueFactory(new PropertyValueFactory<Hotel, String>("ville"));
-            Hotel hotel = HotelsService.findAllHotels();
+            nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            starsCol.setCellValueFactory(new PropertyValueFactory<>("stars"));
+            capacityCol.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+            adresseCol.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+            paysCol.setCellValueFactory(new PropertyValueFactory<>("pays"));
+            villeCol.setCellValueFactory(new PropertyValueFactory<>("ville"));
+            hotels = hotelService.findAllHotels();
             ObservableList<Hotel> data = FXCollections.<Hotel>observableArrayList();
-            data.addAll(hotel);
-            restaurantsList.setItems(data);
-
-        } catch (Exception e) {
+            data.addAll(hotels);
+            hotelsList.setItems(data);
+        } catch (SQLException e) {
         }
     }
 
