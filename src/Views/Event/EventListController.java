@@ -7,9 +7,17 @@ package Views.Event;
 import Repositories.EventCrudImpl;
 import Services.EventService;
 import Utils.DataSource;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import Entities.Event;
 import java.util.ArrayList;
@@ -18,6 +26,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -67,5 +76,16 @@ public class EventListController implements Initializable {
         }
     }
 
+    public void AjouterEvent(ActionEvent event) throws IOException {
+        switchToEventAjout(event);
+    }
+
+    public void switchToEventAjout(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(getClass().getResource("Event.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(home);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
 
