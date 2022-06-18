@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -38,6 +40,9 @@ public class RestaurantsListController implements Initializable {
     private TableColumn<Restaurant, String> villeCol;
     @FXML
     private TableColumn<Restaurant, String> capacityCol;
+    @FXML
+    private TableColumn<Restaurant, Void> actionCol;
+    
     /**
      * Initializes the controller class.
      */
@@ -52,6 +57,10 @@ public class RestaurantsListController implements Initializable {
             ObservableList<Restaurant> data = FXCollections.<Restaurant>observableArrayList();
             data.addAll(restaurant);
             restaurantsList.setItems(data);
+            actionCol.setCellFactory(param->new TableCell<Restaurant,Void>(){
+                private final Button editButton = new Button("edit");
+                private final Button deleteButton = new Button("delete");
+            });
 
         } catch (Exception e) {
         }
