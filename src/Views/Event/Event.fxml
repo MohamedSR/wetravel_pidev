@@ -22,6 +22,6 @@
       <TextField fx:id="villeEvent" layoutX="415.0" layoutY="114.0" />
       <TextField fx:id="paysEvent" layoutX="416.0" layoutY="167.0" />
       <Label layoutX="272.0" layoutY="276.0" />
-      <Label fx:id="err" layoutX="270.0" layoutY="294.0" text="err" />
+      <Label fx:id="err" layoutX="270.0" layoutY="294.0" text="" />
    </children>
 </AnchorPane>
