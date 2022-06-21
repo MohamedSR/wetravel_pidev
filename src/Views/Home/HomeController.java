@@ -34,7 +34,7 @@ public class HomeController extends Application {
     }
      public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root));
         stage.show();
     }
     public void gotoRestaurant(ActionEvent event) throws IOException{
