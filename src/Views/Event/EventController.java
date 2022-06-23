@@ -80,7 +80,7 @@ public class EventController extends  Application implements Initializable {
     }
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Event.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 

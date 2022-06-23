@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Home.HomeController">
     <stylesheets>
@@ -22,10 +23,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#goToEvent" prefHeight="93.0" prefWidth="291.0" text="Events" />
-            <Button layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoRestaurant" prefHeight="93.0" prefWidth="291.0" text="Restaurants" GridPane.columnIndex="1" />
-            <Button layoutX="310.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoUser" prefHeight="93.0" prefWidth="291.0" text="Users" GridPane.rowIndex="1" />
-            <Button layoutX="10.0" layoutY="164.0" mnemonicParsing="false" onAction="#goToHotel" prefHeight="93.0" prefWidth="291.0" text="Hotels" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goToEvent" prefHeight="173.0" prefWidth="291.0" style="-fx-background-color: rgb(233, 86, 61);" text="Events" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
+            <Button alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoRestaurant" prefHeight="171.0" prefWidth="291.0" style="-fx-background-color: rgb(59, 174, 218);" text="Restaurants" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
+            <Button alignment="BOTTOM_LEFT" layoutX="310.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoUser" prefHeight="175.0" prefWidth="291.0" style="-fx-background-color: rgb(140, 192, 81);" text="Users" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
+            <Button alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="164.0" mnemonicParsing="false" onAction="#goToHotel" prefHeight="171.0" prefWidth="291.0" style="-fx-background-color: rgb(246, 187, 67);" text="Hotels" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
          </children>
       </GridPane>
    </children>
