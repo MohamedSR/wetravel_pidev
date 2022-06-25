@@ -68,7 +68,7 @@ public class HotelsListController implements Initializable {
         }
     }
     public void backToHome(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
+        Navigator.goToView(getClass(), event,"../../Home/UserRestaurant.fxml");
     }
     public void goToAddHotel(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,"../Add/AddHotel.fxml");

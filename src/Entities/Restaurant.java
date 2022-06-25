@@ -74,13 +74,10 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "id=" + id +
-                ", capacity=" + capacity +
-                ", name='" + name + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", ville='" + ville + '\'' +
-                ", pays='" + pays + '\'' +
-                '}';
+        return "ceci le Restaurant: " + name + "Numero" +
+                id +",qui a la capacity de" + capacity +
+                "personnes, localisé à" + adresse +
+                ",de la ville " + ville +
+                ",à ce extraordinaire pays " + pays;
     }
 }

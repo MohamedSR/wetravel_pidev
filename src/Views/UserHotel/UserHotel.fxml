@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="829.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.UserHotel.UserHotelController">
+    <stylesheets>
+        <URL value="@userhotel.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="734.0" layoutY="21.0" mnemonicParsing="false" text="Search" />
+      <ImageView fitHeight="170.0" fitWidth="200.0" layoutX="606.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Web_Esprit/assets/images/album6.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Web_Esprit/assets/images/album7.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Web_Esprit/assets/images/album7.jpg" />
+         </image></ImageView>
+      <TextFlow layoutX="200.0" layoutY="73.0" prefHeight="133.0" prefWidth="392.0" />
+      <TextFlow layoutX="200.0" layoutY="213.0" prefHeight="133.0" prefWidth="392.0" />
+      <TextFlow layoutX="200.0" layoutY="361.0" prefHeight="133.0" prefWidth="392.0" />
+      <Pane prefHeight="521.0" prefWidth="200.0">
+         <children>
+            <Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutY="379.0" prefHeight="143.0" prefWidth="200.0" text="Event">
+               <font>
+                  <Font name="Brush Script MT Italic" size="45.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink alignment="CENTER" layoutY="262.0" prefHeight="143.0" prefWidth="200.0" text="Hotel">
+               <font>
+                  <Font name="Brush Script MT Italic" size="45.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink alignment="CENTER" layoutY="118.0" prefHeight="143.0" prefWidth="200.0" text="Restaurant">
+               <font>
+                  <Font name="Brush Script MT Italic" size="40.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink alignment="CENTER" prefHeight="134.0" prefWidth="200.0" text="Home" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Brush Script MT Italic" size="45.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

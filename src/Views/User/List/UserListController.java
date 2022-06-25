@@ -59,7 +59,7 @@ public class UserListController implements Initializable {
         }
     }    
     public void backToHome(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
+        Navigator.goToView(getClass(), event,"../../Home/UserRestaurant.fxml");
     }
     public void goToAddUser(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,"../Add/AddUser.fxml");
