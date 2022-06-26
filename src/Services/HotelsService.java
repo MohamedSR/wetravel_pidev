@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Entities.Hotel;
+import Entities.Restaurant;
 import Repositories.Interfaces.HotelCrudInterface;
 
 
@@ -41,4 +42,8 @@ public class HotelsService {
 	    public void delete(int id) throws SQLException {
 	    	hotelCrud.delete(id);
 	    }
+
+		public ArrayList<Hotel> findAllHotels() throws SQLException {
+			return hotelCrud.findAll();
+		}
 }

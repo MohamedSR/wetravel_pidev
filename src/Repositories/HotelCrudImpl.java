@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Entities.Hotel;
+import Entities.Restaurant;
 import Repositories.Interfaces.HotelCrudInterface;
 
 /**
@@ -92,6 +93,22 @@ public class HotelCrudImpl implements HotelCrudInterface{
 	        prs.setString(6, h.getPays());
 	        prs.setInt(7, id);
 	        prs.execute();
+	}
+	@Override
+	public ArrayList<Hotel> findByVille(String ville) throws SQLException{
+		ArrayList<Hotel> list = new ArrayList<>();
+		String query ="select * from restaurants where ville = ?;";
+		prs = con.prepareStatement(query);
+		prs.setString(1,ville);
+		ResultSet rs = prs.executeQuery();
+
+		while (rs.next()){
+			list.add(new Hotel(
+					rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity")
+					,rs.getString("adresse"),rs.getString("ville"),rs.getString("pays")));
+		}
+
+		return list;
 	}
 
 }

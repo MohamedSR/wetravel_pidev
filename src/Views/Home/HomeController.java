@@ -24,17 +24,17 @@ import javafx.scene.Node;
  */
 public class HomeController extends Application { 
    
-    
     final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
     final String USER_VIEW = "../User/List/UserList.fxml";
     final String EVENT_VIEW = "../Event/EventList.fxml";
+    final String HOTEL_VIEW = "../hotel/List/HotelsList.fxml";
     
      public static void main(String[] args) {
         launch(args);
     }
      public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root));
         stage.show();
     }
     public void gotoRestaurant(ActionEvent event) throws IOException{
@@ -45,6 +45,9 @@ public class HomeController extends Application {
     }
     public void goToEvent(ActionEvent event) throws IOException{
         this.goToView(event, EVENT_VIEW);
+    }
+    public void goToHotel(ActionEvent event) throws IOException{
+        this.goToView(event, HOTEL_VIEW);
     }
     public void goToView(ActionEvent event,String view) throws IOException {
          Navigator.goToView(getClass(), event, view);
