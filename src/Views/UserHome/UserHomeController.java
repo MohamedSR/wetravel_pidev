@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
@@ -30,6 +31,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -47,6 +49,10 @@ public class UserHomeController implements Initializable {
     private TextFlow Restaurant;
     @FXML
     private TextFlow Event;
+    @FXML
+    private Pane pane;
+
+
     HotelCrudImpl hcrud = new HotelCrudImpl(DataSource.getInstance().getCon());
     HotelsService hotelService = new HotelsService(hcrud);
     Hotel hotel = new Hotel();
@@ -69,23 +75,40 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            hotel = hotelService.get(1);
+            int id = getRandomNumberUsingNextInt(1,15);
+            hotel = hotelService.get(id);
             Text text = new Text(hotel.toString());
             Hotel.getChildren().add(text);
-//            hotelimg.setImage();
-            restaurant = restaurantService.findRestaurants(1);
+            String link="@../../assets/"+hotel.getName()+".PNG";
+            Image htl = new Image(link);
+            hotelimg = new ImageView(htl);
+            pane.getChildren().add(hotelimg);
+
+            id = getRandomNumberUsingNextInt(1,15);
+            restaurant = restaurantService.findRestaurants(id);
             Text textR = new Text(restaurant.toString());
             Restaurant.getChildren().add(textR);
+            link="@../../assets/"+restaurant.getName()+".PNG";
+            Image rest = new Image(link);
+            restimg = new ImageView(rest);
+            pane.getChildren().add(restimg);
 
-
-            restimg.setImage(new Image("../assets/viamercato"));
-            event = eventService.getEvent(1);
+            id = getRandomNumberUsingNextInt(1,15);
+            event = eventService.getEvent(id);
             Text textE = new Text(event.toString());
             Event.getChildren().add(textE);
+            link="@../../assets/"+event.getName()+".PNG";
+            Image ev = new Image(link);
+            eventimg = new ImageView(ev);
+            pane.getChildren().add(eventimg);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public int getRandomNumberUsingNextInt(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min) + min;
     }
     public void gotoRestaurant(ActionEvent event) throws IOException{
         this.goToView(event, RESTAURANT_VIEW);
