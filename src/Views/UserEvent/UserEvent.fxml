@@ -12,21 +12,9 @@
     </stylesheets>
    <children>
       <Button layoutX="734.0" layoutY="21.0" mnemonicParsing="false" text="Search" />
-      <ImageView fitHeight="170.0" fitWidth="200.0" layoutX="606.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Web_Esprit/assets/images/album6.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Web_Esprit/assets/images/album7.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Web_Esprit/assets/images/album7.jpg" />
-         </image></ImageView>
-      <TextFlow layoutX="200.0" layoutY="73.0" prefHeight="133.0" prefWidth="392.0" />
-      <TextFlow layoutX="200.0" layoutY="213.0" prefHeight="133.0" prefWidth="392.0" />
-      <TextFlow layoutX="200.0" layoutY="361.0" prefHeight="133.0" prefWidth="392.0" />
+      <TextFlow fx:id="Event1" layoutX="200.0" layoutY="73.0" prefHeight="133.0" prefWidth="392.0" />
+      <TextFlow fx:id="Event2" layoutX="200.0" layoutY="213.0" prefHeight="133.0" prefWidth="392.0" />
+      <TextFlow fx:id="Event" layoutX="200.0" layoutY="361.0" prefHeight="133.0" prefWidth="392.0" />
       <Pane prefHeight="521.0" prefWidth="200.0">
          <children>
             <Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutY="379.0" prefHeight="143.0" prefWidth="200.0" text="Event">
@@ -34,22 +22,28 @@
                   <Font name="Brush Script MT Italic" size="45.0" />
                </font>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" layoutY="262.0" prefHeight="143.0" prefWidth="200.0" text="Hotel">
+            <Hyperlink alignment="CENTER" layoutY="262.0" onAction="#goToHotel" prefHeight="143.0" prefWidth="200.0" text="Hotel">
                <font>
                   <Font name="Brush Script MT Italic" size="45.0" />
                </font>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" layoutY="118.0" prefHeight="143.0" prefWidth="200.0" text="Restaurant">
+            <Hyperlink alignment="CENTER" layoutY="118.0" onAction="#gotoRestaurant" prefHeight="143.0" prefWidth="200.0" text="Restaurant">
                <font>
                   <Font name="Brush Script MT Italic" size="40.0" />
                </font>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" prefHeight="134.0" prefWidth="200.0" text="Home" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS">
+            <Hyperlink alignment="CENTER" onAction="#goToHome" prefHeight="134.0" prefWidth="200.0" text="Home" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Brush Script MT Italic" size="45.0" />
                </font>
             </Hyperlink>
          </children>
       </Pane>
+      <Pane fx:id="pane" layoutX="606.0" layoutY="73.0" prefHeight="422.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="eventimg1" fitHeight="134.0" fitWidth="194.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="eventimg2" fitHeight="150.0" fitWidth="200.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="eventimg" fitHeight="134.0" fitWidth="200.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true" />
+         </children></Pane>
    </children>
 </AnchorPane>

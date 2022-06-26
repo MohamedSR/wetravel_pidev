@@ -4,26 +4,101 @@
  */
 package Views.UserEvent;
 
+import Entities.Event;
+import Repositories.EventCrudImpl;
+import Services.EventService;
+import Utils.DataSource;
 import Utils.Navigator;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.Random;
+import java.util.ResourceBundle;
 
 
-public class UserEventController extends Application {
+public class UserEventController implements Initializable {
 
+    @FXML
+    private TextFlow Event;
+    @FXML
+    private TextFlow Event1;
+    @FXML
+    private TextFlow Event2;
+    @FXML
+    private Pane pane;
+    @FXML
+    private ImageView eventimg;
+    @FXML
+    private ImageView eventimg1;
+    @FXML
+    private ImageView eventimg2;
+    Entities.Event event =new Event();
+    EventCrudImpl eventCrud = new EventCrudImpl(DataSource.getInstance().getCon());
+    EventService eventService = new EventService(eventCrud);
     final String HOME_VIEW = "../UserHome/UserHome.fxml";
     final String RESTAURANT_VIEW = "../UserRestaurant/UserRestaurant.fxml";
     final String HOTEL_VIEW = "../UserHotel/UserHotel.fxml";
 
 
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            int id = getRandomNumberUsingNextInt(1,5);
+            event = eventService.getEvent(id);
+            Text textR = new Text(event.toString());
+            Event.getChildren().add(textR);
+            String link="@../../assets/"+event.getName()+".PNG";
+            Image rest = new Image(link);
+            eventimg = new ImageView(rest);
+            pane.getChildren().add(eventimg);
+
+            int id1 = getRandomNumberUsingNextInt(1,5);
+
+            while (id1==id){
+                id1 = getRandomNumberUsingNextInt(1,5);
+            }
+            event = eventService.getEvent(id1);
+            textR = new Text(event.toString());
+            Event1.getChildren().add(textR);
+            link="@../../assets/"+event.getName()+".PNG";
+            Image rest1 = new Image(link);
+            eventimg1 = new ImageView(rest1);
+            pane.getChildren().add(eventimg1);
+            int id2 = getRandomNumberUsingNextInt(1,5);
+
+            while (id2==id){
+                id2 = getRandomNumberUsingNextInt(1,5);
+            }
+
+            event = eventService.getEvent(id2);
+            textR = new Text(event.toString());
+            Event2.getChildren().add(textR);
+            link="@../../assets/"+event.getName()+".PNG";
+            Image rest2 = new Image(link);
+            eventimg2 = new ImageView(rest2);
+            pane.getChildren().add(eventimg2);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getRandomNumberUsingNextInt(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min) + min;
     }
      public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("UserEvent.fxml"));
