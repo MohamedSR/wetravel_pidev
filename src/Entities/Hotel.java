@@ -11,12 +11,12 @@ public class Hotel {
 
 	@Override
 	public String toString() {
-		return "vous etes les bienvenue à notre Hotel Numero"+ id +
-				", c'est l'hotel stars=" + stars +" le " + name +
-				", on a une capacity de" + capacity +"personnes"+
-				",visité nous à l'adresse" + adresse +
+		return "vous etes les bienvenue à notre Hotel Numero "+ id +
+				"dans le monde, c'est l'hotel stars " + capacity +" le " + name +
+				", on a une capacity de " + stars +"personnes"+
+				",visité nous à l'adresse " + adresse +
 				",à " + ville +
-				",dans notre cher pays" + pays;
+				",dans notre cher pays " + pays;
 
 	}
 

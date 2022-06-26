@@ -87,12 +87,12 @@ public class Event {
     public String toString() {
         return "vous etes les bienvenue à notre Event Numero" +
                 "id=" + id +
-                ", qu'on l'appele" + name +
-                ",visité nous à l'adresse" + adresse +
+                ", qu'on l'appele " + name +
+                ",visité nous à l'adresse " + adresse +
                 ",à " + ville +
-                ",dans notre cher pays" + pays +
+                ",dans notre cher pays " + pays +
                 ",c'est le " + date +
-                ", on a une capacity de" + capacity +
+                ", on a une capacity de " + capacity +
                 "personnes";
     }
 

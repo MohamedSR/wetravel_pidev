@@ -75,7 +75,7 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            int id = getRandomNumberUsingNextInt(1,15);
+            int id = getRandomNumberUsingNextInt(1,5);
             hotel = hotelService.get(id);
             Text text = new Text(hotel.toString());
             Hotel.getChildren().add(text);
@@ -84,7 +84,7 @@ public class UserHomeController implements Initializable {
             hotelimg = new ImageView(htl);
             pane.getChildren().add(hotelimg);
 
-            id = getRandomNumberUsingNextInt(1,15);
+            id = getRandomNumberUsingNextInt(1,6);
             restaurant = restaurantService.findRestaurants(id);
             Text textR = new Text(restaurant.toString());
             Restaurant.getChildren().add(textR);
@@ -93,7 +93,7 @@ public class UserHomeController implements Initializable {
             restimg = new ImageView(rest);
             pane.getChildren().add(restimg);
 
-            id = getRandomNumberUsingNextInt(1,15);
+            id = getRandomNumberUsingNextInt(1,5);
             event = eventService.getEvent(id);
             Text textE = new Text(event.toString());
             Event.getChildren().add(textE);
