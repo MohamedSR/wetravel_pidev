@@ -4,6 +4,7 @@ import Entities.Event;
 import Repositories.EventCrudImpl;
 import Services.EventService;
 import Utils.DataSource;
+import Utils.Navigator;
 import Views.Event.EventController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -88,4 +89,7 @@ public class EventController extends  Application implements Initializable {
         launch(args);
     }
 
+    public void backToList(ActionEvent event) throws IOException {
+        Navigator.goToView(getClass(), event,"EventList.fxml");
+    }
 }
