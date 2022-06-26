@@ -16,10 +16,10 @@ import java.io.IOException;
 
 
 public class UserRestaurantController extends Application {
-   
-    final String HOME_VIEW = "../User/List/UserList.fxml";
-    final String EVENT_VIEW = "../Event/EventList.fxml";
-    final String HOTEL_VIEW = "../hotel/List/HotelsList.fxml";
+
+    final String HOME_VIEW = "../UserHome/UserHome.fxml";
+    final String HOTEL_VIEW = "../UserHotel/UserHotel.fxml";
+    final String EVENT_VIEW = "../UserEvent/UserEvent.fxml";
     
      public static void main(String[] args) {
         launch(args);
