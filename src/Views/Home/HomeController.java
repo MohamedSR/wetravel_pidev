@@ -15,7 +15,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -28,7 +30,8 @@ public class HomeController extends Application {
     final String USER_VIEW = "../User/List/UserList.fxml";
     final String EVENT_VIEW = "../Event/EventList.fxml";
     final String HOTEL_VIEW = "../hotel/List/HotelsList.fxml";
-    
+    @FXML
+    private AnchorPane corPane;
      public static void main(String[] args) {
         launch(args);
     }
@@ -50,6 +53,6 @@ public class HomeController extends Application {
         this.goToView(event, HOTEL_VIEW);
     }
     public void goToView(ActionEvent event,String view) throws IOException {
-         Navigator.goToView(getClass(), event, view);
+         Navigator.goToView(getClass(), event, corPane,view);
    }
 }
