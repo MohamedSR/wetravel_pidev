@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -46,7 +47,9 @@ public class RestaurantsListController implements Initializable {
     @FXML
     private TableColumn<Restaurant, Void> actionCol;
     @FXML
-    private Button annulerBtn;
+    private AnchorPane restaurantsPane;
+    
+    
     
     /**
      * Initializes the controller class.
@@ -70,11 +73,8 @@ public class RestaurantsListController implements Initializable {
         } catch (Exception e) {
         }
     }
-    public void backToHome(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
-    }
     public void goToAddRestaurant(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../Add/AddRestaurant.fxml");
+        Navigator.goToView(getClass(), event,restaurantsPane,"../Add/AddRestaurant.fxml");
     }    
     
 }

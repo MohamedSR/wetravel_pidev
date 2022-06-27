@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Event.EventController">
+<AnchorPane fx:id="addEventPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Event.EventController">
    <children>
       <Button fx:id="btn" layoutX="99.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickAjouterEvent" prefHeight="41.0" prefWidth="402.0" text="Ajouter" textFill="#4366ff" />
       <Label layoutX="16.0" layoutY="6.0" prefHeight="48.0" prefWidth="270.0" text="  Merci d'ajouter votre événement" textFill="#5f5ae1" />

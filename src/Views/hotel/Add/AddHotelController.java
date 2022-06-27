@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -52,6 +53,8 @@ public class AddHotelController implements Initializable {
     private Label successMsg;
     @FXML
     private Label errMsg;
+    @FXML
+    private AnchorPane hotelsPane;
     
     HotelCrudImpl rcrud = new HotelCrudImpl(DataSource.getInstance().getCon());
     HotelsService hotelService = new HotelsService(rcrud);
@@ -78,7 +81,7 @@ public class AddHotelController implements Initializable {
     }        
     
     public void backToList(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../List/HotelsList.fxml");
+        Navigator.goToView(getClass(), event,hotelsPane,"../List/HotelsList.fxml");
     }
     
 }

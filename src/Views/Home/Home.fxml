@@ -10,12 +10,12 @@
         <URL value="@home.css" />
     </stylesheets>
    <children>
-      <AnchorPane id="corPane" fx:id="corPane" layoutX="160.0" prefHeight="566.0" prefWidth="741.0" styleClass="mainFxmlClass">
+      <AnchorPane id="corPane" fx:id="corPane" layoutX="160.0" prefHeight="600.0" prefWidth="741.0" styleClass="mainFxmlClass">
          <stylesheets>
             <URL value="@home.css" />
          </stylesheets>
       </AnchorPane>
-      <AnchorPane id="SiderPane" prefHeight="566.0" prefWidth="160.0" style="-fx-background-color: rgb(100, 157, 173);" styleClass="mainFxmlClass">
+      <AnchorPane id="SiderPane" prefHeight="600.0" prefWidth="160.0" style="-fx-background-color: rgb(100, 157, 173);" styleClass="mainFxmlClass">
          <stylesheets>
             <URL value="@home.css" />
          </stylesheets>

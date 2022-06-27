@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
 
 
 public class UserListController implements Initializable {
@@ -38,6 +39,8 @@ public class UserListController implements Initializable {
     private TableColumn<User, String> emailCol;
     @FXML
     private TableColumn<User, String> phoneCol;
+    @FXML
+    private AnchorPane usersPane;
     /**
      * Initializes the controller class.
      */
@@ -57,11 +60,8 @@ public class UserListController implements Initializable {
         catch (Exception e) {
             e.printStackTrace();
         }
-    }    
-    public void backToHome(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
     }
     public void goToAddUser(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../Add/AddUser.fxml");
+        Navigator.goToView(getClass(), event,usersPane,"../Add/AddUser.fxml");
     }
 }

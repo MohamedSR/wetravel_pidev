@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -47,6 +48,8 @@ public class HotelsListController implements Initializable {
     private TableColumn<Hotel, String> paysCol;
     @FXML
     private TableColumn<Hotel, String> villeCol;
+    @FXML
+    private AnchorPane hotelsPane;
 
     /**
      * Initializes the controller class.
@@ -67,11 +70,8 @@ public class HotelsListController implements Initializable {
         } catch (SQLException e) {
         }
     }
-    public void backToHome(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../../Home/Home.fxml");
-    }
     public void goToAddHotel(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../Add/AddHotel.fxml");
+        Navigator.goToView(getClass(), event,hotelsPane,"../Add/AddHotel.fxml");
     }
 
 }

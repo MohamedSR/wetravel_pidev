@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.hotel.List.HotelsListController">
+<AnchorPane id="AnchorPane" fx:id="hotelsPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.hotel.List.HotelsListController">
     <stylesheets>
         <URL value="@hotel.css" />
     </stylesheets>
@@ -26,6 +26,5 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#goToAddHotel" prefHeight="32.0" prefWidth="143.0" text="Ajouter un hotel" />
-      <Button layoutX="9.0" layoutY="364.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="32.0" prefWidth="143.0" text="Annuler" />
    </children>
 </AnchorPane>

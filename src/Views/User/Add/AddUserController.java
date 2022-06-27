@@ -4,7 +4,6 @@
  */
 package Views.User.Add;
 
-
 import Entities.Restaurant;
 import Repositories.UserCrudImpl;
 import Services.UserService;
@@ -26,6 +25,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -50,7 +50,8 @@ public class AddUserController implements Initializable {
     private Label successMsg;
     @FXML
     private Label errMsg;
-    
+    @FXML
+    private AnchorPane addUserPane;
     UserCrudImpl userCrud = new UserCrudImpl(DataSource.getInstance().getCon());
     UserService userService = new UserService(userCrud);
     /**
@@ -77,6 +78,6 @@ public class AddUserController implements Initializable {
     }    
     
     public void backToList(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../List/UserList.fxml");
+        Navigator.goToView(getClass(), event,addUserPane,"../List/UserList.fxml");
     }
 }

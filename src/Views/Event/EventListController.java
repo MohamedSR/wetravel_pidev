@@ -27,6 +27,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -52,7 +53,8 @@ public class EventListController implements Initializable {
     private TableColumn<Event, String> paysCol;
     @FXML
     private TableColumn<Event, String> dateCol;
-
+    @FXML
+    private AnchorPane eventsPane;
     /**
      * Initializes the controller class.
      */
@@ -82,16 +84,7 @@ public class EventListController implements Initializable {
     }
 
     public void switchToEventAjout(ActionEvent event) throws IOException {
-        Parent home = FXMLLoader.load(getClass().getResource("Event.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(home);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    
-    public void backToHome(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../Home/Home.fxml");
+        Navigator.goToView(getClass(), event,eventsPane,"./Event.fxml");
     }
 }
 
