@@ -24,6 +24,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import java.io.File;
 
 /**
  * FXML Controller class
@@ -52,8 +54,14 @@ public class AddRestaurantController implements Initializable {
     private Button backToListBtn;
     @FXML
     private AnchorPane addRestaurantPane;
+    @FXML
+    private Button imgInput;
+    @FXML
+    private String imgPath;
+    
     RestaurantCrudImpl rcrud = new RestaurantCrudImpl(DataSource.getInstance().getCon());
     RestaurantService restaurantService = new RestaurantService(rcrud);
+
     /**
      * Initializes the controller class.
      */
@@ -63,8 +71,25 @@ public class AddRestaurantController implements Initializable {
         capacity.setValueFactory(valueFactory);
     }
 
+    public void selectImage(ActionEvent event){
+        FileChooser fileChooser = new FileChooser();
+         //Set extension filter
+        FileChooser.ExtensionFilter extFilterJPG
+                = new FileChooser.ExtensionFilter("JPG files (*.JPG)", "*.JPG");
+        FileChooser.ExtensionFilter extFilterjpg
+                = new FileChooser.ExtensionFilter("jpg files (*.jpg)", "*.jpg");
+        FileChooser.ExtensionFilter extFilterPNG
+                = new FileChooser.ExtensionFilter("PNG files (*.PNG)", "*.PNG");
+        FileChooser.ExtensionFilter extFilterpng
+                = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+        fileChooser.getExtensionFilters()
+                .addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
+        //Show open file dialog
+        File file = fileChooser.showOpenDialog(null);
+        imgPath = file.getAbsolutePath();
+    }
     public void addRestaurant(){
-        Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText());
+        Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText(),imgPath);
         try {
             addRestaurantBtn.setDisable(true);
             backToListBtn.setDisable(true);

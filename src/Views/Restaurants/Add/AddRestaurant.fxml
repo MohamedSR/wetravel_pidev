@@ -35,5 +35,6 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="imgInput" layoutX="115.0" layoutY="239.0" mnemonicParsing="false" onAction="#selectImage" text="selectionner une image" />
    </children>
 </AnchorPane>

@@ -2,9 +2,17 @@ package Entities;
 
 public class Restaurant {
     private int id, capacity;
-    private String name, adresse, ville, pays;
+    private String name, adresse, ville, pays,image;
 
     public Restaurant() {
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Restaurant(int id, int capacity, String adresse, String ville, String pays, String name) {
@@ -24,6 +32,26 @@ public class Restaurant {
         this.name = name;
     }
 
+    public Restaurant(int id, int capacity, String name, String adresse, String ville, String pays, String image) {
+        this.id = id;
+        this.capacity = capacity;
+        this.name = name;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.pays = pays;
+        this.image = image;
+    }
+
+    public Restaurant(int capacity, String name, String adresse, String ville, String pays, String image) {
+        this.capacity = capacity;
+        this.name = name;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.pays = pays;
+        this.image = image;
+    }
+
+    
     public int getId() {
         return id;
     }
