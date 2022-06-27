@@ -71,6 +71,12 @@ public class UserRestaurantController implements Initializable {
             String link="@../../assets/"+restaurant.getName()+".PNG";
             Image rest = new Image(link);
             restimg = new ImageView(rest);
+            restimg.setFitHeight(150);
+            restimg.setFitWidth(150);
+            restimg.setSmooth(true);
+            restimg.setLayoutX(1);
+            restimg.setLayoutY(1);
+            restimg.setCache(true);
             pane.getChildren().add(restimg);
 
             int id1 = getRandomNumberUsingNextInt(1,6);
@@ -84,6 +90,12 @@ public class UserRestaurantController implements Initializable {
             link="@../../assets/"+restaurant.getName()+".PNG";
             Image rest1 = new Image(link);
             getRestimg = new ImageView(rest1);
+            getRestimg.setFitHeight(150);
+            getRestimg.setFitWidth(150);
+            getRestimg.setLayoutX(1);
+            getRestimg.setLayoutY(150);
+            getRestimg.setSmooth(true);
+            getRestimg.setCache(true);
             pane.getChildren().add(getRestimg);
             int id2 = getRandomNumberUsingNextInt(1,6);
 
@@ -97,6 +109,12 @@ public class UserRestaurantController implements Initializable {
             link="@../../assets/"+restaurant.getName()+".PNG";
             Image rest2 = new Image(link);
             imageView = new ImageView(rest2);
+            imageView.setFitHeight(150);
+            imageView.setFitWidth(150);
+            imageView.setLayoutX(1);
+            imageView.setLayoutY(300);
+            imageView.setSmooth(true);
+            imageView.setCache(true);
             pane.getChildren().add(imageView);
 
         } catch (SQLException e) {

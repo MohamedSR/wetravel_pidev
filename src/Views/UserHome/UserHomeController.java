@@ -82,6 +82,12 @@ public class UserHomeController implements Initializable {
             String link="@../../assets/"+hotel.getName()+".PNG";
             Image htl = new Image(link);
             hotelimg = new ImageView(htl);
+            hotelimg.setFitHeight(150);
+            hotelimg.setFitWidth(150);
+            hotelimg.setSmooth(true);
+            hotelimg.setLayoutX(1);
+            hotelimg.setLayoutY(1);
+            hotelimg.setCache(true);
             pane.getChildren().add(hotelimg);
 
             id = getRandomNumberUsingNextInt(1,6);
@@ -91,6 +97,12 @@ public class UserHomeController implements Initializable {
             link="@../../assets/"+restaurant.getName()+".PNG";
             Image rest = new Image(link);
             restimg = new ImageView(rest);
+            restimg.setFitHeight(150);
+            restimg.setFitWidth(150);
+            restimg.setSmooth(true);
+            restimg.setLayoutX(1);
+            restimg.setLayoutY(150);
+            restimg.setCache(true);
             pane.getChildren().add(restimg);
 
             id = getRandomNumberUsingNextInt(1,5);
@@ -100,6 +112,12 @@ public class UserHomeController implements Initializable {
             link="@../../assets/"+event.getName()+".PNG";
             Image ev = new Image(link);
             eventimg = new ImageView(ev);
+            eventimg.setFitHeight(150);
+            eventimg.setFitWidth(150);
+            eventimg.setSmooth(true);
+            eventimg.setLayoutX(1);
+            eventimg.setLayoutY(300);
+            eventimg.setCache(true);
             pane.getChildren().add(eventimg);
 
         } catch (SQLException e) {

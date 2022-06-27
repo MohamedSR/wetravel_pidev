@@ -63,6 +63,12 @@ public class UserEventController implements Initializable {
             String link="@../../assets/"+event.getName()+".PNG";
             Image rest = new Image(link);
             eventimg = new ImageView(rest);
+            eventimg.setFitHeight(150);
+            eventimg.setFitWidth(150);
+            eventimg.setSmooth(true);
+            eventimg.setLayoutX(1);
+            eventimg.setLayoutY(1);
+            eventimg.setCache(true);
             pane.getChildren().add(eventimg);
 
             int id1 = getRandomNumberUsingNextInt(1,5);
@@ -76,6 +82,12 @@ public class UserEventController implements Initializable {
             link="@../../assets/"+event.getName()+".PNG";
             Image rest1 = new Image(link);
             eventimg1 = new ImageView(rest1);
+            eventimg1.setFitHeight(150);
+            eventimg1.setFitWidth(150);
+            eventimg1.setSmooth(true);
+            eventimg1.setLayoutX(1);
+            eventimg1.setLayoutY(150);
+            eventimg1.setCache(true);
             pane.getChildren().add(eventimg1);
             int id2 = getRandomNumberUsingNextInt(1,5);
 
@@ -89,6 +101,12 @@ public class UserEventController implements Initializable {
             link="@../../assets/"+event.getName()+".PNG";
             Image rest2 = new Image(link);
             eventimg2 = new ImageView(rest2);
+            eventimg2.setFitHeight(150);
+            eventimg2.setFitWidth(150);
+            eventimg2.setSmooth(true);
+            eventimg2.setLayoutX(1);
+            eventimg2.setLayoutY(300);
+            eventimg2.setCache(true);
             pane.getChildren().add(eventimg2);
 
         } catch (SQLException e) {

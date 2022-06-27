@@ -68,6 +68,12 @@ public class UserHotelController implements Initializable {
             String link="@../../assets/"+hotel.getName()+".PNG";
             Image rest = new Image(link);
             hotelimg = new ImageView(rest);
+            hotelimg.setFitHeight(150);
+            hotelimg.setFitWidth(150);
+            hotelimg.setSmooth(true);
+            hotelimg.setLayoutX(1);
+            hotelimg.setLayoutY(1);
+            hotelimg.setCache(true);
             pane.getChildren().add(hotelimg);
 
             int id1 = getRandomNumberUsingNextInt(1,5);
@@ -81,6 +87,12 @@ public class UserHotelController implements Initializable {
             link="@../../assets/"+hotel.getName()+".PNG";
             Image rest1 = new Image(link);
             hotelimg1 = new ImageView(rest1);
+            hotelimg1.setFitHeight(150);
+            hotelimg1.setFitWidth(150);
+            hotelimg1.setSmooth(true);
+            hotelimg1.setLayoutX(1);
+            hotelimg1.setLayoutY(150);
+            hotelimg1.setCache(true);
             pane.getChildren().add(hotelimg1);
             int id2 = getRandomNumberUsingNextInt(1,5);
 
@@ -94,6 +106,12 @@ public class UserHotelController implements Initializable {
             link="@../../assets/"+hotel.getName()+".PNG";
             Image rest2 = new Image(link);
             hotelimg2 = new ImageView(rest2);
+            hotelimg2.setFitHeight(150);
+            hotelimg2.setFitWidth(150);
+            hotelimg2.setSmooth(true);
+            hotelimg2.setLayoutX(1);
+            hotelimg2.setLayoutY(300);
+            hotelimg2.setCache(true);
             pane.getChildren().add(hotelimg2);
 
         } catch (SQLException e) {
