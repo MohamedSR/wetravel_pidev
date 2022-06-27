@@ -84,6 +84,7 @@ public class EventListController implements Initializable {
     }
 
     public void switchToEventAjout(ActionEvent event) throws IOException {
+
         Navigator.goToView(getClass(), event,eventsPane,"./Event.fxml");
     }
 }

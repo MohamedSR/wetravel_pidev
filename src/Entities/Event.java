@@ -83,6 +83,19 @@ public class Event {
     private Date date;
     private int capacity;
 
+    @Override
+    public String toString() {
+        return "vous etes les bienvenue à notre Event Numero" +
+                "id=" + id +
+                ", qu'on l'appele " + name +
+                ",visité nous à l'adresse " + adresse +
+                ",à " + ville +
+                ",dans notre cher pays " + pays +
+                ",c'est le " + date +
+                ", on a une capacity de " + capacity +
+                "personnes";
+    }
+
     public Event(String name, String adresse, int capacity, String ville, String pays, Date date) {
         this.name = name;
         this.adresse = adresse;

@@ -8,6 +8,18 @@ public class Hotel {
 	private int id;
 	private String name;
 	private int stars;
+
+	@Override
+	public String toString() {
+		return "vous etes les bienvenue à notre Hotel Numero "+ id +
+				"dans le monde, c'est l'hotel stars " + capacity +" le " + name +
+				", on a une capacity de " + stars +"personnes"+
+				",visité nous à l'adresse " + adresse +
+				",à " + ville +
+				",dans notre cher pays " + pays;
+
+	}
+
 	private int capacity;
 	private String adresse;
 	private String ville;

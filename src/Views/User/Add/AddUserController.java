@@ -4,23 +4,30 @@
  */
 package Views.User.Add;
 
+
+import Entities.SendMail;
+import Entities.User;
+
 import Entities.Restaurant;
 import Repositories.UserCrudImpl;
 import Services.UserService;
-import Entities.User;
 import Utils.DataSource;
 import Utils.Navigator;
-import java.io.IOException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,10 +75,11 @@ public class AddUserController implements Initializable {
     public void addUser(){
         User user= new User(name.getText(),roles.getValue(),Email.getText(),Password.getText(),Phone.getText());
         try {
+            SendMail.mailing(user);
             userService.create(user);
             successMsg.setText("L'utilisateur a été ajouté avec succès");
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             errMsg.setText("Une erreur a été rencontrée lors de l'ajout");
             Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -79,5 +87,8 @@ public class AddUserController implements Initializable {
     
     public void backToList(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,addUserPane,"../List/UserList.fxml");
+    }
+    public void backToLogin(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,"../../Login/Login.fxml");
     }
 }

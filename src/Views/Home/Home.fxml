@@ -5,11 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Home.HomeController">
     <stylesheets>
         <URL value="@home.css" />
     </stylesheets>
    <children>
+
       <AnchorPane id="corPane" fx:id="corPane" layoutX="160.0" prefHeight="600.0" prefWidth="741.0" styleClass="mainFxmlClass">
          <stylesheets>
             <URL value="@home.css" />
