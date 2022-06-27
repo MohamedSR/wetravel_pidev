@@ -3,43 +3,51 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Home.HomeController">
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Home.HomeController">
     <stylesheets>
         <URL value="@home.css" />
     </stylesheets>
    <children>
-      <GridPane prefHeight="720.0" prefWidth="1080.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+
+      <AnchorPane id="corPane" fx:id="corPane" layoutX="160.0" prefHeight="600.0" prefWidth="741.0" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@home.css" />
+         </stylesheets>
+      </AnchorPane>
+      <AnchorPane id="SiderPane" prefHeight="600.0" prefWidth="160.0" style="-fx-background-color: rgb(100, 157, 173);" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@home.css" />
+         </stylesheets>
          <children>
-            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goToEvent" prefHeight="173.0" prefWidth="291.0" style="-fx-background-color: rgb(233, 86, 61);" text="Events" textFill="WHITE">
+            <Button layoutY="-1.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: none; -fx-cursor: hand;" text="Dashboard" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="24.0" />
-               </font></Button>
-            <Button alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoRestaurant" prefHeight="171.0" prefWidth="291.0" style="-fx-background-color: rgb(59, 174, 218);" text="Restaurants" textFill="WHITE" GridPane.columnIndex="1">
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="resto_btn" layoutX="-3.0" layoutY="81.0" mnemonicParsing="false" onAction="#gotoRestaurant" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: none; -fx-cursor: hand;" text="Restaurants" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="24.0" />
-               </font></Button>
-            <Button alignment="BOTTOM_LEFT" layoutX="310.0" layoutY="31.0" mnemonicParsing="false" onAction="#gotoUser" prefHeight="175.0" prefWidth="291.0" style="-fx-background-color: rgb(140, 192, 81);" text="Users" textFill="WHITE" GridPane.rowIndex="1">
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_hotel" layoutX="-3.0" layoutY="173.0" mnemonicParsing="false" onAction="#goToHotel" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: none; -fx-cursor: hand;" text="Hotels" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="24.0" />
-               </font></Button>
-            <Button alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="164.0" mnemonicParsing="false" onAction="#goToHotel" prefHeight="171.0" prefWidth="291.0" style="-fx-background-color: rgb(246, 187, 67);" text="Hotels" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_events" layoutY="254.0" mnemonicParsing="false" onAction="#goToEvent" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: none; -fx-cursor: hand;" text="Events" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="24.0" />
-               </font></Button>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_users" layoutX="3.0" layoutY="340.0" mnemonicParsing="false" onAction="#gotoUser" prefHeight="61.0" prefWidth="152.0" style="-fx-background-color: none; -fx-cursor: hand;" text="Users" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
-      </GridPane>
+      </AnchorPane>
    </children>
 </AnchorPane>

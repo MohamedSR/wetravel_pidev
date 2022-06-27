@@ -67,8 +67,7 @@ public class LoginController extends Application {
             }
         } catch (FailedLoginExecption | UserNotAuzorithedException ex) {
              err.setText(ex.getMessage());
-        }
-        
+        }       
     }
 
     public static void main(String[] args) {
@@ -78,7 +77,7 @@ public class LoginController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root));
         stage.show();
     }
      public void switchToHome(ActionEvent event) throws IOException {

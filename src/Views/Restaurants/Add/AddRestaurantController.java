@@ -23,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -49,7 +50,8 @@ public class AddRestaurantController implements Initializable {
     private Button addRestaurantBtn;
     @FXML
     private Button backToListBtn;
-    
+    @FXML
+    private AnchorPane addRestaurantPane;
     RestaurantCrudImpl rcrud = new RestaurantCrudImpl(DataSource.getInstance().getCon());
     RestaurantService restaurantService = new RestaurantService(rcrud);
     /**
@@ -79,7 +81,7 @@ public class AddRestaurantController implements Initializable {
     }    
     
     public void backToList(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../List/RestaurantsList.fxml");
+        Navigator.goToView(getClass(), event,addRestaurantPane,"../List/RestaurantsList.fxml");
     }
     
 }

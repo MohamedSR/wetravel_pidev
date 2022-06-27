@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -22,11 +24,15 @@ public class Navigator {
     private static Scene scene;
     private static Parent home;
     
-    public static void goToView(Class cls,ActionEvent event,String view) throws IOException {
-        home = FXMLLoader.load(cls.getResource(view));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(home);
-        stage.setScene(scene);
-        stage.show();
-   }
+    public static void goToView(Class cls,ActionEvent event,AnchorPane anchorPane,String view) throws IOException {
+        AnchorPane fxmlLoader = FXMLLoader.load(cls.getResource(view));
+        try {
+            if(!anchorPane.getChildren().isEmpty()){
+                anchorPane.getChildren().clear();
+            }
+            anchorPane.getChildren().add(fxmlLoader);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+   }   
 }

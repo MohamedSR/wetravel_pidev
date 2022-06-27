@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.List.RestaurantsListController">
+<AnchorPane id="AnchorPane" fx:id="restaurantsPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.List.RestaurantsListController">
     <stylesheets>
         <URL value="@restaurantslist.css" />
     </stylesheets>
@@ -24,6 +24,5 @@
          </columnResizePolicy>
       </TableView>
       <Button fx:id="addRestaurantBtn" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#goToAddRestaurant" prefHeight="32.0" prefWidth="143.0" text="Ajouter un restaurant" />
-      <Button fx:id="annulerBtn" layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="32.0" prefWidth="143.0" text="Annuler" />
    </children>
 </AnchorPane>
