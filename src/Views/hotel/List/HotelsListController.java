@@ -70,6 +70,7 @@ public class HotelsListController implements Initializable {
         } catch (SQLException e) {
         }
     }
+
     public void goToAddHotel(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,hotelsPane,"../Add/AddHotel.fxml");
     }

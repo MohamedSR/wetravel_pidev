@@ -73,6 +73,8 @@ public class RestaurantsListController implements Initializable {
         } catch (Exception e) {
         }
     }
+  
+
     public void goToAddRestaurant(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,restaurantsPane,"../Add/AddRestaurant.fxml");
     }    
