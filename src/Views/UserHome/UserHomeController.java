@@ -120,6 +120,6 @@ public class UserHomeController implements Initializable {
         this.goToView(event, HOTEL_VIEW);
     }
     public void goToView(ActionEvent event,String view) throws IOException {
-         Navigator.goToView(getClass(), event, view);
+         Navigator.goToScreen(getClass(), event, view);
    }
 }

@@ -4,15 +4,14 @@
  */
 package Utils;
 
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.Node;
+import java.io.IOException;
 
 /**
  *
@@ -34,5 +33,13 @@ public class Navigator {
         } catch (Exception e) {
             e.printStackTrace();
         }
-   }   
+   }
+
+    public static void goToScreen(Class cls,ActionEvent event,String view) throws IOException {
+        home = FXMLLoader.load(cls.getResource(view));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(home);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

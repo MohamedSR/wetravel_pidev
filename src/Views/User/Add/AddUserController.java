@@ -7,8 +7,6 @@ package Views.User.Add;
 
 import Entities.SendMail;
 import Entities.User;
-
-import Entities.Restaurant;
 import Repositories.UserCrudImpl;
 import Services.UserService;
 import Utils.DataSource;
@@ -21,18 +19,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -89,6 +82,6 @@ public class AddUserController implements Initializable {
         Navigator.goToView(getClass(), event,addUserPane,"../List/UserList.fxml");
     }
     public void backToLogin(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../../Login/Login.fxml");
+        Navigator.goToView(getClass(), event,addUserPane,"../../Login/Login.fxml");
     }
 }
