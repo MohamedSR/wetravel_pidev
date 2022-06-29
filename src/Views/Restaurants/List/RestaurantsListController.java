@@ -17,10 +17,13 @@ import Utils.PdfGenerator;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -50,8 +53,11 @@ public class RestaurantsListController implements Initializable {
     private TableColumn<Restaurant, Void> actionCol;
     @FXML
     private AnchorPane restaurantsPane;
+    @FXML
+    private Button exportPDF;
     
-    
+    private Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
+    private Alert alertErr = new Alert(Alert.AlertType.ERROR);
     
     /**
      * Initializes the controller class.
@@ -67,11 +73,6 @@ public class RestaurantsListController implements Initializable {
             ObservableList<Restaurant> data = FXCollections.<Restaurant>observableArrayList();
             data.addAll(restaurant);
             restaurantsList.setItems(data);
-            actionCol.setCellFactory(param->new TableCell<Restaurant,Void>(){
-                private final Button editButton = new Button("edit");
-                private final Button deleteButton = new Button("delete");                
-            });
-
         } catch (Exception e) {
         }
     }
@@ -80,7 +81,26 @@ public class RestaurantsListController implements Initializable {
     public void goToAddRestaurant(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,restaurantsPane,"../Add/AddRestaurant.fxml");
     }    
-    public void genertePDF() throws FileNotFoundException{
-        PdfGenerator.generateRestaurantPDF(restaurant);
+    public void genertePDF(){
+        try {
+            exportPDF.setText("Exportation en cours ...");
+            exportPDF.setDisable(true);
+            PdfGenerator.generateRestaurantPDF(restaurant);
+            exportPDF.setDisable(false);
+            alertInfo.setHeaderText("");
+            alertInfo.setTitle("Info");
+            exportPDF.setText("Exporter PDF");
+            alertInfo.setContentText("le PDF est exporté avec succéss");
+            alertInfo.showAndWait();
+        } catch (FileNotFoundException ex) {
+            exportPDF.setDisable(false);
+            exportPDF.setText("Exporter PDF");
+            
+            alertErr.setHeaderText("");
+            alertErr.setTitle("Erreur");
+            alertErr.setContentText("Une erreur a été rencontrée lors de l'exportation de PDF");
+            
+            Logger.getLogger(RestaurantsListController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
