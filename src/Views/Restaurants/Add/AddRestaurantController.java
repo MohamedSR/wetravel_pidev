@@ -56,8 +56,9 @@ public class AddRestaurantController implements Initializable {
     private AnchorPane addRestaurantPane;
     @FXML
     private Button imgInput;
+    
     @FXML
-    private String imgPath;
+    private Label imgPath;
     
     RestaurantCrudImpl rcrud = new RestaurantCrudImpl(DataSource.getInstance().getCon());
     RestaurantService restaurantService = new RestaurantService(rcrud);
@@ -86,10 +87,10 @@ public class AddRestaurantController implements Initializable {
                 .addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
         //Show open file dialog
         File file = fileChooser.showOpenDialog(null);
-        imgPath = file.getAbsolutePath();
+        imgPath.setText(file.getAbsolutePath());
     }
     public void addRestaurant(){
-        Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText(),imgPath);
+        Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText(),imgPath.getText());
         try {
             addRestaurantBtn.setDisable(true);
             backToListBtn.setDisable(true);
