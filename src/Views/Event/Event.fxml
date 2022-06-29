@@ -22,6 +22,9 @@
       <TextField fx:id="villeEvent" layoutX="415.0" layoutY="114.0" />
       <TextField fx:id="paysEvent" layoutX="416.0" layoutY="167.0" />
       <Label layoutX="272.0" layoutY="276.0" />
-      <Label fx:id="err" layoutX="270.0" layoutY="294.0" text="err" />
+      <Button fx:id="imgInput" layoutX="115.0" layoutY="200.0" mnemonicParsing="false" onAction="#selectImage" text="selectionner une image" />
+      <Label fx:id="imgPath" layoutX="272.0" layoutY="204.0" />
+      <Label fx:id="err" layoutX="270.0" layoutY="294.0" text="" />
+
    </children>
 </AnchorPane>

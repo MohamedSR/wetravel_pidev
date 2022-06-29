@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package Repositories.Interfaces;
+
 import Entities.User;
+
 import java.sql.SQLException;
 /**
  *
@@ -11,4 +13,6 @@ import java.sql.SQLException;
  */
 public interface UserCrudInterface extends CrudRepository<User> {
      public User getByLogin(String login) throws SQLException;
+     void createWithImage(User t) throws SQLException;
+
 }

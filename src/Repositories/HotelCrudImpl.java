@@ -1,17 +1,12 @@
 package Repositories;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import Entities.Hotel;
+import Repositories.Interfaces.HotelCrudInterface;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import Entities.Hotel;
-import Entities.Restaurant;
-import Repositories.Interfaces.HotelCrudInterface;
 
 /**
 *
@@ -45,6 +40,19 @@ public class HotelCrudImpl implements HotelCrudInterface{
         prs.setString(4, h.getAdresse());
         prs.setString(5, h.getVille());
         prs.setString(6, h.getPays());
+        prs.executeUpdate();
+    }
+	@Override
+    public void createWithImage(Hotel h) throws SQLException {
+        String req="INSERT INTO hotels ( name, stars, capacity, adresse,ville,pays,image) VALUES(?,?,?,?,?,?,?)";
+        prs = con.prepareStatement(req);
+        prs.setString(1, h.getName());
+        prs.setInt(2, h.getStars());
+        prs.setInt(3, h.getCapacity());
+        prs.setString(4, h.getAdresse());
+        prs.setString(5, h.getVille());
+        prs.setString(6, h.getPays());
+        prs.setString(7, h.getImage());
         prs.executeUpdate();
     }
 
