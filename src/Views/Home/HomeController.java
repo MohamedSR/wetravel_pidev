@@ -8,6 +8,8 @@ import Utils.Navigator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +18,7 @@ import javafx.stage.Stage;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 
@@ -24,7 +27,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author m.rhouma
  */
-public class HomeController extends Application {
+public class HomeController extends Application  implements Initializable{
 
     final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
     final String USER_VIEW = "../User/List/UserList.fxml";
@@ -71,8 +74,17 @@ public class HomeController extends Application {
         Navigator.goToScreen(getClass(), event, LOGIN_VIEW);
     }
 
-    public void gotoStats(ActionEvent actionEvent) throws IOException {
-        Navigator.goToScreen(getClass(), actionEvent, DASHBOARD_VIEW);
+    public void gotoStats(ActionEvent event) throws IOException {
+        this.goToView(event, DASHBOARD_VIEW);
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            this.gotoStats(null);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
