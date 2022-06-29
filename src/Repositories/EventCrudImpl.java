@@ -44,19 +44,8 @@ public class EventCrudImpl implements EventCrudInterface {
         prs.setString(6, t.getPays());
         prs.executeUpdate();
     }
-    @Override
-    public void createWithImage(Event t) throws SQLException {
-        String req="INSERT INTO events ( name, capacity, date, adresse, ville, pays,image) VALUES(?,?,?,?,?,?,?)";
-        prs = con.prepareStatement(req);
-        prs.setString(1, t.getName());
-        prs.setInt(2, t.getCapacity());
-        prs.setDate(3, (Date) t.getDate());
-        prs.setString(4, t.getAdresse());
-        prs.setString(5, t.getVille());
-        prs.setString(6, t.getPays());
-        prs.setString(7, t.getImage());
-        prs.executeUpdate();
-    }
+
+
 
     @Override
     public Event find(int id) throws SQLException{
@@ -134,6 +123,19 @@ public class EventCrudImpl implements EventCrudInterface {
         prs.setString(6, t.getPays());
         prs.setInt(7, id);
         prs.execute();
+    }
+    @Override
+    public void createWithImage(Event t) throws SQLException {
+        String req="INSERT INTO events ( name, capacity, date, adresse, ville, pays,image) VALUES(?,?,?,?,?,?,?)";
+        prs = con.prepareStatement(req);
+        prs.setString(1, t.getName());
+        prs.setInt(2, t.getCapacity());
+        prs.setDate(3, (Date) t.getDate());
+        prs.setString(4, t.getAdresse());
+        prs.setString(5, t.getVille());
+        prs.setString(6, t.getPays());
+        prs.setString(7, t.getImage());
+        prs.executeUpdate();
     }
 }
 
