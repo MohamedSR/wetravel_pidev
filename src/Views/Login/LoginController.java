@@ -87,7 +87,7 @@ public class LoginController extends Application {
         scene = new Scene(home);
         stage.setScene(scene);
         stage.show();
-        }
+    }
         public void switchToUserHome(ActionEvent event) throws IOException {
         Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../UserHome/UserHome.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

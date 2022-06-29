@@ -24,35 +24,48 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author m.rhouma
  */
-public class HomeController extends Application { 
-   
+public class HomeController extends Application {
+
     final String RESTAURANT_VIEW = "../Restaurants/List/RestaurantsList.fxml";
     final String USER_VIEW = "../User/List/UserList.fxml";
     final String EVENT_VIEW = "../Event/EventList.fxml";
     final String HOTEL_VIEW = "../hotel/List/HotelsList.fxml";
+    final String LOGIN_VIEW = "../Login/Login.fxml";
+
     @FXML
     private AnchorPane corPane;
-     public static void main(String[] args) {
+
+    public static void main(String[] args) {
         launch(args);
     }
-     public void start(Stage stage) throws Exception {
+
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
     }
-    public void gotoRestaurant(ActionEvent event) throws IOException{
+
+    public void gotoRestaurant(ActionEvent event) throws IOException {
         this.goToView(event, RESTAURANT_VIEW);
     }
-    public void gotoUser(ActionEvent event) throws IOException{
+
+    public void gotoUser(ActionEvent event) throws IOException {
         this.goToView(event, USER_VIEW);
     }
-    public void goToEvent(ActionEvent event) throws IOException{
+
+    public void goToEvent(ActionEvent event) throws IOException {
         this.goToView(event, EVENT_VIEW);
     }
-    public void goToHotel(ActionEvent event) throws IOException{
+
+    public void goToHotel(ActionEvent event) throws IOException {
         this.goToView(event, HOTEL_VIEW);
     }
-    public void goToView(ActionEvent event,String view) throws IOException {
-         Navigator.goToView(getClass(), event, corPane,view);
-   }
+
+    public void goToView(ActionEvent event, String view) throws IOException {
+        Navigator.goToView(getClass(), event, corPane, view);
+    }
+
+    public void goToLogin(ActionEvent event) throws IOException {
+        Navigator.goToScreen(getClass(), event, LOGIN_VIEW);
+    }
 }
