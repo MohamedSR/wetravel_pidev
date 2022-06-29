@@ -83,7 +83,7 @@ public class UserHomeController implements Initializable {
             hotel = hotelService.get(id);
             Text text = new Text(hotel.toString());
             Hotel.getChildren().add(text);
-            String link="@../../assets/"+hotel.getName()+".PNG";
+            String link="@../../assets/via mercato.PNG";
             Image htl = new Image(link);
             hotelimg = new ImageView(htl);
             hotelimg.setFitHeight(150);
@@ -116,7 +116,7 @@ public class UserHomeController implements Initializable {
             event = eventService.getEvent(id);
             Text textE = new Text(event.toString());
             Event.getChildren().add(textE);
-            link="@../../assets/"+event.getName()+".PNG";
+            link="@../../assets/Rio Carnival.PNG";
             Image ev = new Image(link);
             eventimg = new ImageView(ev);
             eventimg.setFitHeight(150);

@@ -30,6 +30,13 @@ public class EventService {
         eventCrud.createWithImage(event);
     }
 
+    public ArrayList findTopEvents() throws SQLException {
+        return eventCrud.findTopEvents();
+    }
+    public ArrayList findEventsParPays() throws SQLException {
+        return eventCrud.findEventsParPays();
+    }
+
     public void updateEvent(int id,Event event) throws SQLException {
         eventCrud.update(id,event);
     }
