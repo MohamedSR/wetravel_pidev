@@ -14,7 +14,6 @@ import com.itextpdf.layout.element.Table;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *

@@ -24,6 +24,8 @@
       <Button layoutX="165.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToList" prefHeight="25.0" prefWidth="269.0" text="Annuler" />
       <ComboBox fx:id="roles" layoutX="412.0" layoutY="39.0" prefWidth="150.0" promptText="Role" visibleRowCount="2">
       </ComboBox>
+      <Button fx:id="imgInput" layoutX="115.0" layoutY="200.0" mnemonicParsing="false" onAction="#selectImage" text="selectionner une image" />
+      <Label fx:id="imgPath" layoutX="272.0" layoutY="204.0" />
       <Label fx:id="successMsg" layoutX="165.0" layoutY="252.0" textFill="#32884b">
          <font>
             <Font size="18.0" />

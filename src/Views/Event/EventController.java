@@ -5,29 +5,27 @@ import Repositories.EventCrudImpl;
 import Services.EventService;
 import Utils.DataSource;
 import Utils.Navigator;
-import Views.Event.EventController;
+import Utils.UploadImage;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import static javafx.application.Application.launch;
-import javafx.application.Application;
-import javafx.fxml.Initializable;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.layout.AnchorPane;
 
 public class EventController extends Application implements Initializable {
 
@@ -47,6 +45,11 @@ public class EventController extends Application implements Initializable {
     private Label err;
     @FXML
     private AnchorPane addEventPane;
+    @FXML
+    private Button imgInput;
+
+    @FXML
+    private Label imgPath;
 
     EventCrudImpl eventCrud = new EventCrudImpl(DataSource.getInstance().getCon());
     EventService eventService = new EventService(eventCrud);
@@ -62,10 +65,10 @@ public class EventController extends Application implements Initializable {
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         int capacit = Integer.parseInt(capaciteEvent.getText());
         Event event = new Event(nomEvent.getText(), adresseEvent.getText(), capacit, villeEvent.getText(), paysEvent.getText(), date
-        );
+        ,imgPath.getText());
 
         try {
-            eventService.createEvent(event);
+            eventService.createEventWithImage(event);
             System.out.println("goooooooooooooooood");
             switchToHome(e);
 
@@ -74,6 +77,11 @@ public class EventController extends Application implements Initializable {
             Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public void selectImage(ActionEvent event){
+        String path="";
+        path = UploadImage.selectImage(event,path);
+        imgPath.setText(path);
     }
 
     public void switchToHome(ActionEvent event) throws IOException {
