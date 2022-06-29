@@ -21,7 +21,7 @@
             <URL value="@home.css" />
          </stylesheets>
          <children>
-            <Button layoutY="-1.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: none; -fx-cursor: hand;" text="Dashboard" textFill="WHITE">
+            <Button layoutY="-1.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" onAction="#gotoStats" style="-fx-background-color: none; -fx-cursor: hand;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
