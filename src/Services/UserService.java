@@ -35,7 +35,10 @@ public class UserService {
     public void create(User user) throws SQLException {
         userCrud.create(user);
     }
-    
+    public void createWithImage(User user) throws SQLException {
+        userCrud.createWithImage(user);
+    }
+
     public void update(int id,User user) throws SQLException {
         userCrud.update(id,user);
     }

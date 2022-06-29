@@ -1,10 +1,10 @@
 package Services;
 
 import Entities.Restaurant;
+import Repositories.Interfaces.RestaurantCrudInterface;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Repositories.Interfaces.RestaurantCrudInterface;
 
 public class RestaurantService {
 
@@ -16,6 +16,9 @@ public class RestaurantService {
 
     public void createRestaurant(Restaurant restaurants) throws SQLException {
         restaurantsCrud.create(restaurants);
+    }
+    public void createRestaurantWithImage(Restaurant restaurants) throws SQLException {
+        restaurantsCrud.createWithImage(restaurants);
     }
 
     public Restaurant findRestaurants(int id) throws SQLException {

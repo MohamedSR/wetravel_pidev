@@ -1,8 +1,9 @@
 package Services;
 
-import Repositories.Interfaces.EventCrudInterface;
-import java.sql.SQLException;
 import Entities.Event;
+import Repositories.Interfaces.EventCrudInterface;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -24,6 +25,9 @@ public class EventService {
 
     public void createEvent(Event event) throws SQLException {
         eventCrud.create(event);
+    }
+    public void createEventWithImage(Event event) throws SQLException {
+        eventCrud.createWithImage(event);
     }
 
     public ArrayList findTopEvents() throws SQLException {

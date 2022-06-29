@@ -29,7 +29,7 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
     }
 
     @Override
-    public void create(Restaurant restaurants) throws SQLException {
+    public void createWithImage(Restaurant restaurants) throws SQLException {
         String req = "INSERT INTO restaurants ( name, capacity, adresse, ville, pays,image) VALUES(?,?,?,?,?,?)";
         prs = con.prepareStatement(req);
 
@@ -39,6 +39,18 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         prs.setString(4, restaurants.getVille());
         prs.setString(5, restaurants.getPays());
         prs.setString(6, restaurants.getImage());
+        prs.executeUpdate();
+    }
+    @Override
+    public void create(Restaurant restaurants) throws SQLException {
+        String req = "INSERT INTO restaurants ( name, capacity, adresse, ville, pays) VALUES(?,?,?,?,?)";
+        prs = con.prepareStatement(req);
+
+        prs.setString(1, restaurants.getName());
+        prs.setInt(2, restaurants.getCapacity());
+        prs.setString(3, restaurants.getAdresse());
+        prs.setString(4, restaurants.getVille());
+        prs.setString(5, restaurants.getPays());
         prs.executeUpdate();
     }
 
