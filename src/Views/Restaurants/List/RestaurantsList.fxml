@@ -24,5 +24,6 @@
          </columnResizePolicy>
       </TableView>
       <Button fx:id="addRestaurantBtn" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#goToAddRestaurant" prefHeight="32.0" prefWidth="143.0" text="Ajouter un restaurant" />
+      <Button fx:id="exportPDF" layoutX="171.0" layoutY="3.0" mnemonicParsing="false" onAction="#genertePDF" prefHeight="32.0" prefWidth="143.0" text="Exporter PDF" />
    </children>
 </AnchorPane>

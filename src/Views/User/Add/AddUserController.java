@@ -5,7 +5,7 @@
 package Views.User.Add;
 
 
-import Entities.SendMail;
+import Utils.SendMail;
 import Entities.User;
 import Repositories.UserCrudImpl;
 import Services.UserService;

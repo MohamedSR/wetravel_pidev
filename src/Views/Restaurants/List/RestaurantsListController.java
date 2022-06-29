@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import Entities.Restaurant;
 import Utils.Navigator;
+import Utils.PdfGenerator;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
@@ -78,5 +80,7 @@ public class RestaurantsListController implements Initializable {
     public void goToAddRestaurant(ActionEvent event) throws IOException{
         Navigator.goToView(getClass(), event,restaurantsPane,"../Add/AddRestaurant.fxml");
     }    
-    
+    public void genertePDF() throws FileNotFoundException{
+        PdfGenerator.generateRestaurantPDF(restaurant);
+    }
 }
