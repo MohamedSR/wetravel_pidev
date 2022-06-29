@@ -1,11 +1,10 @@
 package Services;
 
+import Entities.Hotel;
+import Repositories.Interfaces.HotelCrudInterface;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import Entities.Hotel;
-import Entities.Restaurant;
-import Repositories.Interfaces.HotelCrudInterface;
 
 
 
@@ -34,7 +33,10 @@ public class HotelsService {
 	    public void create(Hotel hotel) throws SQLException {
 	    	hotelCrud.create(hotel);
 	    }
-	    
+	    public void createWithImage(Hotel hotel) throws SQLException {
+	    	hotelCrud.createWithImage(hotel);
+	    }
+
 	    public void update(int id,Hotel hotel) throws SQLException {
 	    	hotelCrud.update(id,hotel);
 	    }

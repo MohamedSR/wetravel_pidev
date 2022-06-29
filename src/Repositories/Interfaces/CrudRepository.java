@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public interface CrudRepository<T> {
  public void create(T t) throws SQLException;
+ public void createWithImage(T t) throws SQLException;
  public T find(int id) throws SQLException;
  public ArrayList<T> findAll()throws SQLException;
  public void delete(int id) throws SQLException;

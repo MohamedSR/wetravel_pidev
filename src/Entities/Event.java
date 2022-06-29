@@ -75,6 +75,14 @@ public class Event {
         return capacity;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
