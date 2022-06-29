@@ -15,6 +15,7 @@ import Services.HotelsService;
 import Services.RestaurantService;
 import Utils.DataSource;
 import Utils.Navigator;
+import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,10 +30,13 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class UserHomeController implements Initializable {
@@ -90,12 +94,15 @@ public class UserHomeController implements Initializable {
             hotelimg.setCache(true);
             pane.getChildren().add(hotelimg);
 
-            id = getRandomNumberUsingNextInt(1,6);
+            id = getRandomNumberUsingNextInt(21,23);
             restaurant = restaurantService.findRestaurants(id);
             Text textR = new Text(restaurant.toString());
             Restaurant.getChildren().add(textR);
-            link="@../../assets/"+restaurant.getName()+".PNG";
-            Image rest = new Image(link);
+            link=restaurant.getImage();
+            File file = new File(link);
+            String localUrl = file.toURI().toURL().toString();
+           
+            Image rest = new Image(localUrl);
             restimg = new ImageView(rest);
             restimg.setFitHeight(150);
             restimg.setFitWidth(150);
@@ -105,7 +112,7 @@ public class UserHomeController implements Initializable {
             restimg.setCache(true);
             pane.getChildren().add(restimg);
 
-            id = getRandomNumberUsingNextInt(1,5);
+            id = getRandomNumberUsingNextInt(1,3);
             event = eventService.getEvent(id);
             Text textE = new Text(event.toString());
             Event.getChildren().add(textE);
@@ -121,7 +128,8 @@ public class UserHomeController implements Initializable {
             pane.getChildren().add(eventimg);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(UserHomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public int getRandomNumberUsingNextInt(int min, int max) {

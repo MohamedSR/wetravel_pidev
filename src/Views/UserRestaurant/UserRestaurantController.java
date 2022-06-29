@@ -9,6 +9,7 @@ import Repositories.RestaurantCrudImpl;
 import Services.RestaurantService;
 import Utils.DataSource;
 import Utils.Navigator;
+import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,10 +24,13 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class UserRestaurantController implements Initializable {
@@ -64,12 +68,15 @@ public class UserRestaurantController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            int id = getRandomNumberUsingNextInt(1,6);
+            // TODO service that returns array contains ids of first and last restaurant
+            int id = getRandomNumberUsingNextInt(21,23);
             restaurant = restaurantService.findRestaurants(id);
             Text textR = new Text(restaurant.toString());
             Restaurant.getChildren().add(textR);
-            String link="@../../assets/"+restaurant.getName()+".PNG";
-            Image rest = new Image(link);
+            String link=restaurant.getImage();
+            File file = new File(link);
+            String localUrl = file.toURI().toURL().toString();
+            Image rest = new Image(localUrl);
             restimg = new ImageView(rest);
             restimg.setFitHeight(150);
             restimg.setFitWidth(150);
@@ -79,16 +86,18 @@ public class UserRestaurantController implements Initializable {
             restimg.setCache(true);
             pane.getChildren().add(restimg);
 
-            int id1 = getRandomNumberUsingNextInt(1,6);
+            int id1 = getRandomNumberUsingNextInt(21,23);
 
             while (id1==id){
-                id1 = getRandomNumberUsingNextInt(1,6);
+                id1 = getRandomNumberUsingNextInt(21,23);
             }
             restaurant = restaurantService.findRestaurants(id1);
             textR = new Text(restaurant.toString());
             Restaurant1.getChildren().add(textR);
-            link="@../../assets/"+restaurant.getName()+".PNG";
-            Image rest1 = new Image(link);
+            link=restaurant.getImage();
+            file = new File(link);
+            localUrl = file.toURI().toURL().toString();
+            Image rest1 = new Image(localUrl);
             getRestimg = new ImageView(rest1);
             getRestimg.setFitHeight(150);
             getRestimg.setFitWidth(150);
@@ -97,17 +106,19 @@ public class UserRestaurantController implements Initializable {
             getRestimg.setSmooth(true);
             getRestimg.setCache(true);
             pane.getChildren().add(getRestimg);
-            int id2 = getRandomNumberUsingNextInt(1,6);
+            int id2 = getRandomNumberUsingNextInt(21,23);
 
             while (id2==id){
-                id2 = getRandomNumberUsingNextInt(1,6);
+                id2 = getRandomNumberUsingNextInt(21,23);
             }
 
             restaurant = restaurantService.findRestaurants(id2);
             textR = new Text(restaurant.toString());
             Restaurant2.getChildren().add(textR);
-            link="@../../assets/"+restaurant.getName()+".PNG";
-            Image rest2 = new Image(link);
+            link=restaurant.getImage();
+            file = new File(link);
+            localUrl = file.toURI().toURL().toString();
+            Image rest2 = new Image(localUrl);
             imageView = new ImageView(rest2);
             imageView.setFitHeight(150);
             imageView.setFitWidth(150);
@@ -119,6 +130,8 @@ public class UserRestaurantController implements Initializable {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(UserRestaurantController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
