@@ -1,5 +1,6 @@
-package Entities;
+package Utils;
 
+import Entities.User;
 import Utils.DataSource;
 
 import javax.mail.*;
@@ -37,7 +38,7 @@ public class SendMail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(mail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
-            message.setSubject("Welcome" + user.getName());
+            message.setSubject("Welcome " + user.getName());
             message.setText("Welcome " + user.getName() + " we are more than happy for choosing our app \n" +
                     "if you need any information or assistance feel free to contact us \n Have a nice day!");
             Transport.send(message);
