@@ -24,9 +24,19 @@ public class Hotel {
 	private String adresse;
 	private String ville;
 	private String pays;
-	
+	private String image;
+
 	public Hotel() {}
 
+	public Hotel(String name, int stars, int capacity, String adresse, String ville, String pays,String image) {
+		this.name = name;
+		this.stars = stars;
+		this.capacity = capacity;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.pays = pays;
+		this.image = image;
+	}
 	public Hotel(String name, int stars, int capacity, String adresse, String ville, String pays) {
 		this.name = name;
 		this.stars = stars;
@@ -35,7 +45,16 @@ public class Hotel {
 		this.ville = ville;
 		this.pays = pays;
 	}
-
+	public Hotel(int id,String name, int stars, int capacity, String adresse, String ville, String pays,String image) {
+		this.id = id;
+		this.name = name;
+		this.stars = stars;
+		this.capacity = capacity;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.pays = pays;
+		this.image = image;
+	}
 	public Hotel(int id, String name, int stars, int capacity, String adresse, String ville, String pays) {
 		this.id = id;
 		this.name = name;

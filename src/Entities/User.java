@@ -55,11 +55,19 @@ public class User {
     }
 
     private int id;
-    private String name, role, email, password, phone;
+    private String name, role, email, password, phone, image;
 
     public User() {
     }
 
+    public User(String name, String role, String email, String password, String phone, String image) {
+        this.name = name;
+        this.role = role;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.image = image;
+    }
     public User(String name, String role, String email, String password, String phone) {
         this.name = name;
         this.role = role;
@@ -67,7 +75,6 @@ public class User {
         this.password = password;
         this.phone = phone;
     }
-
     public User(int id, String name, String role, String email, String password, String phone) {
         this.id = id;
         this.name = name;
@@ -75,6 +82,15 @@ public class User {
         this.email = email;
         this.password = password;
         this.phone = phone;
+    }
+    public User(int id, String name, String role, String email, String password, String phone,String image) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.image = image;
     }
 
     public String getPhone() {

@@ -23,7 +23,6 @@ public class Restaurant {
         this.pays = pays;
         this.name = name;
     }
-
     public Restaurant(int capacity, String adresse, String ville, String pays, String name) {
         this.capacity = capacity;
         this.adresse = adresse;
@@ -31,7 +30,6 @@ public class Restaurant {
         this.pays = pays;
         this.name = name;
     }
-
     public Restaurant(int id, int capacity, String name, String adresse, String ville, String pays, String image) {
         this.id = id;
         this.capacity = capacity;
@@ -41,7 +39,6 @@ public class Restaurant {
         this.pays = pays;
         this.image = image;
     }
-
     public Restaurant(int capacity, String name, String adresse, String ville, String pays, String image) {
         this.capacity = capacity;
         this.name = name;

@@ -79,7 +79,7 @@ public class Event {
         this.capacity = capacity;
     }
 
-    private String name, adresse, ville, pays;
+    private String name, adresse, ville, pays,image;
     private Date date;
     private int capacity;
 
@@ -104,7 +104,15 @@ public class Event {
         this.date = date;
         this.capacity = capacity;
     }
-
+    public Event(String name, String adresse, int capacity, String ville, String pays, Date date,String image) {
+        this.name = name;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.pays = pays;
+        this.date = date;
+        this.capacity = capacity;
+        this.image = image;
+    }
     public Event(int id, String name, String adresse, String ville, String pays, Date date, int capacity) {
         this.id = id;
         this.name = name;
@@ -113,6 +121,16 @@ public class Event {
         this.pays = pays;
         this.date = date;
         this.capacity = capacity;
+    }
+    public Event(int id, String name, String adresse, String ville, String pays, Date date, int capacity, String image) {
+        this.id = id;
+        this.name = name;
+        this.adresse = adresse;
+        this.ville = ville;
+        this.pays = pays;
+        this.date = date;
+        this.capacity = capacity;
+        this.image = image;
     }
 
 }
