@@ -31,6 +31,8 @@ public class HomeController extends Application {
     final String EVENT_VIEW = "../Event/EventList.fxml";
     final String HOTEL_VIEW = "../hotel/List/HotelsList.fxml";
     final String LOGIN_VIEW = "../Login/Login.fxml";
+    final String DASHBOARD_VIEW = "../Dashboard/Dashboard.fxml";
+
 
     @FXML
     private AnchorPane corPane;
@@ -67,5 +69,10 @@ public class HomeController extends Application {
 
     public void goToLogin(ActionEvent event) throws IOException {
         Navigator.goToScreen(getClass(), event, LOGIN_VIEW);
+    }
+
+    public void gotoStats(ActionEvent actionEvent) throws IOException {
+        Navigator.goToScreen(getClass(), actionEvent, DASHBOARD_VIEW);
+
     }
 }

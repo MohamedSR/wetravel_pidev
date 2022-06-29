@@ -1,6 +1,7 @@
 package Repositories;
 
 import Entities.Event;
+import Entities.EventStat;
 import Repositories.Interfaces.EventCrudInterface;
 
 import java.sql.*;
@@ -57,6 +58,7 @@ public class EventCrudImpl implements EventCrudInterface {
         return event;
     }
 
+
     @Override
     public ArrayList<Event> findAll() throws SQLException{
         String query = "select * from events";
@@ -67,6 +69,37 @@ public class EventCrudImpl implements EventCrudInterface {
         }
         return list;
     }
+
+    @Override
+    public ArrayList<Event> findTopEvents() throws SQLException{
+        // calcule rating for each events
+        //
+        String query = "SELECT *\n" +
+                "FROM events\n" +
+                "INNER JOIN reviews ON events.id = reviews.event_id\n" +
+                "and reviews.rating > 4\n" +
+                "ORDER BY reviews.rating";
+        ArrayList<Event> list = new ArrayList<>();
+        ResultSet rs = ste.executeQuery(query);
+        while(rs.next()){
+            list.add(new Event(rs.getInt("id"), rs.getString("name"), rs.getInt("capacity"), rs.getDate("date"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays")));
+        }
+        return list;
+    }
+    @Override
+    public ArrayList<EventStat> findEventsParPays() throws SQLException{
+        String query = " SELECT COUNT(id) as total,name,pays\n" +
+                "    FROM events\n" +
+                "    GROUP BY pays\n" +
+                "    ORDER BY COUNT(id) DESC";
+        ArrayList<EventStat> list = new ArrayList<>();
+        ResultSet rs = ste.executeQuery(query);
+        while(rs.next()){
+            list.add(new EventStat(rs.getInt("total"), rs.getString("name"),rs.getString("pays") ));
+        }
+        return list;
+    }
+
 
     @Override
     public void delete(int id) throws SQLException{
