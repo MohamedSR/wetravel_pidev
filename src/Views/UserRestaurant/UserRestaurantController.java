@@ -9,7 +9,6 @@ import Repositories.RestaurantCrudImpl;
 import Services.RestaurantService;
 import Utils.DataSource;
 import Utils.Navigator;
-import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +22,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -69,7 +69,7 @@ public class UserRestaurantController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             // TODO service that returns array contains ids of first and last restaurant
-            int id = getRandomNumberUsingNextInt(21,23);
+            int id = getRandomNumberUsingNextInt(1,7);
             restaurant = restaurantService.findRestaurants(id);
             Text textR = new Text(restaurant.toString());
             Restaurant.getChildren().add(textR);
@@ -86,10 +86,10 @@ public class UserRestaurantController implements Initializable {
             restimg.setCache(true);
             pane.getChildren().add(restimg);
 
-            int id1 = getRandomNumberUsingNextInt(21,23);
+            int id1 = getRandomNumberUsingNextInt(1,7);
 
             while (id1==id){
-                id1 = getRandomNumberUsingNextInt(21,23);
+                id1 = getRandomNumberUsingNextInt(1,7);
             }
             restaurant = restaurantService.findRestaurants(id1);
             textR = new Text(restaurant.toString());
@@ -106,10 +106,10 @@ public class UserRestaurantController implements Initializable {
             getRestimg.setSmooth(true);
             getRestimg.setCache(true);
             pane.getChildren().add(getRestimg);
-            int id2 = getRandomNumberUsingNextInt(21,23);
+            int id2 = getRandomNumberUsingNextInt(1,7);
 
             while (id2==id){
-                id2 = getRandomNumberUsingNextInt(21,23);
+                id2 = getRandomNumberUsingNextInt(1,7);
             }
 
             restaurant = restaurantService.findRestaurants(id2);

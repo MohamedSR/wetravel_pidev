@@ -65,7 +65,7 @@ public class UserHotelController implements Initializable {
             hotel = hotelService.get(id);
             Text textR = new Text(hotel.toString());
             Hotel.getChildren().add(textR);
-            String link="@../../assets/"+hotel.getName()+".PNG";
+            String link="File:"+hotel.getImage();
             Image rest = new Image(link);
             hotelimg = new ImageView(rest);
             hotelimg.setFitHeight(150);
@@ -84,7 +84,7 @@ public class UserHotelController implements Initializable {
             hotel = hotelService.get(id1);
             textR = new Text(hotel.toString());
             Hotel1.getChildren().add(textR);
-            link="@../../assets/"+hotel.getName()+".PNG";
+            link="File:"+hotel.getImage();
             Image rest1 = new Image(link);
             hotelimg1 = new ImageView(rest1);
             hotelimg1.setFitHeight(150);
@@ -103,7 +103,7 @@ public class UserHotelController implements Initializable {
             hotel = hotelService.get(id2);
             textR = new Text(hotel.toString());
             Hotel2.getChildren().add(textR);
-            link="@../../assets/"+hotel.getName()+".PNG";
+            link="File:"+hotel.getImage();
             Image rest2 = new Image(link);
             hotelimg2 = new ImageView(rest2);
             hotelimg2.setFitHeight(150);

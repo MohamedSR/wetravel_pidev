@@ -15,7 +15,6 @@ import Services.HotelsService;
 import Services.RestaurantService;
 import Utils.DataSource;
 import Utils.Navigator;
-import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +28,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -79,11 +79,11 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            int id = getRandomNumberUsingNextInt(1,5);
+            int id = getRandomNumberUsingNextInt(1,6);
             hotel = hotelService.get(id);
             Text text = new Text(hotel.toString());
             Hotel.getChildren().add(text);
-            String link="@../../assets/via mercato.PNG";
+            String link="File:"+hotel.getImage();
             Image htl = new Image(link);
             hotelimg = new ImageView(htl);
             hotelimg.setFitHeight(150);
@@ -94,7 +94,7 @@ public class UserHomeController implements Initializable {
             hotelimg.setCache(true);
             pane.getChildren().add(hotelimg);
 
-            id = getRandomNumberUsingNextInt(21,23);
+            id = getRandomNumberUsingNextInt(1,7);
             restaurant = restaurantService.findRestaurants(id);
             Text textR = new Text(restaurant.toString());
             Restaurant.getChildren().add(textR);
@@ -112,11 +112,11 @@ public class UserHomeController implements Initializable {
             restimg.setCache(true);
             pane.getChildren().add(restimg);
 
-            id = getRandomNumberUsingNextInt(1,3);
+            id = getRandomNumberUsingNextInt(1,6);
             event = eventService.getEvent(id);
             Text textE = new Text(event.toString());
             Event.getChildren().add(textE);
-            link="@../../assets/Rio Carnival.PNG";
+            link="File:"+event.getImage();
             Image ev = new Image(link);
             eventimg = new ImageView(ev);
             eventimg.setFitHeight(150);

@@ -70,7 +70,7 @@ public class UserCrudImpl implements UserCrudInterface {
         ResultSet rs  = prs.executeQuery();
         User user = new User();
         while(rs.next()){
-            user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("role"), rs.getString("email"), rs.getString("password"), rs.getString("phone"));
+            user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("role"), rs.getString("email"), rs.getString("password"), rs.getString("phone"), rs.getString("image"));
         }
          return user;
     }

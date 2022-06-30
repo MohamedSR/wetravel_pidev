@@ -56,11 +56,11 @@ public class UserEventController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            int id = getRandomNumberUsingNextInt(1,5);
+            int id = getRandomNumberUsingNextInt(1,6);
             event = eventService.getEvent(id);
             Text textR = new Text(event.toString());
             Event.getChildren().add(textR);
-            String link="@../../assets/"+event.getName()+".PNG";
+            String link="File:"+event.getImage();
             Image rest = new Image(link);
             eventimg = new ImageView(rest);
             eventimg.setFitHeight(150);
@@ -71,15 +71,15 @@ public class UserEventController implements Initializable {
             eventimg.setCache(true);
             pane.getChildren().add(eventimg);
 
-            int id1 = getRandomNumberUsingNextInt(1,5);
+            int id1 = getRandomNumberUsingNextInt(1,6);
 
             while (id1==id){
-                id1 = getRandomNumberUsingNextInt(1,5);
+                id1 = getRandomNumberUsingNextInt(1,6);
             }
             event = eventService.getEvent(id1);
             textR = new Text(event.toString());
             Event1.getChildren().add(textR);
-            link="@../../assets/"+event.getName()+".PNG";
+            link="File:"+event.getImage();
             Image rest1 = new Image(link);
             eventimg1 = new ImageView(rest1);
             eventimg1.setFitHeight(150);
@@ -89,16 +89,16 @@ public class UserEventController implements Initializable {
             eventimg1.setLayoutY(150);
             eventimg1.setCache(true);
             pane.getChildren().add(eventimg1);
-            int id2 = getRandomNumberUsingNextInt(1,5);
+            int id2 = getRandomNumberUsingNextInt(1,6);
 
             while (id2==id){
-                id2 = getRandomNumberUsingNextInt(1,5);
+                id2 = getRandomNumberUsingNextInt(1,6);
             }
 
             event = eventService.getEvent(id2);
             textR = new Text(event.toString());
             Event2.getChildren().add(textR);
-            link="@../../assets/"+event.getName()+".PNG";
+            link="File:"+event.getImage();
             Image rest2 = new Image(link);
             eventimg2 = new ImageView(rest2);
             eventimg2.setFitHeight(150);
