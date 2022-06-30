@@ -64,7 +64,7 @@ public class HotelCrudImpl implements HotelCrudInterface{
 	        ResultSet rs  = prs.executeQuery();
 	        Hotel hotel = new Hotel();
 	        while(rs.next()){
-	        	hotel = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays"));
+	        	hotel = new Hotel(rs.getInt("id"),rs.getString("name"),rs.getInt("stars"),rs.getInt("capacity"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays"),rs.getString("image"));
 	        }
 	         return hotel;
 	}
