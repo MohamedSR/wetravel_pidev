@@ -4,6 +4,9 @@
  */
 package Utils;
 
+import Entities.Restaurant;
+import Views.Restaurants.Add.AddRestaurantController;
+import Views.Restaurants.Update.UpdateRestaurantController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +40,20 @@ public class Navigator {
 
     public static void goToScreen(Class cls,ActionEvent event,String view) throws IOException {
         home = FXMLLoader.load(cls.getResource(view));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(home);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    
+    public static void goToUpdateRestaurantScreen(Class cls,ActionEvent event,String view,Restaurant r) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(cls.getResource(view));
+        home = loader.load();
+        UpdateRestaurantController urs = loader.getController();
+        urs.initData(r);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(home);
         stage.setScene(scene);
