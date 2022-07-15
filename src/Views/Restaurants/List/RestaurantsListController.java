@@ -87,7 +87,7 @@ public class RestaurantsListController implements Initializable {
                         editBtn.setOnAction(ae -> {
                             Restaurant rst = getTableView().getItems().get(getIndex());
                             try {
-                                Navigator.goToUpdateRestaurantScreen(getClass(), ae,  "../Update/UpdateRestaurant.fxml", rst);
+                                Navigator.goToUpdateRestaurantScreen(getClass(), ae, restaurantsPane, "../Update/UpdateRestaurant.fxml", rst);
                             } catch (IOException ex) {
                                 Logger.getLogger(RestaurantsListController.class.getName()).log(Level.SEVERE, null, ex);
                             }

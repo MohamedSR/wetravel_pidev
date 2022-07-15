@@ -55,7 +55,7 @@ public class EventCrudImpl implements EventCrudInterface {
         ResultSet rs  = prs.executeQuery();
         Event event = new Event();
         while(rs.next()){
-            event = new Event(rs.getInt("id"), rs.getString("name"), rs.getInt("capacity"), rs.getDate("date"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays"));
+            event = new Event(rs.getInt("id"), rs.getString("name"), rs.getString("adresse"), rs.getString("ville"), rs.getString("pays"), rs.getDate("date"), rs.getInt("capacity"), rs.getString("image"));
         }
         return event;
     }

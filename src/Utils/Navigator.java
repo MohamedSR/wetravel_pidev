@@ -47,16 +47,20 @@ public class Navigator {
     }
     
     
-    public static void goToUpdateRestaurantScreen(Class cls,ActionEvent event,String view,Restaurant r) throws IOException {
+    public static void goToUpdateRestaurantScreen(Class cls,ActionEvent event,AnchorPane anchorPane,String view,Restaurant r) throws IOException {
         
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(cls.getResource(view));
-        home = loader.load();
+        AnchorPane fxmlLoader = loader.load();
         UpdateRestaurantController urs = loader.getController();
         urs.initData(r);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(home);
-        stage.setScene(scene);
-        stage.show();
+        try {
+            if(!anchorPane.getChildren().isEmpty()){
+                anchorPane.getChildren().clear();
+            }
+            anchorPane.getChildren().add(fxmlLoader);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
