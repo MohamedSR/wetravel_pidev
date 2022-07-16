@@ -5,15 +5,17 @@
 package Utils;
 
 import Entities.Restaurant;
-import Views.Restaurants.Add.AddRestaurantController;
+import Entities.User;
 import Views.Restaurants.Update.UpdateRestaurantController;
+import Views.User.Update.UpdateUserController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.Node;
+
 import java.io.IOException;
 
 /**
@@ -45,15 +47,31 @@ public class Navigator {
         stage.setScene(scene);
         stage.show();
     }
-    
-    
+
+
     public static void goToUpdateRestaurantScreen(Class cls,ActionEvent event,AnchorPane anchorPane,String view,Restaurant r) throws IOException {
-        
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(cls.getResource(view));
         AnchorPane fxmlLoader = loader.load();
         UpdateRestaurantController urs = loader.getController();
         urs.initData(r);
+        try {
+            if(!anchorPane.getChildren().isEmpty()){
+                anchorPane.getChildren().clear();
+            }
+            anchorPane.getChildren().add(fxmlLoader);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void goToUpdateUserScreen(Class cls, ActionEvent event, AnchorPane anchorPane, String view, User u) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(cls.getResource(view));
+        AnchorPane fxmlLoader = loader.load();
+        UpdateUserController urs = loader.getController();
+        urs.initData(u);
         try {
             if(!anchorPane.getChildren().isEmpty()){
                 anchorPane.getChildren().clear();

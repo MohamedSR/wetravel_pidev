@@ -21,8 +21,6 @@
       <Label layoutX="59.0" layoutY="100.0" prefHeight="17.0" prefWidth="52.0" text="Email" />
       <TextField fx:id="Phone" layoutX="413.0" layoutY="97.0" />
       <Label layoutX="361.0" layoutY="101.0" prefHeight="17.0" prefWidth="52.0" text="Phone" />
-      <Label layoutX="47.0" layoutY="156.0" prefHeight="17.0" prefWidth="52.0" text="Addresse:" />
-      <TextField fx:id="addresse" layoutX="115.0" layoutY="152.0" prefHeight="25.0" prefWidth="450.0" />
       <Button fx:id="backToListBtn" layoutX="165.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToList" prefHeight="25.0" prefWidth="269.0" style="-fx-background-color: rgb(100, 157, 173); -fx-border-radius: 10; -fx-background-radius: 10; -fx-cursor: hand;" text="Annuler" textFill="WHITE">
          <font>
             <Font size="14.0" />
