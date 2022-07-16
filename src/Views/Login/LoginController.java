@@ -8,9 +8,11 @@ import Exceptions.FailedLoginExecption;
 import Exceptions.UserNotAuzorithedException;
 import Repositories.UserCrudImpl;
 import Services.UserService;
+import Entities.User;
 import Utils.DataSource;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,8 +59,13 @@ public class LoginController extends Application {
 
     public void login(ActionEvent event) throws IOException {
         try {
-            userService.login(email.getText(), password.getText());
-            switchToHome(event);
+           User user = userService.login(email.getText(), password.getText());
+            if(user.getRole().equals("ADMIN")){
+                switchToHome(event);
+            }
+            else{
+                switchToUserHome(event);
+            }
         } catch (FailedLoginExecption | UserNotAuzorithedException ex) {
              err.setText(ex.getMessage());
         }       
@@ -70,12 +77,26 @@ public class LoginController extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         stage.setScene(new Scene(root));
         stage.show();
     }
      public void switchToHome(ActionEvent event) throws IOException {
-        Parent home = FXMLLoader.load(getClass().getResource("../Home/Home.fxml"));
+        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Home/Home.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(home);
+        stage.setScene(scene);
+        stage.show();
+    }
+        public void switchToUserHome(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../UserHome/UserHome.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(home);
+        stage.setScene(scene);
+        stage.show();
+        }
+   public void switchToLogin(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../User/Add/AddUser.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(home);
         stage.setScene(scene);

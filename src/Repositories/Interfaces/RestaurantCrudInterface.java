@@ -7,4 +7,6 @@ import java.util.ArrayList;
 
 public interface RestaurantCrudInterface extends CrudRepository<Restaurant>{
     public ArrayList<Restaurant> findByVille(String ville) throws SQLException;
+    void createWithImage(Restaurant t) throws SQLException;
+
 }

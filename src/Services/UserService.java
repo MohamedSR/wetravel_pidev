@@ -4,14 +4,13 @@
  */
 package Services;
 
-import Repositories.Interfaces.UserCrudInterface;
-import java.sql.SQLException;
 import Entities.User;
 import Exceptions.FailedLoginExecption;
 import Exceptions.UserNotAuzorithedException;
+import Repositories.Interfaces.UserCrudInterface;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -36,7 +35,10 @@ public class UserService {
     public void create(User user) throws SQLException {
         userCrud.create(user);
     }
-    
+    public void createWithImage(User user) throws SQLException {
+        userCrud.createWithImage(user);
+    }
+
     public void update(int id,User user) throws SQLException {
         userCrud.update(id,user);
     }
@@ -45,7 +47,7 @@ public class UserService {
         userCrud.delete(id);
     }
     
-    public void login(String email,String password) throws FailedLoginExecption, UserNotAuzorithedException{
+    public User login(String email,String password) throws FailedLoginExecption, UserNotAuzorithedException{
         User user;
         try {
             user = userCrud.getByLogin(email);
@@ -55,12 +57,12 @@ public class UserService {
             if (!user.getPassword().equals(password)){
                 throw new FailedLoginExecption();
             }
-             if (!user.getRole().equals("ADMIN")){
-                throw new UserNotAuzorithedException();
-            }
         } catch (SQLException ex) {
             throw new FailedLoginExecption();
         }
-
+        return user;
     }
+
+
 }
+

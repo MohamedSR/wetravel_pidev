@@ -8,13 +8,35 @@ public class Hotel {
 	private int id;
 	private String name;
 	private int stars;
+
+	@Override
+	public String toString() {
+		return "vous etes les bienvenue à notre Hotel Numero "+ id +
+				"dans le monde, c'est l'hotel stars " + capacity +" le " + name +
+				", on a une capacity de " + stars +"personnes"+
+				",visité nous à l'adresse " + adresse +
+				",à " + ville +
+				",dans notre cher pays " + pays;
+
+	}
+
 	private int capacity;
 	private String adresse;
 	private String ville;
 	private String pays;
-	
+	private String image;
+
 	public Hotel() {}
 
+	public Hotel(String name, int stars, int capacity, String adresse, String ville, String pays,String image) {
+		this.name = name;
+		this.stars = stars;
+		this.capacity = capacity;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.pays = pays;
+		this.image = image;
+	}
 	public Hotel(String name, int stars, int capacity, String adresse, String ville, String pays) {
 		this.name = name;
 		this.stars = stars;
@@ -23,7 +45,16 @@ public class Hotel {
 		this.ville = ville;
 		this.pays = pays;
 	}
-
+	public Hotel(int id,String name, int stars, int capacity, String adresse, String ville, String pays,String image) {
+		this.id = id;
+		this.name = name;
+		this.stars = stars;
+		this.capacity = capacity;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.pays = pays;
+		this.image = image;
+	}
 	public Hotel(int id, String name, int stars, int capacity, String adresse, String ville, String pays) {
 		this.id = id;
 		this.name = name;
@@ -40,6 +71,15 @@ public class Hotel {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getName() {

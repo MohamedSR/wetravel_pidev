@@ -5,13 +5,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.List.RestaurantsListController">
+<AnchorPane id="AnchorPane" fx:id="restaurantsPane" prefHeight="600.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.List.RestaurantsListController">
     <stylesheets>
         <URL value="@restaurantslist.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="restaurantsList" layoutY="37.0" prefHeight="299.0" prefWidth="600.0">
+      <TableView fx:id="restaurantsList" layoutX="159.0" layoutY="1.0" prefHeight="600.0" prefWidth="595.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
           <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
@@ -23,7 +24,13 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="addRestaurantBtn" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#goToAddRestaurant" prefHeight="32.0" prefWidth="143.0" text="Ajouter un restaurant" />
-      <Button fx:id="annulerBtn" layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="32.0" prefWidth="143.0" text="Annuler" />
+      <Button fx:id="addRestaurantBtn" layoutX="8.0" layoutY="33.0" mnemonicParsing="false" onAction="#goToAddRestaurant" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: rgb(100, 157, 173); -fx-cursor: hand;" text="Ajouter un restaurant" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button fx:id="exportPDF" layoutX="8.0" layoutY="80.0" mnemonicParsing="false" onAction="#genertePDF" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: rgb(100, 157, 173); -fx-cursor: hand;" text="Exporter PDF" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

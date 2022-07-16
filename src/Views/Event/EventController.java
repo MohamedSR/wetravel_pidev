@@ -4,31 +4,31 @@ import Entities.Event;
 import Repositories.EventCrudImpl;
 import Services.EventService;
 import Utils.DataSource;
-import Views.Event.EventController;
+import Utils.Navigator;
+import Utils.UploadImage;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import static javafx.application.Application.launch;
-import javafx.application.Application;
-import javafx.fxml.Initializable;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+public class EventController extends Application implements Initializable {
 
-public class EventController extends  Application implements Initializable {
     @FXML
     private TextField nomEvent;
     @FXML
@@ -42,7 +42,14 @@ public class EventController extends  Application implements Initializable {
     @FXML
     private TextField dateEvent;
     @FXML
-    private Label err ;
+    private Label err;
+    @FXML
+    private AnchorPane addEventPane;
+    @FXML
+    private Button imgInput;
+
+    @FXML
+    private Label imgPath;
 
     EventCrudImpl eventCrud = new EventCrudImpl(DataSource.getInstance().getCon());
     EventService eventService = new EventService(eventCrud);
@@ -51,33 +58,36 @@ public class EventController extends  Application implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+
     public void onClickAjouterEvent(ActionEvent e) {
 
-            //Date date = Date.valueOf(dateEvent.getText());
-            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-            int capacit = Integer.parseInt(capaciteEvent.getText());
-           Event event = new Event( nomEvent.getText(), adresseEvent.getText(),capacit,villeEvent.getText(),paysEvent.getText(),date
-                    );
+        //Date date = Date.valueOf(dateEvent.getText());
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        int capacit = Integer.parseInt(capaciteEvent.getText());
+        Event event = new Event(nomEvent.getText(), adresseEvent.getText(), capacit, villeEvent.getText(), paysEvent.getText(), date
+        ,imgPath.getText());
 
         try {
-            eventService.createEvent(event);
+            eventService.createEventWithImage(event);
             System.out.println("goooooooooooooooood");
             switchToHome(e);
-
 
         } catch (SQLException | IOException ex) {
             err.setText("verifier votre saisie !");
             Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-}
-    public void switchToHome(ActionEvent event) throws IOException {
-        Parent home = FXMLLoader.load(getClass().getResource("EventList.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(home);
-        stage.setScene(scene);
-        stage.show();
     }
+    public void selectImage(ActionEvent event){
+        String path="";
+        path = UploadImage.selectImage(event,path);
+        imgPath.setText(path);
+    }
+
+    public void switchToHome(ActionEvent event) throws IOException {
+        Navigator.goToView(getClass(), event, addEventPane, "./EventList.fxml");
+    }
+
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Event.fxml"));
         stage.setScene(new Scene(root));

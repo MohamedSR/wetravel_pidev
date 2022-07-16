@@ -13,4 +13,6 @@ public interface HotelCrudInterface extends CrudRepository<Hotel>{
 
 
     ArrayList<Hotel> findByVille(String ville) throws SQLException;
+    void createWithImage(Hotel t) throws SQLException;
+
 }

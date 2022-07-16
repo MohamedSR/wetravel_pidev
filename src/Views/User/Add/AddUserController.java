@@ -5,27 +5,29 @@
 package Views.User.Add;
 
 
-import Entities.Restaurant;
+import Utils.SendMail;
+import Entities.User;
 import Repositories.UserCrudImpl;
 import Services.UserService;
-import Entities.User;
 import Utils.DataSource;
 import Utils.Navigator;
-import java.io.IOException;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Utils.UploadImage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -50,7 +52,13 @@ public class AddUserController implements Initializable {
     private Label successMsg;
     @FXML
     private Label errMsg;
-    
+    @FXML
+    private Button imgInput;
+
+    @FXML
+    private Label imgPath;
+    @FXML
+    private AnchorPane addUserPane;
     UserCrudImpl userCrud = new UserCrudImpl(DataSource.getInstance().getCon());
     UserService userService = new UserService(userCrud);
     /**
@@ -65,18 +73,27 @@ public class AddUserController implements Initializable {
     }
 
     public void addUser(){
-        User user= new User(name.getText(),roles.getValue(),Email.getText(),Password.getText(),Phone.getText());
+        User user= new User(name.getText(),roles.getValue(),Email.getText(),Password.getText(),Phone.getText(),imgPath.getText());
         try {
-            userService.create(user);
+            SendMail.mailing(user);
+            userService.createWithImage(user);
             successMsg.setText("L'utilisateur a été ajouté avec succès");
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             errMsg.setText("Une erreur a été rencontrée lors de l'ajout");
             Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
-    
+    }
+    public void selectImage(ActionEvent event){
+        String path="";
+        path = UploadImage.selectImage(event,path);
+        imgPath.setText(path);
+
+    }
     public void backToList(ActionEvent event) throws IOException{
-        Navigator.goToView(getClass(), event,"../List/UserList.fxml");
+        Navigator.goToView(getClass(), event,addUserPane,"../List/UserList.fxml");
+    }
+    public void backToLogin(ActionEvent event) throws IOException{
+        Navigator.goToView(getClass(), event,addUserPane,"../../Login/Login.fxml");
     }
 }

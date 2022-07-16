@@ -49,6 +49,18 @@ public class UserCrudImpl implements UserCrudInterface {
         prs.setString(5, t.getPhone());
         prs.executeUpdate();
     }
+    @Override
+    public void createWithImage(User t) throws SQLException {
+        String req="INSERT INTO users ( name, role, email, password,phone,image) VALUES(?,?,?,?,?,?)";
+        prs = con.prepareStatement(req);
+        prs.setString(1, t.getName());
+        prs.setString(2, t.getRole());
+        prs.setString(3, t.getEmail());
+        prs.setString(4, t.getPassword());
+        prs.setString(5, t.getPhone());
+        prs.setString(6, t.getImage());
+        prs.executeUpdate();
+    }
 
     @Override
     public User find(int id) throws SQLException{
@@ -58,7 +70,7 @@ public class UserCrudImpl implements UserCrudInterface {
         ResultSet rs  = prs.executeQuery();
         User user = new User();
         while(rs.next()){
-            user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("role"), rs.getString("email"), rs.getString("password"), rs.getString("phone"));
+            user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("role"), rs.getString("email"), rs.getString("password"), rs.getString("phone"), rs.getString("image"));
         }
          return user;
     }
