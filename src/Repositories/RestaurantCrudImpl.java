@@ -80,7 +80,7 @@ public class RestaurantCrudImpl implements RestaurantCrudInterface {
         while (rs.next()) {
             list.add(new Restaurant(
                     rs.getInt("id"), rs.getInt("capacity"), rs.getString("adresse"),
-                     rs.getString("ville"), rs.getString("pays"), rs.getString("name")));
+                     rs.getString("ville"), rs.getString("pays"), rs.getString("name"),rs.getString("image")));
         }
 
         return list;
