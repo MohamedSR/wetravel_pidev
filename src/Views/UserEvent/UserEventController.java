@@ -11,20 +11,25 @@ import Utils.DataSource;
 import Utils.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -51,6 +56,11 @@ public class UserEventController implements Initializable {
     final String HOME_VIEW = "../UserHome/UserHome.fxml";
     final String RESTAURANT_VIEW = "../UserRestaurant/UserRestaurant.fxml";
     final String HOTEL_VIEW = "../UserHotel/UserHotel.fxml";
+    List<Event> eventList = eventService.getAllEvents();
+    Object[] events = eventList.toArray();
+
+    public UserEventController() throws SQLException {
+    }
 
 
     @Override
@@ -119,10 +129,54 @@ public class UserEventController implements Initializable {
         return random.nextInt(max - min) + min;
     }
      public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("UserEvent.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+         Pagination pagination = new Pagination(events.length/3, 0);
+         pagination.setStyle("-fx-border-color:red;");
+         pagination.setPageFactory(new Callback<Integer, Node>() {
+
+             @Override
+             public Node call(Integer pageIndex) {
+                 try {
+                     return createPage(pageIndex);
+                 } catch (SQLException e) {
+                     throw new RuntimeException(e);
+                 }
+             }
+         });
+
+         AnchorPane anchor = new AnchorPane();
+         AnchorPane.setTopAnchor(pagination, 10.0);
+         AnchorPane.setRightAnchor(pagination, 10.0);
+         AnchorPane.setBottomAnchor(pagination, 10.0);
+         AnchorPane.setLeftAnchor(pagination, 10.0);
+         anchor.getChildren().addAll(pagination);
+         Scene scene = new Scene(anchor, 720, 480);
+         stage.setScene(scene);
+         stage.setTitle("PaginationSample");
+         stage.show();
+     }
+
+    public VBox createPage(int pageIndex) throws SQLException {
+        VBox box = new VBox(5);
+        int page = pageIndex * 3+1;
+        for (int i = page; i < page + 3; i++) {
+            event = eventService.getEvent(i);
+            Label font = new Label(event.toString());
+
+            String link="File:"+event.getImage();
+            Image ev = new Image(link);
+            ImageView hotelimg = new ImageView(ev);
+            hotelimg.setFitHeight(150);
+            hotelimg.setFitWidth(150);
+            hotelimg.setSmooth(true);
+            hotelimg.setLayoutX(1);
+            hotelimg.setLayoutY(1);
+            hotelimg.setCache(true);
+            box.getChildren().add(font);
+            box.getChildren().add(hotelimg);
+        }
+        return box;
     }
+
     public void gotoRestaurant(ActionEvent event) throws IOException{
         this.goToView(event, RESTAURANT_VIEW);
     }
