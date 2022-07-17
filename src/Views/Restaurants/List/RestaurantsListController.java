@@ -83,7 +83,8 @@ public class RestaurantsListController implements Initializable {
                         setGraphic(null);
                         setText(null);
                     } else {
-                        final Button editBtn = new Button("Edit");
+                        final Button editBtn = new Button("Editer");
+                        editBtn.getStyleClass().addAll("btn","btn_yellow");
                         editBtn.setOnAction(ae -> {
                             Restaurant rst = getTableView().getItems().get(getIndex());
                             try {
@@ -94,6 +95,7 @@ public class RestaurantsListController implements Initializable {
                         });
 
                         final Button deleteBtn = new Button("Supprimer");
+                        deleteBtn.getStyleClass().addAll("btn","btn_red");
                         deleteBtn.setOnAction(ae -> {
                             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Êtes-vous sûr?", ButtonType.YES, ButtonType.CANCEL);
                             alert.showAndWait();

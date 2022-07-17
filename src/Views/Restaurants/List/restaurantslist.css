@@ -5,3 +5,21 @@
 .mainFxmlClass {
 
 }
+
+.btn{
+    -fx-background-radius: 5px; 
+    -fx-border-radius: 5px; 
+    -fx-text-fill: white;
+    -fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+    -fx-cursor: hand;
+}
+.btn_red{
+     -fx-padding: 10px;
+    -fx-background-color: rgb(255,0,0);
+}
+.btn_yellow{
+     -fx-padding: 10px;
+    -fx-background-color: rgb(255,215,0);
+}

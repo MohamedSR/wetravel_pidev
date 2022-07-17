@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="restaurantsPane" prefHeight="600.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.List.RestaurantsListController">
+<AnchorPane id="AnchorPane" fx:id="restaurantsPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Restaurants.List.RestaurantsListController">
     <stylesheets>
         <URL value="@restaurantslist.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="restaurantsList" layoutX="159.0" layoutY="1.0" prefHeight="600.0" prefWidth="595.0">
+      <TableView fx:id="restaurantsList" layoutX="159.0" layoutY="1.0" prefHeight="600.0" prefWidth="743.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nom" />
           <TableColumn fx:id="capacityCol" prefWidth="75.0" text="Capacité" />
