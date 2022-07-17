@@ -83,9 +83,25 @@ public class EventListController implements Initializable {
         switchToEventAjout(event);
     }
 
+    public void ModifierEvent(ActionEvent event) throws IOException {
+        switchToEventModification(event);
+    }
+
+    public void SupprimerEvent(ActionEvent event) throws IOException {
+        switchToEventSuppression(event);
+    }
+
     public void switchToEventAjout(ActionEvent event) throws IOException {
 
         Navigator.goToView(getClass(), event,eventsPane,"./Event.fxml");
+    }
+    public void switchToEventSuppression(ActionEvent event) throws IOException {
+
+        Navigator.goToView(getClass(), event,eventsPane,"./EventDelete.fxml");
+    }
+    public void switchToEventModification(ActionEvent event) throws IOException {
+
+        Navigator.goToView(getClass(), event,eventsPane,"./EventUpdate.fxml");
     }
 }
 

@@ -73,6 +73,16 @@ public class EventCrudImpl implements EventCrudInterface {
     }
 
     @Override
+    public void delete(int id) throws SQLException {
+
+    }
+
+    @Override
+    public void update(int id, Event event) throws SQLException {
+
+    }
+
+    @Override
     public ArrayList<Event> findTopEvents() throws SQLException{
         // calcule rating for each events
         //
@@ -103,17 +113,19 @@ public class EventCrudImpl implements EventCrudInterface {
     }
 
 
+
+
     @Override
-    public void delete(int id) throws SQLException{
-        String query = "delete from events where id = ?";
+    public void delete(String name) throws SQLException{
+        String query = "delete from events where name = ?";
         prs = con.prepareStatement(query);
-        prs.setInt(1, id);
+        prs.setString(1, name);
         prs.execute();
     }
 
     @Override
-    public void update(int id, Event t) throws SQLException{
-        String query = "UPDATE events SET name= ?,capacity=?,date=?,adresse=?,ville=?, pays=? where id = ?";
+    public void update(String name, Event t) throws SQLException{
+        String query = "UPDATE events SET name= ?,capacity=?,date=?,adresse=?,ville=?, pays=? where name = ?";
         prs = con.prepareStatement(query);
         prs.setString(1, t.getName());
         prs.setInt(2, t.getCapacity());
@@ -121,7 +133,7 @@ public class EventCrudImpl implements EventCrudInterface {
         prs.setString(4, t.getAdresse());
         prs.setString(5, t.getVille());
         prs.setString(6, t.getPays());
-        prs.setInt(7, id);
+        prs.setString(7, name);
         prs.execute();
     }
     @Override

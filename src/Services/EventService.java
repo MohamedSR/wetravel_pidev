@@ -37,11 +37,11 @@ public class EventService {
         return eventCrud.findEventsParPays();
     }
 
-    public void updateEvent(int id,Event event) throws SQLException {
-        eventCrud.update(id,event);
+    public void updateEvent(String name,Event event) throws SQLException {
+        eventCrud.update(name,event);
     }
 
-    public void deleteEvent(int id) throws SQLException {
+    public void deleteEvent(String id) throws SQLException {
         eventCrud.delete(id);
     }
 }

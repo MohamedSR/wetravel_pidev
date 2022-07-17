@@ -26,6 +26,16 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
+      <Button layoutX="212.0" layoutY="-3.0" mnemonicParsing="false" onAction="#ModifierEvent" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #ffff;" text="Modifier un événement" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="429.0" layoutY="-4.0" mnemonicParsing="false" onAction="#SupprimerEvent" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #ffff;" text="Supprimer un événement">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
     </children>
 
 </AnchorPane>
