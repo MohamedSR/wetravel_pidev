@@ -90,7 +90,7 @@ public class UserRestaurantController implements Initializable {
         AnchorPane.setBottomAnchor(pagination, 10.0);
         AnchorPane.setLeftAnchor(pagination, 10.0);
         anchor.getChildren().addAll(pagination);
-        Scene scene = new Scene(anchor, 400, 450);
+        Scene scene = new Scene(anchor, 720, 480);
         stage.setScene(scene);
         stage.setTitle("PaginationSample");
         stage.show();
