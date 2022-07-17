@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
-import Views.UserRestaurant.UserRestaurantController;
+import Views.Login.LoginController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,8 +15,7 @@ public class WeTravel extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        UserRestaurantController lc = new UserRestaurantController();
-        //LoginController lc = new LoginController();
+        LoginController lc = new LoginController();
         lc.start(primaryStage);
     }
 
