@@ -105,4 +105,7 @@ public class Restaurant {
                 ",de la ville " + ville +
                 ",à ce extraordinaire pays " + pays;
     }
+    public boolean isValid(){
+        return !this.getAdresse().isEmpty() &&  !this.getVille().isEmpty() &&  !this.getName().isEmpty() &&  !this.getImage().isEmpty() &&  (this.getCapacity() > 0);
+    }
 }

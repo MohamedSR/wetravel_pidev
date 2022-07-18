@@ -69,9 +69,9 @@ public class RestaurantsListController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("ville"));
         paysCol.setCellValueFactory(new PropertyValueFactory<>("pays"));
-        villeCol.setCellValueFactory(new PropertyValueFactory<>("ville"));
+        villeCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         capacityCol.setCellValueFactory(new PropertyValueFactory<>("capacity"));
 
         Callback<TableColumn<Restaurant, String>, TableCell<Restaurant, String>> cellFactory = (param) -> {

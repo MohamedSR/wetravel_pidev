@@ -55,6 +55,8 @@ public class AddRestaurantController implements Initializable {
     
     @FXML
     private Label imgPath;
+    @FXML
+    private boolean  validated;
     
     RestaurantCrudImpl rcrud = new RestaurantCrudImpl(DataSource.getInstance().getCon());
     RestaurantService restaurantService = new RestaurantService(rcrud);
@@ -75,10 +77,12 @@ public class AddRestaurantController implements Initializable {
             imgPath.setText(path);
 
         }
-
     public void addRestaurant(){
         Restaurant restaurant= new Restaurant(capacity.getValue(),addresse.getText(),ville.getText(),city.getText(),name.getText(),imgPath.getText());
-        try {
+        if(!restaurant.isValid()){
+            errMsg.setText("Veuillez compléter les informations manquantes");
+        }else{
+            try {
             addRestaurantBtn.setDisable(true);
             backToListBtn.setDisable(true);
             restaurantService.createRestaurantWithImage(restaurant);
@@ -90,6 +94,7 @@ public class AddRestaurantController implements Initializable {
             backToListBtn.setDisable(false);
             Logger.getLogger(AddRestaurantController.class.getName()).log(Level.SEVERE, null, ex);
             errMsg.setText("Une erreur a été rencontré lors de l'ajout");
+        }
         }
     }    
     
