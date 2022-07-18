@@ -15,13 +15,13 @@
         <URL value="@login.css" />
     </stylesheets>
    <children>
-      <Button fx:id="login_btn" layoutX="213.0" layoutY="383.0" mnemonicParsing="false" onAction="#login" prefHeight="41.0" prefWidth="319.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: rgb(100, 157, 173); -fx-cursor: hand;" text="Login" textFill="WHITE">
+      <Button fx:id="login_btn" layoutX="212.0" layoutY="403.0" mnemonicParsing="false" onAction="#login" prefHeight="41.0" prefWidth="319.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: rgb(100, 157, 173); -fx-cursor: hand;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <TextField fx:id="email" layoutX="213.0" layoutY="253.0" prefHeight="41.0" prefWidth="319.0" style="-fx-border-radius: 10px; -fx-background-radius: 10px;" />
+      <TextField fx:id="email" layoutX="213.0" layoutY="240.0" prefHeight="41.0" prefWidth="319.0" style="-fx-border-radius: 10px; -fx-background-radius: 10px;" />
       <PasswordField fx:id="password" layoutX="216.0" layoutY="327.0" prefHeight="41.0" prefWidth="319.0" style="-fx-border-radius: 10px; -fx-background-radius: 10px;" />
-      <Label layoutX="218.0" layoutY="228.0" text="Login">
+      <Label layoutX="218.0" layoutY="219.0" text="Login">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
@@ -29,7 +29,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="err" layoutX="213.0" layoutY="504.0" textFill="RED">
+      <Label fx:id="err" layoutX="222.0" layoutY="505.0" textFill="RED">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -38,10 +38,20 @@
             <Image url="@../../assets/wetravel.PNG" />
          </image>
       </ImageView>
-      <Button fx:id="login_btn1" layoutX="215.0" layoutY="436.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="41.0" prefWidth="319.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: rgb(100, 157, 173);" text="Sign Up" textFill="WHITE">
+      <Button fx:id="login_btn1" layoutX="214.0" layoutY="456.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="41.0" prefWidth="319.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: rgb(100, 157, 173);" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="errPsw" layoutX="224.0" layoutY="375.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="errEmail" layoutX="226.0" layoutY="284.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

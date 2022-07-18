@@ -10,6 +10,6 @@ package Exceptions;
  */
 public class FailedLoginExecption extends Exception {
     public FailedLoginExecption(){
-        super("Email ou mot de passe invalid");
+        super("Email ou mot de passe incorrect");
     }
 }
